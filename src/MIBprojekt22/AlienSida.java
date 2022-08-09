@@ -4,6 +4,8 @@
  */
 package MIBprojekt22;
 
+import oru.inf.InfDB;
+
 /**
  *
  * @author piava
@@ -15,6 +17,10 @@ public class AlienSida extends javax.swing.JFrame {
      */
     public AlienSida() {
         initComponents();
+    }
+
+    AlienSida(InfDB idb) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
