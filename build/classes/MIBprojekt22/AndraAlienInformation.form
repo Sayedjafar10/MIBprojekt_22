@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="label1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="label2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="TXTAlienID" max="32767" attributes="0"/>
+                                  <Component id="choice1" min="-2" pref="87" max="-2" attributes="0"/>
+                                  <Component id="TXTnamn" alignment="0" pref="107" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="label8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label6" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="TXTlosen" max="32767" attributes="0"/>
+                                  <Component id="TXTtelnmr" max="32767" attributes="0"/>
+                                  <Component id="CHplatsID" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="label9" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="CHras" min="-2" pref="77" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="label7" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="CHansvarigAgent" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace pref="113" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="label1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="label2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="choice1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="label5" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TXTAlienID" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="label3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TXTnamn" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="label8" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="TXTlosen" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="label4" min="-2" max="-2" attributes="0"/>
+                          <Component id="TXTtelnmr" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="label6" min="-2" max="-2" attributes="0"/>
+                          <Component id="CHplatsID" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="label7" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="CHansvarigAgent" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="label9" min="-2" max="-2" attributes="0"/>
+                  <Component id="CHras" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="59" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="java.awt.Label" name="label1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Cambria" size="24" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra information p&#xe5; Alien"/>
+      </Properties>
+    </Component>
+    <Component class="java.awt.Label" name="label2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="V&#xe4;lj Alien"/>
+      </Properties>
+    </Component>
+    <Component class="java.awt.Choice" name="choice1">
+    </Component>
+    <Component class="java.awt.Label" name="label3">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Nytt namn"/>
+      </Properties>
+    </Component>
+    <Component class="java.awt.Label" name="label4">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Nytt tel.nmr"/>
+      </Properties>
+    </Component>
+    <Component class="java.awt.Label" name="label5">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Nytt AlienID"/>
+      </Properties>
+    </Component>
+    <Component class="java.awt.Label" name="label6">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ny PlatsID"/>
+      </Properties>
+    </Component>
+    <Component class="java.awt.Label" name="label7">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ny ansvarig Agent"/>
+      </Properties>
+    </Component>
+    <Component class="java.awt.Label" name="label8">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Nytt l&#xf6;senord"/>
+      </Properties>
+    </Component>
+    <Component class="java.awt.Label" name="label9">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ny ras"/>
+      </Properties>
+    </Component>
+    <Component class="java.awt.TextField" name="TXTAlienID">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TXTAlienIDActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="java.awt.TextField" name="TXTnamn">
+    </Component>
+    <Component class="java.awt.TextField" name="TXTlosen">
+    </Component>
+    <Component class="java.awt.TextField" name="TXTtelnmr">
+    </Component>
+    <Component class="java.awt.Choice" name="CHplatsID">
+    </Component>
+    <Component class="java.awt.Choice" name="CHansvarigAgent">
+    </Component>
+    <Component class="java.awt.Choice" name="CHras">
+    </Component>
+  </SubComponents>
+</Form>
