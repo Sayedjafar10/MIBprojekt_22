@@ -11,7 +11,8 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 import javax.swing.JOptionPane;
 /**
- *
+ * 
+ *bajs korv
  * @author piava
  */
 public class NyregistreraAlien extends javax.swing.JFrame {
