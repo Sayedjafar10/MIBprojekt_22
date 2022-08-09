@@ -18,19 +18,20 @@ public class NyregistreraAlien extends javax.swing.JFrame {
 
 
     private static InfDB idb;
-    private String omraden;
-    private Object JCOmråde;
-       
+   /**
+     * Creates new form NyregistreraAlien
+     */
+    
     public NyregistreraAlien(InfDB idb) {
         initComponents();
         this.idb =  idb;
+        fillComboBoxPlats();
+        fillComboBoxAgent();
+        fillComboBoxRas();
         
-    /**
-     * Creates new form NyregistreraAlien
-     */
-    public NyregistreraAlien() {
-        initComponents();
+    
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,6 +42,7 @@ public class NyregistreraAlien extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jColorChooser1 = new javax.swing.JColorChooser();
         RBregistreraAlien = new java.awt.Label();
         label2 = new java.awt.Label();
         label3 = new java.awt.Label();
@@ -86,6 +88,11 @@ public class NyregistreraAlien extends javax.swing.JFrame {
 
         BTNregistrera.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         BTNregistrera.setLabel("Registrera");
+        BTNregistrera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNregistreraActionPerformed(evt);
+            }
+        });
 
         JComboBoxPlatsID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
 
@@ -175,6 +182,31 @@ public class NyregistreraAlien extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BTNregistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNregistreraActionPerformed
+     if(Validering.validAlienID(TXTalienID)) 
+     if(Validering.validLosen(TXTlosen))
+     if(Validering.textFaltHarVarde(TXTnamn)) 
+      
+         try {
+            
+            String AlienID = idb.getAutoIncrement("Alien","Alien_ID");
+            String losen = String.valueOf(TXTlosen.getText());
+            String namnet = String.valueOf(TXTnamn.getText());
+            String telnr = String.valueOf(TXTtelnmr.getText());
+            int platsen = Integer.parseInt(JComboBoxPlatsID.getSelectedItem().toString());
+            int ansvarigAgent = Integer.parseInt(JComboBoxAgent.getSelectedItem().toString());
+            String rasen = String.valueOf(JComboBoxRas.getText();
+            
+            String q= "INSERT INTO Alien VALUES("+ID+",'"+losen+"','"+namnet+"','"+telnr+"',"+platsen+","+ansvarAgent+");";
+            idb.insert(svar);
+            JOptionPane.showMessageDialog(null, "Ny alien registrerad!");
+            System.out.println("Funkar");
+           
+        } catch (InfException ex) {   
+        Logger.getLogger(RegistreraAlien.class.getName()).log(Level.SEVERE, null, ex);
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_BTNregistreraActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -220,6 +252,7 @@ public class NyregistreraAlien extends javax.swing.JFrame {
     private java.awt.TextField TXTlosen;
     private java.awt.TextField TXTnamn;
     private java.awt.TextField TXTtelnmr;
+    private javax.swing.JColorChooser jColorChooser1;
     private java.awt.Label label2;
     private java.awt.Label label3;
     private java.awt.Label label4;
@@ -228,4 +261,66 @@ public class NyregistreraAlien extends javax.swing.JFrame {
     private java.awt.Label label7;
     private java.awt.Label label8;
     // End of variables declaration//GEN-END:variables
+
+    private void fillComboBoxPlats() {
+    
+    JComboBoxPlatsID.removeAllItems();
+    String question = "SELECT Plats_ID FROM Plats";
+    ArrayList<String> platser = new ArrayList<String>();
+    
+    try {
+    platser = idb.fetchColumn(question);
+    for(String plats: platser)
+    {
+      JComboBoxPlatsID.addItem(plats);
+    }
+    }   catch (InfException e) {
+            Logger.getLogger(NyregistreraAlien.class.getName()).log(Level.SEVERE, null, e);
+        
+    }
+    }
+
+    private void fillComboBoxAgent() {
+      
+   JComboBoxAgent.removeAllItems();
+   String question = "SELECT Agent_ID FROM Agent WHERE Administrator = 'N'";
+   ArrayList<String> ansvarigaAgenter = new ArrayList<String>();
+   try {
+    ansvarigaAgenter = idb.fetchColumn(question);
+    for(String agent: ansvarigaAgenter)
+    {
+      JComboBoxAgent.addItem(agent);
+    }
+    }   catch (InfException e) {
+            Logger.getLogger(NyregistreraAlien.class.getName()).log(Level.SEVERE, null, e);
+        }
+   }
+
+    private void fillComboBoxRas() {
+         JComboBoxRas.removeAllItems();
+        String question = "SELECT Alien_ID FROM Boglodite, Worm, Squid";
+        ArrayList<String> raser = new ArrayList<String>();
+        try {
+            raser = idb.fetchColumn(question);
+            for(String ras: raser)
+        { 
+            JComboBoxRas.addItem(ras);
+        }
+        }
+        catch (InfException e) {
+            Logger.getLogger(NyregistreraAlien.class.getName()).log(Level.SEVERE, null, e);
+        }
+       
+    }
+    
+    
+    
+        
+    
+
+    
+        
+       
+        
+    
 }
