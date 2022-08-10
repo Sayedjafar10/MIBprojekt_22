@@ -1,5 +1,7 @@
 package MIBprojekt22;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import javax.swing.*;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -22,13 +24,14 @@ public class Validering {
         boolean resultat = false;
         
         if (checkaRuta.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Ett tomt inmatningsfält har hittats!");
+            JOptionPane.showMessageDialog(null, "Rutan är tom!");
             resultat = true;
         }
         
         return resultat;
     }
     
+<<<<<<< HEAD
     public static boolean IsItAdmin (String id){
         
         boolean admin = false;
@@ -46,3 +49,38 @@ public class Validering {
     }
 }
 
+=======
+    public static boolean kollaLosen(JTextField checkaLosen){
+        
+    boolean resultat = false;
+
+    if(checkaLosen.getText().length() > 8 || checkaLosen.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Lösenordet får max vara 8 tecken!");
+        resultat = true;
+        checkaLosen.requestFocus();
+    }
+    return resultat;
+    }
+    
+    public static boolean kollaDatum(JTextField checkaDatum) {
+        
+        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DD");
+         boolean resultat = false;
+         String date = checkaDatum.getText();
+        try {
+           
+           dateFormat.parse(date);
+           resultat = true;
+           
+           
+        } catch (ParseException e) {
+            JOptionPane.showMessageDialog(null, "Rätt datumformat krävs YYYY-MM-DD");
+            checkaDatum.requestFocus();
+            return false;
+             
+        }
+        
+        return resultat;
+}
+}
+>>>>>>> aa9b27ad9646e9698e55a9d21c62fa3f57d34a22
