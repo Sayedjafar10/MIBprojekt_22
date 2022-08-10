@@ -195,15 +195,15 @@ public class NyregistreraAlien extends javax.swing.JFrame {
             String telnr = String.valueOf(TXTtelnmr.getText());
             int platsen = Integer.parseInt(JComboBoxPlatsID.getSelectedItem().toString());
             int ansvarigAgent = Integer.parseInt(JComboBoxAgent.getSelectedItem().toString());
-            String rasen = String.valueOf(JComboBoxRas.getText();
+            int rasen = Integer.parseInt(JComboBoxRas.getSelectedItem().toString());
             
-            String q= "INSERT INTO Alien VALUES("+ID+",'"+losen+"','"+namnet+"','"+telnr+"',"+platsen+","+ansvarAgent+");";
-            idb.insert(svar);
-            JOptionPane.showMessageDialog(null, "Ny alien registrerad!");
-            System.out.println("Funkar");
+            String q= "INSERT INTO Alien VALUES("+AlienID+",'"+losen+"','"+namnet+"','"+telnr+"','"+platsen+"','"+ansvarigAgent+"', '"+rasen+"');";
+            idb.insert(q);
+            JOptionPane.showMessageDialog(null, "Ny alien har registrerats!");
+            
            
-        } catch (InfException ex) {   
-        Logger.getLogger(RegistreraAlien.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InfException e) {   
+        Logger.getLogger(NyregistreraAlien.class.getName()).log(Level.SEVERE, null, e);
         }// TODO add your handling code here:
     }//GEN-LAST:event_BTNregistreraActionPerformed
 
