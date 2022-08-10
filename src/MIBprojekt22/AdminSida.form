@@ -33,8 +33,7 @@
                   <Component id="jButton7" alignment="0" max="32767" attributes="0"/>
                   <Component id="jButton9" alignment="0" max="32767" attributes="0"/>
                   <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jButton8" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jButton5" alignment="0" min="-2" pref="165" max="-2" attributes="0"/>
+                  <Component id="jButton5" alignment="1" min="-2" pref="165" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="44" max="32767" attributes="0"/>
           </Group>
@@ -71,10 +70,8 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jButton8" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jButton5" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="19" max="32767" attributes="0"/>
+              <EmptySpace pref="17" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -142,14 +139,6 @@
           <Font name="Segoe UI" size="12" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="&#xc4;ndra kontorschef"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton8">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Ta bort alien"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton9">
