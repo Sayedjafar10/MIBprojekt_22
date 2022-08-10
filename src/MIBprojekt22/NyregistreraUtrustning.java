@@ -4,17 +4,26 @@
  */
 package MIBprojekt22;
 
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import oru.inf.InfDB;
+import oru.inf.InfException;
+/**
 /**
  *
  * @author amandademir
  */
 public class NyregistreraUtrustning extends javax.swing.JFrame {
-
+ 
+    private InfDB idb;
     /**
      * Creates new form NyregistreraUtrustning
      */
-    public NyregistreraUtrustning() {
+    public NyregistreraUtrustning(InfDB idb) {
         initComponents();
+        this.idb = idb;
     }
 
     /**
@@ -26,21 +35,73 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        JLRubrik = new javax.swing.JLabel();
+        JLRegUtrustning = new javax.swing.JLabel();
+        TxtRegUtrustning = new javax.swing.JTextField();
+        BtnRegistrera = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        JLRubrik.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        JLRubrik.setText("Registrera ny Utrustning");
+
+        JLRegUtrustning.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        JLRegUtrustning.setText("Registrera ny utrustning");
+
+        BtnRegistrera.setText("Registrera");
+        BtnRegistrera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnRegistreraActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JLRubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JLRegUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtRegUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(8, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnRegistrera)
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(JLRubrik)
+                .addGap(47, 47, 47)
+                .addComponent(JLRegUtrustning)
+                .addGap(18, 18, 18)
+                .addComponent(TxtRegUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
+                .addComponent(BtnRegistrera)
+                .addGap(20, 20, 20))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnRegistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegistreraActionPerformed
+    if(Validering.textFaltHarVarde(TxtRegUtrustning))
+    
+    try{
+        String UtrustningsID =  idb.getAutoIncrement("Utrustning","Utrustnings_ID");
+        String namn = String.valueOf(TxtRegUtrustning.getText());
+        
+        idb.insert("INSERT INTO Utrustning VALUES("+UtrustningsID+",'"+namn+"')");
+        JOptionPane.showMessageDialog(null, "Ny utrustning är har registrerats!");
+            
+    } catch (InfException e) {   
+        Logger.getLogger(NyregistreraUtrustning.class.getName()).log(Level.SEVERE, null, e);
+        }    // TODO add your handling code here:
+    }//GEN-LAST:event_BtnRegistreraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +139,9 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnRegistrera;
+    private javax.swing.JLabel JLRegUtrustning;
+    private javax.swing.JLabel JLRubrik;
+    private javax.swing.JTextField TxtRegUtrustning;
     // End of variables declaration//GEN-END:variables
 }
