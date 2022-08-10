@@ -183,9 +183,9 @@ public class NyregistreraAlien extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BTNregistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNregistreraActionPerformed
-     if(Validering.validAlienID(TXTalienID)) 
-     if(Validering.validLosen(TXTlosen))
-     if(Validering.textFaltHarVarde(TXTnamn)) 
+ 
+     if(Validering.kollaLosen(TXTlosen))
+     if(Validering.tomRuta(TXTnamn)) 
       
          try {
             
@@ -202,8 +202,8 @@ public class NyregistreraAlien extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Ny alien har registrerats!");
             
            
-        } catch (InfException e) {   
-        Logger.getLogger(NyregistreraAlien.class.getName()).log(Level.SEVERE, null, e);
+        } catch (InfException ettUndantag) {   
+        Logger.getLogger(NyregistreraAlien.class.getName()).log(Level.SEVERE, null, ettUndantag);
         }// TODO add your handling code here:
     }//GEN-LAST:event_BTNregistreraActionPerformed
 
@@ -274,8 +274,8 @@ public class NyregistreraAlien extends javax.swing.JFrame {
     {
       JComboBoxPlatsID.addItem(plats);
     }
-    }   catch (InfException e) {
-            Logger.getLogger(NyregistreraAlien.class.getName()).log(Level.SEVERE, null, e);
+    }   catch (InfException ettUndantag) {
+            Logger.getLogger(NyregistreraAlien.class.getName()).log(Level.SEVERE, null, ettUndantag);
         
     }
     }
@@ -291,8 +291,8 @@ public class NyregistreraAlien extends javax.swing.JFrame {
     {
       JComboBoxAgent.addItem(agent);
     }
-    }   catch (InfException e) {
-            Logger.getLogger(NyregistreraAlien.class.getName()).log(Level.SEVERE, null, e);
+    }   catch (InfException ettUndantag) {
+            Logger.getLogger(NyregistreraAlien.class.getName()).log(Level.SEVERE, null, ettUndantag);
         }
    }
 
@@ -307,8 +307,8 @@ public class NyregistreraAlien extends javax.swing.JFrame {
             JComboBoxRas.addItem(ras);
         }
         }
-        catch (InfException e) {
-            Logger.getLogger(NyregistreraAlien.class.getName()).log(Level.SEVERE, null, e);
+        catch (InfException ettUndantag) {
+            Logger.getLogger(NyregistreraAlien.class.getName()).log(Level.SEVERE, null, ettUndantag);
         }
        
     }

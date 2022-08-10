@@ -28,8 +28,8 @@ public class Validering {
         
     boolean resultat = false;
 
-    if(checkaLosen.getText().length() > 6 || checkaLosen.getText().isEmpty()) {
-        JOptionPane.showMessageDialog(null, "Lösenordet måste max vara 6 tecken!");
+    if(checkaLosen.getText().length() > 8 || checkaLosen.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Lösenordet får max vara 8 tecken!");
         resultat = true;
         checkaLosen.requestFocus();
     }
