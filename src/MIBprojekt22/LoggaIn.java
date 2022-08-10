@@ -1,12 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package MIBprojekt22;
 
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException; 
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 
 /**
  *
@@ -15,16 +16,11 @@ import oru.inf.InfException;
 public class LoggaIn extends javax.swing.JFrame {
 
     private static InfDB idb;
-    private Validering validering;
-    
     
     public LoggaIn(InfDB idb) {
         initComponents();
-        this.idb = idb;
-        validering = new Validering();
+        LoggaIn.idb = idb;
     }
-
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,19 +30,28 @@ public class LoggaIn extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        LoginvaldAnvandare = new javax.swing.JComboBox<>();
+        LBinloggningstyp = new javax.swing.JLabel();
+        LBfelaktigt = new javax.swing.JLabel();
         LBrubrik = new javax.swing.JLabel();
         LBagentID = new javax.swing.JLabel();
         LBpassword = new javax.swing.JLabel();
         LoginUsername = new javax.swing.JTextField();
         LogInpassword = new javax.swing.JPasswordField();
         BTNlogin = new javax.swing.JButton();
-        LBloginimage = new javax.swing.JLabel();
-        LoginvaldAnvandare = new javax.swing.JComboBox<>();
-        LBinloggningstyp = new javax.swing.JLabel();
-        LBfelaktigt = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(153, 153, 153));
+
+        LoginvaldAnvandare.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alien", "Agent" }));
+        LoginvaldAnvandare.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoginvaldAnvandareActionPerformed(evt);
+            }
+        });
+
+        LBinloggningstyp.setText("Välj inloggningstyp:");
+
+        LBfelaktigt.setText("Fel lösenord eller ID!");
 
         LBrubrik.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         LBrubrik.setText("System login");
@@ -64,7 +69,6 @@ public class LoggaIn extends javax.swing.JFrame {
             }
         });
 
-        LogInpassword.setText("jPasswordField1");
         LogInpassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LogInpasswordActionPerformed(evt);
@@ -78,94 +82,65 @@ public class LoggaIn extends javax.swing.JFrame {
             }
         });
 
-        LBloginimage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MIBprojekt22/mibLogin.jpg"))); // NOI18N
-
-        LoginvaldAnvandare.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        LoginvaldAnvandare.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginvaldAnvandareActionPerformed(evt);
-            }
-        });
-
-        LBinloggningstyp.setText("Välj inloggningstyp:");
-
-        LBfelaktigt.setText("Fel lösenord eller ID!");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(LBpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(LogInpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(LBfelaktigt)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(BTNlogin)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(LBfelaktigt)
+                        .addGap(47, 47, 47)
+                        .addComponent(BTNlogin))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(LBinloggningstyp)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(LoginvaldAnvandare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(LBrubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(LBinloggningstyp)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(LoginvaldAnvandare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(LBagentID)
-                                .addGap(18, 18, 18)
-                                .addComponent(LoginUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(LBrubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(98, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(LBloginimage, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(LBagentID)
+                                    .addComponent(LBpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(LogInpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(LoginUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addComponent(LBloginimage)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(LBrubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LoginvaldAnvandare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LBinloggningstyp))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                    .addComponent(LBinloggningstyp)
+                    .addComponent(LoginvaldAnvandare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LBagentID)
                     .addComponent(LoginUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LBpassword)
                     .addComponent(LogInpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BTNlogin)
-                    .addComponent(LBfelaktigt))
-                .addGap(47, 47, 47))
+                    .addComponent(LBfelaktigt)
+                    .addComponent(BTNlogin))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BTNloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNloginActionPerformed
-        LBfelaktigt.setText("");
-        LoginUsername.requestFocus();
-        String valdAnvandare = LoginvaldAnvandare.getSelectedItem().toString();
-        String anvandare = LoginUsername.getText();
-        String losenord = LogInpassword.getPassword();
-      
-    }//GEN-LAST:event_BTNloginActionPerformed
-
     private void LoginvaldAnvandareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginvaldAnvandareActionPerformed
+
     }//GEN-LAST:event_LoginvaldAnvandareActionPerformed
 
     private void LoginUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginUsernameActionPerformed
@@ -176,12 +151,83 @@ public class LoggaIn extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_LogInpasswordActionPerformed
 
+    private void BTNloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNloginActionPerformed
+        LBfelaktigt.setText("");
+        String valdAnvandare = LoginvaldAnvandare.getSelectedItem().toString();
+        String anvandare = LoginUsername.getText();
+        String losenord = LogInpassword.getText();
+        String alienLosen = "";
+        String agentLosen = "";
+
+        if (valdAnvandare.equals("Alien")) {
+            try {
+                alienLosen = idb.fetchSingle("SELECT Losenord FROM Alien WHERE Alien_ID = '" + anvandare + "'");
+            } catch (InfException ettUndantag){
+                JOptionPane.showMessageDialog(null, "Fel användarnamn eller lösenord, prova igen!");
+            }
+            if (losenord.equals(alienLosen))
+            {
+                new Inloggad (anvandare, false);
+                new AlienSida (idb).setVisible(true);
+                setVisible(false);
+            } else {
+                LBfelaktigt.setText("Du har skrivit in fel användarnamn eller lösenord");
+            }
+        } else if (valdAnvandare.equals("Agent")) {
+            try {
+                agentLosen = idb.fetchSingle("SELECT Losenord FROM Agent WHERE Agent_ID = '" + anvandare + "'");
+            } catch (InfException ettUndantag) {
+                JOptionPane.showMessageDialog(null, "Fel användarnamn eller lösenord, prova igen!");
+            }
+
+            if (losenord.equals(agentLosen)){
+
+                //if (Validering.agentISAdmin)
+            }
+        }
+    }//GEN-LAST:event_BTNloginActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(LoggaIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(LoggaIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(LoggaIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(LoggaIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new LoggaIn().setVisible(true);
+            }
+        });
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTNlogin;
     private javax.swing.JLabel LBagentID;
     private javax.swing.JLabel LBfelaktigt;
     private javax.swing.JLabel LBinloggningstyp;
-    private javax.swing.JLabel LBloginimage;
     private javax.swing.JLabel LBpassword;
     private javax.swing.JLabel LBrubrik;
     private javax.swing.JPasswordField LogInpassword;
