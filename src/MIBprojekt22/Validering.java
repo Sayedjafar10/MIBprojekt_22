@@ -48,7 +48,7 @@ public class Validering {
            
            
         } catch (ParseException e) {
-            JOptionPane.showMessageDialog(null, "Skriv in rätt datumformat YYYY-MM-DD");
+            JOptionPane.showMessageDialog(null, "Rätt datumformat krävs YYYY-MM-DD");
             checkaDatum.requestFocus();
             return false;
              
