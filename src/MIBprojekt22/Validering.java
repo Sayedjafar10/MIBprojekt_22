@@ -1,5 +1,8 @@
 package MIBprojekt22;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.*;
 
 
@@ -14,10 +17,43 @@ public class Validering {
         boolean resultat = false;
         
         if (checkaRuta.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Ett tomt inmatningsfält har hittats!");
+            JOptionPane.showMessageDialog(null, "Rutan är tom!");
             resultat = true;
         }
         
         return resultat;
     }
+    
+    public static boolean kollaLosen(JTextField checkaLosen){
+        
+    boolean resultat = false;
+
+    if(checkaLosen.getText().length() > 6 || checkaLosen.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Lösenordet måste max vara 6 tecken!");
+        resultat = true;
+        checkaLosen.requestFocus();
+    }
+    return resultat;
+    }
+    
+    public static boolean kollaDatum(JTextField checkaDatum) {
+        
+        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DD");
+         boolean resultat = false;
+         String date = checkaDatum.getText();
+        try {
+           
+           dateFormat.parse(date);
+           resultat = true;
+           
+           
+        } catch (ParseException e) {
+            JOptionPane.showMessageDialog(null, "Skriv in rätt datumformat YYYY-MM-DD");
+            checkaDatum.requestFocus();
+            return false;
+             
+        }
+        
+        return resultat;
+}
 }
