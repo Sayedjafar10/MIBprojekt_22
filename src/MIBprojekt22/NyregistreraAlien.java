@@ -185,7 +185,7 @@ public class NyregistreraAlien extends javax.swing.JFrame {
     private void BTNregistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNregistreraActionPerformed
      if(Validering.validAlienID(TXTalienID)) 
      if(Validering.validLosen(TXTlosen))
-     if(Validering.textFaltHarVarde(TXTnamn)) 
+     if(Validering.tomRuta(TXTnamn)) 
       
          try {
             
