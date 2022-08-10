@@ -31,7 +31,6 @@ public class Validering {
         return resultat;
     }
     
-<<<<<<< HEAD
     public static boolean IsItAdmin (String id){
         
         boolean admin = false;
@@ -47,9 +46,7 @@ public class Validering {
         }
         return admin;
     }
-}
 
-=======
     public static boolean kollaLosen(JTextField checkaLosen){
         
     boolean resultat = false;
@@ -83,4 +80,3 @@ public class Validering {
         return resultat;
 }
 }
->>>>>>> aa9b27ad9646e9698e55a9d21c62fa3f57d34a22
