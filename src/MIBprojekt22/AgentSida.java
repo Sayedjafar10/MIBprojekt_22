@@ -4,17 +4,18 @@
  */
 package MIBprojekt22;
 
+import oru.inf.InfDB;
+
 /**
  *
  * @author piava
  */
 public class AgentSida extends javax.swing.JFrame {
+   private static InfDB idb;
 
-    /**
-     * Creates new form AgentSida
-     */
-    public AgentSida() {
+    public AgentSida(InfDB idb) {
         initComponents();
+        this.idb = idb;
     }
 
     /**
