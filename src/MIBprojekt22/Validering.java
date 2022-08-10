@@ -79,4 +79,16 @@ public class Validering {
         
         return resultat;
 }
+    public static boolean tomText(JTextField checkaRutan){
+        boolean resultat = false;
+        
+        String ruta = checkaRutan.getText();
+        if(ruta.trim().equals("")){
+            JOptionPane.showMessageDialog(null, "Fyll i rutan.");
+            resultat = true;
+            checkaRutan.requestFocus(); 
+        }
+        
+        return resultat;
+}
 }
