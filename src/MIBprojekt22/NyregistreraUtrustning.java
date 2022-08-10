@@ -89,7 +89,7 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnRegistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegistreraActionPerformed
-    if(Validering.textFaltHarVarde(TxtRegUtrustning))
+    if(Validering.tomRuta(TxtRegUtrustning))
     
     try{
         String UtrustningsID =  idb.getAutoIncrement("Utrustning","Utrustnings_ID");
