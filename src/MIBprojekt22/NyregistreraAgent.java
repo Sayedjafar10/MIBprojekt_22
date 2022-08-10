@@ -39,8 +39,8 @@ public class NyregistreraAgent extends javax.swing.JFrame {
     {
       JComboBoxOmråde.addItem(omrade);
     }
-    }catch (InfException e) {
-            Logger.getLogger(NyregistreraAgent.class.getName()).log(Level.SEVERE, null, e);
+    }catch (InfException ettUndantag) {
+            Logger.getLogger(NyregistreraAgent.class.getName()).log(Level.SEVERE, null, ettUndantag);
         }
     }
     /**
@@ -190,10 +190,10 @@ public class NyregistreraAgent extends javax.swing.JFrame {
 
     private void BtnRegistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegistreraActionPerformed
      
-        if(Validering.validDatum(TxtDatum)) 
-        if(Validering.validLosen(TxtLosen))
-        if(Validering.textFaltHarVarde(TxtNamn))
-        if (Validering.textFaltHarVarde(TxtTelnr))
+        if(Validering.kollaDatum(TxtDatum)) 
+        if(Validering.kollaLosen(TxtLosen))
+        if(Validering.tomRuta(TxtNamn))
+        if (Validering.tomRuta(TxtTelnr))
     
 try {
             
@@ -212,8 +212,8 @@ try {
             JOptionPane.showMessageDialog(null, "Ny agent har registrerats!");
             
            
-        } catch (InfException e) {   
-        Logger.getLogger(NyregistreraAgent.class.getName()).log(Level.SEVERE, null, e);
+        } catch (InfException ettUndantag) {   
+        Logger.getLogger(NyregistreraAgent.class.getName()).log(Level.SEVERE, null, ettUndantag);
         }   // TODO add your handling code here:
     }//GEN-LAST:event_BtnRegistreraActionPerformed
 
