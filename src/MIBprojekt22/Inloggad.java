@@ -12,21 +12,18 @@ import oru.inf.InfDB;
  * @author piava
  */
 public class Inloggad {
-    private static String anvandare;
-    private static boolean IsITAdmin;
-    
+    private static String anvandareID;
+    private static boolean IsItAdmin;
+
     public Inloggad (String anvandarID, boolean IsItAdmin) {
         
+        this.anvandareID = anvandarID;
+        this.IsItAdmin = IsItAdmin;
+    }
    
-   
+    public static String getInloggadID() {
+       return anvandareID;
+    }
         
-            
-            
-    
-    
-    
-          
-    
-    
 }
-}
+
