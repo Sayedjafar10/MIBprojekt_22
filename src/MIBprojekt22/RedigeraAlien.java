@@ -4,17 +4,21 @@
  */
 package MIBprojekt22;
 
+import oru.inf.InfDB;
+
 /**
  *
  * @author piava
  */
 public class RedigeraAlien extends javax.swing.JFrame {
 
-    /**
-     * Creates new form RedigeraAlien
-     */
-    public RedigeraAlien() {
+    private static InfDB idb;
+    
+    public RedigeraAlien(InfDB idb) {
         initComponents();
+        this.idb = idb;
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
     }
 
     /**
@@ -47,6 +51,11 @@ public class RedigeraAlien extends javax.swing.JFrame {
         BTNvisaAlieninfo.setBackground(new java.awt.Color(255, 255, 255));
         BTNvisaAlieninfo.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         BTNvisaAlieninfo.setLabel("Visa alieninformation");
+        BTNvisaAlieninfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNvisaAlieninfoActionPerformed(evt);
+            }
+        });
 
         BTNListaAlienPlats.setBackground(new java.awt.Color(255, 255, 255));
         BTNListaAlienPlats.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
@@ -117,6 +126,10 @@ public class RedigeraAlien extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BTNvisaAlieninfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNvisaAlieninfoActionPerformed
+        new VisaAlienInformation(idb).setVisible(true);
+    }//GEN-LAST:event_BTNvisaAlieninfoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -147,7 +160,7 @@ public class RedigeraAlien extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RedigeraAlien().setVisible(true);
+                //new RedigeraAlien().setVisible(true);
             }
         });
     }
