@@ -24,29 +24,28 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Component id="LBrubrik" min="-2" pref="208" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="BTNupdate" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="LBconfirmpass" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="LBnewpass" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="LBoldpass" alignment="0" min="-2" pref="111" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="TXToldpass" alignment="0" min="-2" pref="151" max="-2" attributes="0"/>
-                                  <Component id="TXTnewpass" min="-2" pref="151" max="-2" attributes="0"/>
-                                  <Component id="TXTconpass" min="-2" pref="151" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="LBconfirmpass" alignment="0" pref="111" max="32767" attributes="0"/>
+                          <Component id="LBnewpass" alignment="0" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="TXTnewpass" pref="151" max="32767" attributes="0"/>
+                          <Component id="TXTconpass" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                      <Component id="LBfelaktig" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="BTNupdate" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="24" max="32767" attributes="0"/>
@@ -58,12 +57,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Component id="LBrubrik" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="LBoldpass" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="TXToldpass" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="LBnewpass" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="TXTnewpass" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -74,21 +68,16 @@
                   <Component id="TXTconpass" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="BTNupdate" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="34" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="BTNupdate" min="-2" max="-2" attributes="0"/>
+                  <Component id="LBfelaktig" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="31" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="LBoldpass">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Gammalt l&#xf6;senord:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="LBnewpass">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -102,22 +91,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Confirm Password:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JPasswordField" name="TXToldpass">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JPasswordField" name="TXTnewpass">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jPasswordField2"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JPasswordField" name="TXTconpass">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jPasswordField3"/>
+        <Property name="text" type="java.lang.String" value="Bekr&#xe4;fta l&#xf6;senord:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="BTNupdate">
@@ -137,6 +111,15 @@
           <Font name="Cambria" size="24" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Byt l&#xf6;senord"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="TXTnewpass">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TXTconpass">
+    </Component>
+    <Component class="java.awt.Label" name="LBfelaktig">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="label1"/>
       </Properties>
     </Component>
   </SubComponents>
