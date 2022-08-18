@@ -19,7 +19,7 @@ public class LoggaIn extends javax.swing.JFrame {
     
     public LoggaIn(InfDB idb) {
         initComponents();
-        LoggaIn.idb = idb;
+        this.idb = idb;
     }
     /**
      * This method is called from within the constructor to initialize the form.
