@@ -23,35 +23,33 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="LBrubrik" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="label2" min="-2" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="BTNredigeraAlien" max="32767" attributes="0"/>
-                  <Component id="BTNregutrustn" alignment="0" max="32767" attributes="0"/>
-                  <Component id="BTNandralosenord" max="32767" attributes="0"/>
-                  <Component id="BTNsokOmrodeschef" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="LBrubrik" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="BTNredigeraAlien" max="32767" attributes="0"/>
+                          <Component id="BTNregutrustn" alignment="0" max="32767" attributes="0"/>
+                          <Component id="BTNandralosenord" max="32767" attributes="0"/>
+                          <Component id="BTNsokOmrodeschef" alignment="0" max="32767" attributes="0"/>
+                          <Component id="BTNadminhant" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace min="0" pref="63" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="48" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="label2" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="LBrubrik" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace pref="30" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="LBrubrik" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Component id="BTNandralosenord" min="-2" pref="39" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="BTNregutrustn" min="-2" pref="42" max="-2" attributes="0"/>
@@ -59,7 +57,9 @@
               <Component id="BTNsokOmrodeschef" min="-2" pref="37" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="BTNredigeraAlien" min="-2" pref="37" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="BTNadminhant" min="-2" pref="39" max="-2" attributes="0"/>
+              <EmptySpace pref="23" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -83,6 +83,9 @@
         </Property>
         <Property name="label" type="java.lang.String" value="Redigera alien"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTNredigeraAlienActionPerformed"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="BTNandralosenord">
       <Properties>
@@ -108,6 +111,9 @@
         </Property>
         <Property name="label" type="java.lang.String" value="S&#xf6;k omr&#xe5;deschef"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTNsokOmrodeschefActionPerformed"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="BTNregutrustn">
       <Properties>
@@ -123,10 +129,16 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTNregutrustnActionPerformed"/>
       </Events>
     </Component>
-    <Component class="java.awt.Label" name="label2">
+    <Component class="javax.swing.JButton" name="BTNadminhant">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Inloggad som agent"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Hantering som Admin"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTNadminhantActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
