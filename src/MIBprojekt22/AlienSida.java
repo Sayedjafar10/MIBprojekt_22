@@ -94,7 +94,7 @@ public class AlienSida extends javax.swing.JFrame {
     }//GEN-LAST:event_BTNandralosenActionPerformed
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-        new HittaAliensOmrodeschef(idb).setVisible(true);
+        new HittaAliensOmradeschef(idb).setVisible(true);
     }//GEN-LAST:event_button1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
