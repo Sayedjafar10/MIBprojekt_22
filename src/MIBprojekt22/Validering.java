@@ -34,27 +34,26 @@ public class Validering {
     public static boolean IsItAdmin (String id){
         
         boolean admin = false;
-        String isAdmin = "";
+        String IsAdmin = "";
         try {
-            isAdmin = idb.fetchSingle ("SELECT Agent.Administrator FROM Agent WHERE Agent_ID = '" + id + "'");
+            IsAdmin = idb.fetchSingle ("SELECT Agent.Administrator FROM Agent WHERE Agent_ID = '" + id + "'");
         } catch (InfException ettUndantag) {
             JOptionPane.showMessageDialog (null, "Något har gått fel!");
         }
         
-        if (isAdmin.equals("N")){
+        if (IsAdmin.equals("N")){
             admin = true;
         }
         return admin;
     }
 
-    public static boolean kollaLosen(JTextField checkaLosen){
+    public static boolean kollaLosen(String losen){
         
     boolean resultat = false;
 
-    if(checkaLosen.getText().length() > 8 || checkaLosen.getText().isEmpty()) {
+    if(losen.length() > 8 || losen.isEmpty()) {
         JOptionPane.showMessageDialog(null, "Lösenordet får max vara 8 tecken!");
         resultat = true;
-        checkaLosen.requestFocus();
     }
     return resultat;
     }
