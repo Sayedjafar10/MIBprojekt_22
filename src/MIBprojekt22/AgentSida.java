@@ -16,6 +16,10 @@ public class AgentSida extends javax.swing.JFrame {
     public AgentSida(InfDB idb) {
         initComponents();
         this.idb = idb;
+        
+        if (!Validering.IsItAdmin(Inloggad.getInloggadID())) {
+            BTNadminhant.setVisible(false);
+        }
     }
 
    
@@ -28,7 +32,7 @@ public class AgentSida extends javax.swing.JFrame {
         BTNandralosenord = new java.awt.Button();
         BTNsokOmrodeschef = new java.awt.Button();
         BTNregutrustn = new java.awt.Button();
-        label2 = new java.awt.Label();
+        BTNadminhant = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,6 +42,11 @@ public class AgentSida extends javax.swing.JFrame {
         BTNredigeraAlien.setBackground(new java.awt.Color(255, 255, 255));
         BTNredigeraAlien.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         BTNredigeraAlien.setLabel("Redigera alien");
+        BTNredigeraAlien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNredigeraAlienActionPerformed(evt);
+            }
+        });
 
         BTNandralosenord.setBackground(new java.awt.Color(255, 255, 255));
         BTNandralosenord.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
@@ -51,6 +60,11 @@ public class AgentSida extends javax.swing.JFrame {
         BTNsokOmrodeschef.setBackground(new java.awt.Color(255, 255, 255));
         BTNsokOmrodeschef.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         BTNsokOmrodeschef.setLabel("Sök områdeschef");
+        BTNsokOmrodeschef.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNsokOmrodeschefActionPerformed(evt);
+            }
+        });
 
         BTNregutrustn.setBackground(new java.awt.Color(255, 255, 255));
         BTNregutrustn.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
@@ -61,35 +75,39 @@ public class AgentSida extends javax.swing.JFrame {
             }
         });
 
-        label2.setText("Inloggad som agent");
+        BTNadminhant.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        BTNadminhant.setText("Hantering som Admin");
+        BTNadminhant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNadminhantActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(LBrubrik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(BTNredigeraAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BTNregutrustn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BTNandralosenord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BTNsokOmrodeschef, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 63, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(LBrubrik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(BTNredigeraAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BTNregutrustn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BTNandralosenord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BTNsokOmrodeschef, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BTNadminhant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(0, 48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(LBrubrik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(LBrubrik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
                 .addComponent(BTNandralosenord, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BTNregutrustn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -97,7 +115,9 @@ public class AgentSida extends javax.swing.JFrame {
                 .addComponent(BTNsokOmrodeschef, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BTNredigeraAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BTNadminhant, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -108,15 +128,27 @@ public class AgentSida extends javax.swing.JFrame {
     }//GEN-LAST:event_BTNandralosenordActionPerformed
 
     private void BTNregutrustnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNregutrustnActionPerformed
-        // TODO add your handling code here:
+        new NyregistreraUtrustning(idb).setVisible(true);
     }//GEN-LAST:event_BTNregutrustnActionPerformed
 
+    private void BTNadminhantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNadminhantActionPerformed
+        new AdminSida(idb).setVisible(true);
+    }//GEN-LAST:event_BTNadminhantActionPerformed
+
+    private void BTNsokOmrodeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNsokOmrodeschefActionPerformed
+        new HittaOmradeschef(idb).setVisible(true);
+    }//GEN-LAST:event_BTNsokOmrodeschefActionPerformed
+
+    private void BTNredigeraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNredigeraAlienActionPerformed
+        new RedigeraAlien(idb).setVisible(true);
+    }//GEN-LAST:event_BTNredigeraAlienActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BTNadminhant;
     private java.awt.Button BTNandralosenord;
     private java.awt.Button BTNredigeraAlien;
     private java.awt.Button BTNregutrustn;
     private java.awt.Button BTNsokOmrodeschef;
     private java.awt.Label LBrubrik;
-    private java.awt.Label label2;
     // End of variables declaration//GEN-END:variables
 }
