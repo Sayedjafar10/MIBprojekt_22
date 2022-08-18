@@ -36,7 +36,7 @@ public class Validering {
         boolean admin = false;
         String IsAdmin = "";
         try {
-            IsAdmin = idb.fetchSingle ("SELECT Agent.Administrator FROM Agent WHERE Agent_ID = '" + id + "'");
+            IsAdmin = idb.fetchSingle("SELECT Agent.Administrator FROM Agent WHERE Agent_ID = '" + id + "'");
         } catch (InfException ettUndantag) {
             JOptionPane.showMessageDialog (null, "Något har gått fel!");
         }
