@@ -107,6 +107,9 @@
         </Property>
         <Property name="label" type="java.lang.String" value="Visa alieninformation"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTNvisaAlieninfoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="BTNListaAlienPlats">
       <Properties>
