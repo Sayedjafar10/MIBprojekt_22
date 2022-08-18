@@ -8,7 +8,6 @@ import oru.inf.InfDB;
 import javax.swing.JOptionPane;
 import oru.inf.InfException;
 
-
 /**
  *
  * @author piava
@@ -24,42 +23,25 @@ public class AndraLosenAgent extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        LBoldpass = new javax.swing.JLabel();
         LBnewpass = new javax.swing.JLabel();
         LBconfirmpass = new javax.swing.JLabel();
-        TXToldpass = new javax.swing.JPasswordField();
-        TXTnewpass = new javax.swing.JPasswordField();
-        TXTconpass = new javax.swing.JPasswordField();
         BTNupdate = new javax.swing.JButton();
         LBrubrik = new javax.swing.JLabel();
         LBfelaktig = new java.awt.Label();
+        TXTnewpass = new javax.swing.JTextField();
+        TXTconpass = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        LBoldpass.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        LBoldpass.setText("Gammalt lösenord:");
 
         LBnewpass.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         LBnewpass.setText("Nytt lösenord:");
 
         LBconfirmpass.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        LBconfirmpass.setText("Confirm Password:");
-
-        TXToldpass.setText("jPasswordField1");
-        TXToldpass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TXToldpassActionPerformed(evt);
-            }
-        });
-
-        TXTnewpass.setText("jPasswordField2");
-
-        TXTconpass.setText("jPasswordField3");
+        LBconfirmpass.setText("Bekräfta lösenord:");
 
         BTNupdate.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         BTNupdate.setText("Uppdatera");
@@ -78,30 +60,27 @@ public class AndraLosenAgent extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(BTNupdate)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(LBconfirmpass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(LBnewpass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(LBoldpass, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TXToldpass, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TXTnewpass, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TXTconpass, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(24, 24, 24))
             .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(LBrubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(101, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(LBrubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(LBfelaktig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(25, 25, 25)
+                        .addComponent(LBfelaktig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(BTNupdate, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(LBconfirmpass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(LBnewpass, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(TXTnewpass)
+                                .addComponent(TXTconpass, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)))))
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,10 +88,6 @@ public class AndraLosenAgent extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addComponent(LBrubrik)
                 .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LBoldpass)
-                    .addComponent(TXToldpass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LBnewpass)
                     .addComponent(TXTnewpass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -124,7 +99,7 @@ public class AndraLosenAgent extends javax.swing.JFrame {
                 .addComponent(BTNupdate)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(LBfelaktig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(50, 50, 50))
         );
 
         pack();
@@ -132,22 +107,31 @@ public class AndraLosenAgent extends javax.swing.JFrame {
 
     private void BTNupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNupdateActionPerformed
         LBfelaktig.setText("");
+        String nyttLos = TXTnewpass.getText();
+        String bekLos = TXTconpass.getText();
+        
+        if (!Validering.kollaLosen(nyttLos)){
+            LBfelaktig.setText("Lösenordet får vara max 8 tecken!");
+        } else if (!nyttLos.equals (bekLos)){
+            LBfelaktig.setText ("De inskrivna lösenorden stämmer inte överens.");
+        } else {
+            try {
+                idb.update("UPDATE Agent SET Losenord = '" + nyttLos + "' WHERE Agent_ID = " + Inloggad.getInloggadID());
+                LBfelaktig.setText("Lösenordet har uppdaterats.");
+            } catch (InfException ettUndantag) {
+                JOptionPane.showMessageDialog (null, "Något gick fel!");
+            }
+        }
         
     }//GEN-LAST:event_BTNupdateActionPerformed
-
-    private void TXToldpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TXToldpassActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TXToldpassActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTNupdate;
     private javax.swing.JLabel LBconfirmpass;
     private java.awt.Label LBfelaktig;
     private javax.swing.JLabel LBnewpass;
-    private javax.swing.JLabel LBoldpass;
     private javax.swing.JLabel LBrubrik;
-    private javax.swing.JPasswordField TXTconpass;
-    private javax.swing.JPasswordField TXTnewpass;
-    private javax.swing.JPasswordField TXToldpass;
+    private javax.swing.JTextField TXTconpass;
+    private javax.swing.JTextField TXTnewpass;
     // End of variables declaration//GEN-END:variables
 }
