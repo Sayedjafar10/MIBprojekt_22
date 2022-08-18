@@ -4,17 +4,19 @@
  */
 package MIBprojekt22;
 
+import oru.inf.InfDB;
+
 /**
  *
  * @author piava
  */
 public class VisaAlienInformation extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VisaAlienInformation
-     */
-    public VisaAlienInformation() {
+    private static InfDB idb;
+    
+    public VisaAlienInformation(InfDB idb) {
         initComponents();
+        this.idb = idb;
     }
 
     /**
