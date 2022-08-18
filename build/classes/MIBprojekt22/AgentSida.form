@@ -23,21 +23,21 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="BTNsokOmrodeschef" max="32767" attributes="0"/>
-                  <Component id="BTNregutrustn" alignment="0" max="32767" attributes="0"/>
-                  <Component id="BTNandralosenord" alignment="0" max="32767" attributes="0"/>
-                  <Component id="BTNredigeraAlien" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
-              </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="LBrubrik" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="label2" min="-2" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-              <Component id="LBrubrik" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="47" max="32767" attributes="0"/>
-              <Component id="label2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="BTNredigeraAlien" max="32767" attributes="0"/>
+                  <Component id="BTNregutrustn" alignment="0" max="32767" attributes="0"/>
+                  <Component id="BTNandralosenord" max="32767" attributes="0"/>
+                  <Component id="BTNsokOmrodeschef" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="0" pref="63" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -45,21 +45,21 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                  <Component id="label2" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="LBrubrik" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="label2" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace pref="30" max="32767" attributes="0"/>
+              <Component id="BTNandralosenord" min="-2" pref="39" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="BTNregutrustn" min="-2" pref="42" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="BTNsokOmrodeschef" min="-2" pref="37" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="BTNredigeraAlien" min="-2" pref="37" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Component id="BTNandralosenord" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="BTNregutrustn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="BTNsokOmrodeschef" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="BTNredigeraAlien" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="37" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
