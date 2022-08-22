@@ -40,7 +40,25 @@ public class AndraAlienInformation extends javax.swing.JFrame {
             Logger.getLogger(AndraAlienInformation.class.getName()).log(Level.SEVERE, null, ettUndantag);
         }
     } 
+    private void fillComboboxAnvarigAgent(){
+    JComboBoxAgent.removeAllItems(); 
+    JComboBoxAgent.addItem(""); 
     
+    
+    String question = "SELECT Namn FROM Agent WHERE Administrator='N'";
+    ArrayList<String> agenter = new ArrayList<String>();
+    
+    try {
+        agenter = idb.fetchColumn(question);
+        
+        for(String agent: agenter)
+        {
+            JComboBoxAgent.addItem(agent);
+        }
+    } catch (InfException ettUndantag) {
+            Logger.getLogger(AndraAlienInformation.class.getName()).log(Level.SEVERE, null, ettUndantag);
+        }// Hindrar programmet från att kracha om try inte fungerar
+}
    
     }
     /**
