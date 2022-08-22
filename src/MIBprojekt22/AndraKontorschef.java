@@ -20,8 +20,10 @@ public class AndraKontorschef extends javax.swing.JFrame {
     /**
      * Creates new form AndraKontorschef
      */
-    public AndraKontorschef() {
+    public AndraKontorschef(InfDB idb) {
         initComponents();
+        this.idb = idb;
+        fillComboboxAdminAgent();
     }
 
     /**

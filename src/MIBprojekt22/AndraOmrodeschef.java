@@ -4,19 +4,61 @@
  */
 package MIBprojekt22;
 
+import oru.inf.InfDB;
+import oru.inf.InfException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author piava
  */
 public class AndraOmrodeschef extends javax.swing.JFrame {
 
+     private InfDB idb;
     /**
      * Creates new form AndraOmrodeschef
      */
-    public AndraOmrodeschef() {
+    public AndraOmrodeschef(InfDB idb) {
         initComponents();
+        this.idb = idb;
+        fillComboboxAdminAgent();
+        fillComboboxOmråde();
     }
 
+    private void fillComboboxAdminAgent() {
+        JComboBoxOmradeschef.removeAllItems(); // Denna metod nollställer alla värder i comboboxen
+    String question = "SELECT Namn FROM Agent"; // Här används en SQL-fråga för att hämta agentnamn
+    
+    ArrayList<String> AdminAgenter = new ArrayList<String>();
+    try {
+    AdminAgenter = idb.fetchColumn(question);
+    
+    for(String agent: AdminAgenter)
+    {
+      JComboBoxOmradeschef.addItem(agent);
+    }
+    }   catch (InfException ettUndantag) { // Stoppar systemet ifrån att krascha
+            Logger.getLogger(AndraKontorschef.class.getName()).log(Level.SEVERE, null, ettUndantag);
+        }
+    }
+   
+    
+    private void fillComboboxOmråde(){ // Denna metod fyller comboboxen med områden 
+    JComboBoxOmråde.removeAllItems();
+    String question = "SELECT Benamning FROM Omrade";
+    
+    ArrayList<String> områden = new ArrayList<String>();
+    try {
+    områden = idb.fetchColumn(question);
+    for(String område: områden)
+    {
+      JComboBoxOmråde.addItem(område); // Denna metoden fyller comboboxen med områden
+    }
+    }   catch (InfException ettUndantag) { // Stoppar systemet ifrån att krascha
+            Logger.getLogger(AndraOmrodeschef.class.getName()).log(Level.SEVERE, null, ettUndantag);
+        }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,21 +68,105 @@ public class AndraOmrodeschef extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTextField1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        JLOmradeschef = new javax.swing.JLabel();
+        JLOmråde = new javax.swing.JLabel();
+        JComboBoxOmradeschef = new javax.swing.JComboBox<>();
+        JComboBoxOmråde = new javax.swing.JComboBox<>();
+        BtnAndra = new javax.swing.JButton();
+
+        jTextField1.setText("jTextField1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        jLabel1.setText("Ändra Områdeschef Information");
+
+        JLOmradeschef.setText("Välj Områdeschef/Agent");
+
+        JLOmråde.setText("Välj Område");
+
+        JComboBoxOmradeschef.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1", "2", "3", "4" }));
+
+        JComboBoxOmråde.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1", "2", "3", "4" }));
+
+        BtnAndra.setText("Ändra");
+        BtnAndra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAndraActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 14, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JLOmradeschef)
+                    .addComponent(JLOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(97, 97, 97)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JComboBoxOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JComboBoxOmradeschef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnAndra)
+                .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JLOmradeschef)
+                    .addComponent(JComboBoxOmradeschef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JLOmråde)
+                    .addComponent(JComboBoxOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                .addComponent(BtnAndra)
+                .addGap(25, 25, 25))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnAndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAndraActionPerformed
+ 
+    String agenten = JComboBoxOmradeschef.getSelectedItem().toString();
+    String området = JComboBoxOmråde.getSelectedItem().toString();
+    
+try {
+    // Här hämtas agentID från agent tabellen  
+    String agentensID = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Namn = '" + agenten + "'");
+    // Här hämtas områdesID från område tabellen 
+    String områdetsID = idb.fetchSingle("SELECT Omrades_ID FROM OMRADE WHERE Benamning = '" + området + "'");
+    
+    // Här uppdateras områdeschefen 
+    idb.update("UPDATE Omradeschef SET Agent_ID = '" + agenten + "' WHERE Omrade = '" + området + "'");
+    
+    // Denna metod visar information
+    JOptionPane.showMessageDialog(null, agenten + " är områdeschef för området! " + området);
+         
+            
+    } catch (InfException ettUndantag) { // Stoppar krash
+      Logger.getLogger(AndraOmrodeschef.class.getName()).log(Level.SEVERE, null, ettUndantag);
+      
+    }
+
+
+     
+    }//GEN-LAST:event_BtnAndraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +204,12 @@ public class AndraOmrodeschef extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnAndra;
+    private javax.swing.JComboBox<String> JComboBoxOmradeschef;
+    private javax.swing.JComboBox<String> JComboBoxOmråde;
+    private javax.swing.JLabel JLOmradeschef;
+    private javax.swing.JLabel JLOmråde;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
