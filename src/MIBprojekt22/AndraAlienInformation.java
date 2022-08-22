@@ -22,6 +22,18 @@ public class AndraAlienInformation extends javax.swing.JFrame {
      */
     public AndraAlienInformation(InfDB idb) {
         initComponents();
+        this.idb = idb;
+        JComboBoxPlatsID.addItem("");
+        JComboBoxPlatsID.addItem("Örebro");
+        JComboBoxPlatsID.addItem("Västerås");
+        JComboBoxPlatsID.addItem("Vilhelmina");
+        JComboBoxPltasID.addItem("Borås");
+        JComboBoxRas.addItem("");
+        JComboBoxRas.addItem("Squid");
+        JComboBoxRas.addItem("Boglodite");
+        JComboBoxRas.addItem("Worm");
+        fillComboboxAlien();
+        fillComboboxAgent();
     }
 
    private void fillComboboxAlien(){ 
@@ -60,6 +72,21 @@ public class AndraAlienInformation extends javax.swing.JFrame {
         }// Hindrar programmet från att kracha om try inte fungerar
 }
    
+    private void fillComboboxRas(){
+        JComboBoxRas.removeAllItems();
+    String question = "SELECT * FROM Ras";
+    
+    ArrayList<String> Raser = new ArrayList<String>();
+    try {
+    Raser = idb.fetchColumn(question);
+    
+    for(String Ras : Raser)
+    {
+      JComboBoxRas.addItem(Ras);
+    }
+    }   catch (InfException ettUndantag) {
+            Logger.getLogger(AndraAlienInformation.class.getName()).log(Level.SEVERE, null, ettUndantag);
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -120,13 +147,18 @@ public class AndraAlienInformation extends javax.swing.JFrame {
 
         JComboBoxAlien.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Bobbo", "Braxen" }));
 
-        JComboBoxPlatsID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1", "2", "3" }));
+        JComboBoxPlatsID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Borås", "Västerås", "Örebro", "Vilhelmina" }));
 
         JComboBoxAgent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1", "2", "3", "4" }));
 
         JComboBoxRas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Worm", "Squid", "Bogolite" }));
 
         BtnAndra.setText("Ändra");
+        BtnAndra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAndraActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -156,7 +188,7 @@ public class AndraAlienInformation extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(JComboBoxAgent, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(JComboBoxRas, 0, 107, Short.MAX_VALUE)))
+                            .addComponent(JComboBoxRas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(JLAlien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -219,6 +251,100 @@ public class AndraAlienInformation extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnAndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAndraActionPerformed
+        // TODO add your handling code here:
+        String alien = JComboBoxAlien.getSelectedItem().toString();
+        String namn = String.valueOf(TxtNyttNamn.getText());
+        String telnr = String.valueOf(TxtNyttTelnr.getText());
+        String plats = JComboBoxPlatsID.getSelectedItem().toString();
+        String agent= JComboBoxAgent.getSelectedItem().toString();
+        String ras= JComboBoxRas.getSelectedItem().toString();
+        String alienID = "";
+        String losen = "";
+        
+        try {
+            
+            alienID = idb.fetchSingle("SELECT Alien_ID FROM Alien WHERE Namn ='"+alien+"'");
+            
+            if(namn.equals(""))
+            {  
+                System.out.println("Namn har inte förnyats!");
+            }
+            else 
+            {
+                idb.update("UPDATE Alien SET Namn='"+namn+"' WHERE Alien_ID='"+alienID+"'");
+                JOptionPane.showMessageDialog(null, "Namn har förnyats till "+namn+"!");
+            }    
+               
+            if(telnr.equals(""))
+            {  
+                System.out.println("Telefonnumret har ej förnyats");
+            }
+            
+            else 
+            {
+             idb.update("UPDATE Alien SET Telefon='"+telnr+"' WHERE Alien_ID='"+alienID+"'");
+              JOptionPane.showMessageDialog(null, "Telefonnummer har förnyats till "+telnr+"!");
+            }
+        
+            if(plats.equals("")) 
+            {
+                System.out.println("Plats har inte förnyats!");  
+            } 
+            else 
+            {
+                String Plats = idb.fetchSingle("SELECT Plats_ID FROM Plats WHERE Benamning='"+plats+"'");
+                idb.update("UPDATE Alien SET Plats='"+plats+"' WHERE Alien_ID='"+alienID+"'");
+                JOptionPane.showMessageDialog(null, "Plats har förnyats till "+plats+"!");
+            }
+            
+            if(agent.equals("")) 
+            {
+                System.out.println("Agent har inte förnyats!");  
+            } 
+            else 
+            {
+                String Agent = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Namn='"+agent+"'");
+                idb.update("UPDATE Alien SET Ansvarig_Agent='"+agent+"' WHERE Alien_ID='"+alienID+"'");
+                JOptionPane.showMessageDialog(null, "Agent har förnyats till "+agent+"!");
+            }
+            
+            if(ras.equals("")) 
+            {
+                System.out.println("Ras har inte förnyats!");  
+            } 
+            
+            if(ras.equals("Squid"))
+            {
+                idb.insert("INSERT INTO Squid VALUES("+alienID+")");
+                idb.delete("DELETE FROM Boglodite WHERE Alien_ID="+alienID+"");
+                idb.delete("DELETE FROM Worm WHERE Alien_ID="+alienID+"");
+                JOptionPane.showMessageDialog(null, "Ras har förnyats till "+ras+"!");
+            }
+            
+            if(ras.equals("Boglodite"))
+            {
+                idb.insert("INSERT INTO Boglodite VALUES("+alienID+")");
+                idb.delete("DELETE FROM Squid WHERE Alien_ID="+alienID+"");
+                idb.delete("DELETE FROM Worm WHERE Alien_ID="+alienID+"");
+                JOptionPane.showMessageDialog(null, "Ras har förnyats "+ras+"!");
+            }
+            
+            if(ras.equals("Worm"))
+            {
+                idb.insert("INSERT INTO Worm VALUES("+alienID+")");
+                idb.delete("DELETE FROM Boglodite WHERE Alien_ID="+alienID+"");
+                idb.delete("DELETE FROM Squid WHERE Alien_ID="+alienID+"");
+                JOptionPane.showMessageDialog(null, "Ras har förnyats till "+ras+"!");
+            }
+                   
+        } catch (InfException ettUndantag) { //
+            Logger.getLogger(AndraAlienInformation.class.getName()).log(Level.SEVERE, null, ettUndantag);
+        } 
+            
+
+    }//GEN-LAST:event_BtnAndraActionPerformed
 
     /**
      * @param args the command line arguments

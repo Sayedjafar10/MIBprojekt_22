@@ -4,17 +4,32 @@
  */
 package MIBprojekt22;
 
+import oru.inf.InfDB;
+import oru.inf.InfException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author piava
  */
 public class AndraAgentInformation extends javax.swing.JFrame {
 
+    private InfDB idb;
+    
+    
     /**
      * Creates new form AndraAgentInformation
      */
-    public AndraAgentInformation() {
+    public AndraAgentInformation(InfDB idb) {
         initComponents();
+        this.idb = idb;
+        fillComboboxAgent();
+        JComboBoxPlatsID.addItem("");
+        JComboBoxPlatsID.addItem("Norrland");
+        JComboBoxPlatsID.addItem("Svealand");
+        JComboBoxPlatsID.addItem("Götaland");   
     }
 
     /**
@@ -26,22 +41,203 @@ public class AndraAgentInformation extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        JLAgentID = new javax.swing.JLabel();
+        JLNyttNamn = new javax.swing.JLabel();
+        JLNyttLosen = new javax.swing.JLabel();
+        JLNyttTelnr = new javax.swing.JLabel();
+        JLNyPlatsID = new javax.swing.JLabel();
+        JLNyttAgentID = new javax.swing.JLabel();
+        TxtNyttAgentID = new javax.swing.JTextField();
+        TxtNyttNamn = new javax.swing.JTextField();
+        TxtNyttLosen = new javax.swing.JTextField();
+        TxtNyttTelnr = new javax.swing.JTextField();
+        JComboBoxPlatsID = new javax.swing.JComboBox<>();
+        JComboBoxAgentID = new javax.swing.JComboBox<>();
+        BtnÄndra = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        jLabel1.setText("Ändra Information på Agent ");
+
+        JLAgentID.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        JLAgentID.setText("AgentID");
+
+        JLNyttNamn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        JLNyttNamn.setText("Nytt Namn");
+
+        JLNyttLosen.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        JLNyttLosen.setText("Nytt Lösenord");
+
+        JLNyttTelnr.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        JLNyttTelnr.setText("Nytt tel.nmr");
+
+        JLNyPlatsID.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        JLNyPlatsID.setText("Ny PlatsID");
+
+        JLNyttAgentID.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        JLNyttAgentID.setText("Nytt AgentID");
+
+        JComboBoxPlatsID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Svealand", "Norrland", "Götaland" }));
+
+        JComboBoxAgentID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1", "2", "3", "4" }));
+
+        BtnÄndra.setText("Ändra");
+        BtnÄndra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnÄndraActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(JLNyttAgentID)
+                            .addComponent(JLAgentID, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(JComboBoxAgentID, 0, 100, Short.MAX_VALUE)
+                            .addComponent(TxtNyttAgentID))
+                        .addGap(147, 147, 147))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(JLNyttTelnr)
+                                .addGap(49, 49, 49))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(JLNyPlatsID)
+                                .addGap(58, 58, 58)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TxtNyttTelnr, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JComboBoxPlatsID, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(71, 71, 71))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JLNyttLosen, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JLNyttNamn))
+                        .addGap(66, 66, 66)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TxtNyttLosen, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                            .addComponent(TxtNyttNamn))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnÄndra)
+                .addGap(19, 19, 19))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JLAgentID)
+                    .addComponent(JComboBoxAgentID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JLNyttAgentID)
+                    .addComponent(TxtNyttAgentID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JLNyttNamn)
+                    .addComponent(TxtNyttNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JLNyttLosen)
+                    .addComponent(TxtNyttLosen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JLNyttTelnr)
+                    .addComponent(TxtNyttTelnr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JLNyPlatsID)
+                    .addComponent(JComboBoxPlatsID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnÄndra)
+                .addGap(17, 17, 17))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BtnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnÄndraActionPerformed
+    String agentID = JComboBoxAgentID.getSelectedItem().toString();
+    String plats = JComboBoxPlatsID.getSelectedItem().toString();
+    String namn = String.valueOf(TxtNyttNamn.getText());
+    String telnr = String.valueOf(TxtNyttTelnr.getText());
+    String agentensID = ("");
+    
+    try {
+     agentensID = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Namn ='"+agentensID+"'");
+    if(namn.equals("")){
+      JOptionPane.showMessageDialog(null, "Namn har inte förnyats!");   
+      }
+      
+      else{
+      idb.update("UPDATE Agent SET Namn = '"+namn+"' WHERE Agent_ID = '"+agentensID+"'");
+      JOptionPane.showMessageDialog(null, "Namn har förnyats till "+namn+"!"); 
+      }
+      
+      if(telnr.equals("")){
+          
+      JOptionPane.showMessageDialog(null, "Telefonnummer har inte förnyats");       
+      }
+      
+      else {
+          
+      idb.update("UPDATE Agent SET Telefon = '"+telnr+"' WHERE Agent_ID = '"+agentensID+"'");
+      JOptionPane.showMessageDialog(null, "Telefonnummer har förnyats till "+telnr+"!"); 
+      }
+      
+      if (plats.equals("")){
+    
+      JOptionPane.showMessageDialog(null, "Plats har inte förnyats!");
+      }
+    
+      else {
+      
+          String platsen = idb.fetchSingle("SELECT Omrades_ID FROM Omrade WHERE Benamning='"+plats+"'");
+      idb.update("UPDATE Agent SET Omrade = '"+plats+"' WHERE Agent_ID = '"+agentensID+"'");
+      JOptionPane.showMessageDialog(null, "Plats har förnyats till "+plats+"!");
+      }
+
+     } catch (InfException ettUndantag) {
+            Logger.getLogger(AndraAgentInformation.class.getName()).log(Level.SEVERE, null, ettUndantag);
+     }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnÄndraActionPerformed
+
+    private void fillComboboxAgent(){ //
+    JComboBoxAgentID.removeAllItems();
+    String question = "SELECT Namn FROM Agent";
+    
+    ArrayList<String> Agenter = new ArrayList<String>();
+    try {
+    Agenter= idb.fetchColumn(question);
+    
+    for(String agent: Agenter)
+    {
+      JComboBoxAgentID.addItem(agent);
+    }
+    }   catch (InfException ettUndantag){
+        Logger.getLogger(AndraAgentInformation.class.getName()).log(Level.SEVERE, null, ettUndantag);
+        }
+    } 
     /**
      * @param args the command line arguments
      */
@@ -78,5 +274,19 @@ public class AndraAgentInformation extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnÄndra;
+    private javax.swing.JComboBox<String> JComboBoxAgentID;
+    private javax.swing.JComboBox<String> JComboBoxPlatsID;
+    private javax.swing.JLabel JLAgentID;
+    private javax.swing.JLabel JLNyPlatsID;
+    private javax.swing.JLabel JLNyttAgentID;
+    private javax.swing.JLabel JLNyttLosen;
+    private javax.swing.JLabel JLNyttNamn;
+    private javax.swing.JLabel JLNyttTelnr;
+    private javax.swing.JTextField TxtNyttAgentID;
+    private javax.swing.JTextField TxtNyttLosen;
+    private javax.swing.JTextField TxtNyttNamn;
+    private javax.swing.JTextField TxtNyttTelnr;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
