@@ -26,10 +26,10 @@ public class AndraAgentInformation extends javax.swing.JFrame {
         initComponents();
         this.idb = idb;
         fillComboboxAgent();
-        JComboBoxPlatsID.addItem("");
-        JComboBoxPlatsID.addItem("Norrland");
-        JComboBoxPlatsID.addItem("Svealand");
-        JComboBoxPlatsID.addItem("Götaland");   
+        JComboBoxOmråde.addItem("");
+        JComboBoxOmråde.addItem("Norrland");
+        JComboBoxOmråde.addItem("Svealand");
+        JComboBoxOmråde.addItem("Götaland");   
     }
 
     /**
@@ -46,13 +46,13 @@ public class AndraAgentInformation extends javax.swing.JFrame {
         JLNyttNamn = new javax.swing.JLabel();
         JLNyttLosen = new javax.swing.JLabel();
         JLNyttTelnr = new javax.swing.JLabel();
-        JLNyPlatsID = new javax.swing.JLabel();
+        JLNyttOmråde = new javax.swing.JLabel();
         JLNyttAgentID = new javax.swing.JLabel();
         TxtNyttAgentID = new javax.swing.JTextField();
         TxtNyttNamn = new javax.swing.JTextField();
         TxtNyttLosen = new javax.swing.JTextField();
         TxtNyttTelnr = new javax.swing.JTextField();
-        JComboBoxPlatsID = new javax.swing.JComboBox<>();
+        JComboBoxOmråde = new javax.swing.JComboBox<>();
         JComboBoxAgentID = new javax.swing.JComboBox<>();
         BtnÄndra = new javax.swing.JButton();
 
@@ -73,13 +73,13 @@ public class AndraAgentInformation extends javax.swing.JFrame {
         JLNyttTelnr.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         JLNyttTelnr.setText("Nytt tel.nmr");
 
-        JLNyPlatsID.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        JLNyPlatsID.setText("Ny PlatsID");
+        JLNyttOmråde.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        JLNyttOmråde.setText("Nytt Område");
 
         JLNyttAgentID.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         JLNyttAgentID.setText("Nytt AgentID");
 
-        JComboBoxPlatsID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Svealand", "Norrland", "Götaland" }));
+        JComboBoxOmråde.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Svealand", "Norrland", "Götaland" }));
 
         JComboBoxAgentID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1", "2", "3", "4" }));
 
@@ -112,12 +112,12 @@ public class AndraAgentInformation extends javax.swing.JFrame {
                                 .addComponent(JLNyttTelnr)
                                 .addGap(49, 49, 49))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(JLNyPlatsID)
+                                .addComponent(JLNyttOmråde)
                                 .addGap(58, 58, 58)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TxtNyttTelnr, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JComboBoxPlatsID, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(JComboBoxOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(71, 71, 71))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,7 +135,7 @@ public class AndraAgentInformation extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,8 +164,8 @@ public class AndraAgentInformation extends javax.swing.JFrame {
                     .addComponent(TxtNyttTelnr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JLNyPlatsID)
-                    .addComponent(JComboBoxPlatsID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JLNyttOmråde)
+                    .addComponent(JComboBoxOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BtnÄndra)
                 .addGap(17, 17, 17))
@@ -176,7 +176,7 @@ public class AndraAgentInformation extends javax.swing.JFrame {
 
     private void BtnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnÄndraActionPerformed
     String agentID = JComboBoxAgentID.getSelectedItem().toString();
-    String plats = JComboBoxPlatsID.getSelectedItem().toString();
+    String område = JComboBoxOmråde.getSelectedItem().toString();
     String namn = String.valueOf(TxtNyttNamn.getText());
     String telnr = String.valueOf(TxtNyttTelnr.getText());
     String agentensID = ("");
@@ -203,16 +203,16 @@ public class AndraAgentInformation extends javax.swing.JFrame {
       JOptionPane.showMessageDialog(null, "Telefonnummer har förnyats till "+telnr+"!"); 
       }
       
-      if (plats.equals("")){
+      if (område.equals("")){
     
-      JOptionPane.showMessageDialog(null, "Plats har inte förnyats!");
+      JOptionPane.showMessageDialog(null, "Området har inte förnyats!");
       }
     
       else {
       
-          String platsen = idb.fetchSingle("SELECT Omrades_ID FROM Omrade WHERE Benamning='"+plats+"'");
-      idb.update("UPDATE Agent SET Omrade = '"+plats+"' WHERE Agent_ID = '"+agentensID+"'");
-      JOptionPane.showMessageDialog(null, "Plats har förnyats till "+plats+"!");
+          String området = idb.fetchSingle("SELECT Omrades_ID FROM Omrade WHERE Benamning='"+område+"'");
+      idb.update("UPDATE Agent SET Omrade = '"+område+"' WHERE Agent_ID = '"+agentensID+"'");
+      JOptionPane.showMessageDialog(null, "Plats har förnyats till "+område+"!");
       }
 
      } catch (InfException ettUndantag) {
@@ -276,12 +276,12 @@ public class AndraAgentInformation extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnÄndra;
     private javax.swing.JComboBox<String> JComboBoxAgentID;
-    private javax.swing.JComboBox<String> JComboBoxPlatsID;
+    private javax.swing.JComboBox<String> JComboBoxOmråde;
     private javax.swing.JLabel JLAgentID;
-    private javax.swing.JLabel JLNyPlatsID;
     private javax.swing.JLabel JLNyttAgentID;
     private javax.swing.JLabel JLNyttLosen;
     private javax.swing.JLabel JLNyttNamn;
+    private javax.swing.JLabel JLNyttOmråde;
     private javax.swing.JLabel JLNyttTelnr;
     private javax.swing.JTextField TxtNyttAgentID;
     private javax.swing.JTextField TxtNyttLosen;

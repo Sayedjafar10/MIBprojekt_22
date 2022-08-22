@@ -23,17 +23,17 @@ public class AndraAlienInformation extends javax.swing.JFrame {
     public AndraAlienInformation(InfDB idb) {
         initComponents();
         this.idb = idb;
-        JComboBoxPlatsID.addItem("");
-        JComboBoxPlatsID.addItem("Örebro");
-        JComboBoxPlatsID.addItem("Västerås");
-        JComboBoxPlatsID.addItem("Vilhelmina");
-        JComboBoxPltasID.addItem("Borås");
+        JComboBoxPlats.addItem("");
+        JComboBoxPlats.addItem("Borås");
+        JComboBoxPlats.addItem("Örebro");
+        JComboBoxPlats.addItem("Västerås");
+        JComboBoxPlats.addItem("Vilhemina");
         JComboBoxRas.addItem("");
+        JComboBoxRas.addItem("Worm");
         JComboBoxRas.addItem("Squid");
         JComboBoxRas.addItem("Boglodite");
-        JComboBoxRas.addItem("Worm");
         fillComboboxAlien();
-        fillComboboxAgent();
+        fillComboboxAnsvarigAgent();
     }
 
    private void fillComboboxAlien(){ 
@@ -102,12 +102,11 @@ public class AndraAlienInformation extends javax.swing.JFrame {
         jJLNyttNamn = new java.awt.Label();
         JLNyttTelnr = new java.awt.Label();
         JLNyttAlienID = new java.awt.Label();
-        JLNyPlatsID = new java.awt.Label();
         JLNyAgent = new java.awt.Label();
         JLNyttLosen = new java.awt.Label();
         JLNyRas = new java.awt.Label();
         JComboBoxAlien = new javax.swing.JComboBox<>();
-        JComboBoxPlatsID = new javax.swing.JComboBox<>();
+        JComboBoxPlats = new javax.swing.JComboBox<>();
         JComboBoxAgent = new javax.swing.JComboBox<>();
         JComboBoxRas = new javax.swing.JComboBox<>();
         TxtAlienID = new javax.swing.JTextField();
@@ -115,6 +114,7 @@ public class AndraAlienInformation extends javax.swing.JFrame {
         TxtNyttLosen = new javax.swing.JTextField();
         TxtNyttTelnr = new javax.swing.JTextField();
         BtnAndra = new javax.swing.JButton();
+        JLPlats = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -133,9 +133,6 @@ public class AndraAlienInformation extends javax.swing.JFrame {
         JLNyttAlienID.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         JLNyttAlienID.setText("Nytt AlienID");
 
-        JLNyPlatsID.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        JLNyPlatsID.setText("Ny PlatsID");
-
         JLNyAgent.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         JLNyAgent.setText("Ny ansvarig Agent");
 
@@ -147,7 +144,7 @@ public class AndraAlienInformation extends javax.swing.JFrame {
 
         JComboBoxAlien.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Bobbo", "Braxen" }));
 
-        JComboBoxPlatsID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Borås", "Västerås", "Örebro", "Vilhelmina" }));
+        JComboBoxPlats.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Borås", "Västerås", "Örebro", "Vilhelmina" }));
 
         JComboBoxAgent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1", "2", "3", "4" }));
 
@@ -159,6 +156,9 @@ public class AndraAlienInformation extends javax.swing.JFrame {
                 BtnAndraActionPerformed(evt);
             }
         });
+
+        JLPlats.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        JLPlats.setText("Ny Plats");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -175,10 +175,10 @@ public class AndraAlienInformation extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(JLNyttLosen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(JLNyttTelnr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JLNyPlatsID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(JLPlats))
                         .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(JComboBoxPlatsID, 0, 107, Short.MAX_VALUE)
+                            .addComponent(JComboBoxPlats, 0, 107, Short.MAX_VALUE)
                             .addComponent(TxtNyttLosen)
                             .addComponent(TxtNyttTelnr)))
                     .addGroup(layout.createSequentialGroup()
@@ -229,9 +229,9 @@ public class AndraAlienInformation extends javax.swing.JFrame {
                     .addComponent(JLNyttTelnr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxtNyttTelnr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(JLNyPlatsID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JComboBoxPlatsID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JComboBoxPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JLPlats))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(JLNyAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -257,7 +257,7 @@ public class AndraAlienInformation extends javax.swing.JFrame {
         String alien = JComboBoxAlien.getSelectedItem().toString();
         String namn = String.valueOf(TxtNyttNamn.getText());
         String telnr = String.valueOf(TxtNyttTelnr.getText());
-        String plats = JComboBoxPlatsID.getSelectedItem().toString();
+        String plats = JComboBoxPlats.getSelectedItem().toString();
         String agent= JComboBoxAgent.getSelectedItem().toString();
         String ras= JComboBoxRas.getSelectedItem().toString();
         String alienID = "";
@@ -385,15 +385,15 @@ public class AndraAlienInformation extends javax.swing.JFrame {
     private javax.swing.JButton BtnAndra;
     private javax.swing.JComboBox<String> JComboBoxAgent;
     private javax.swing.JComboBox<String> JComboBoxAlien;
-    private javax.swing.JComboBox<String> JComboBoxPlatsID;
+    private javax.swing.JComboBox<String> JComboBoxPlats;
     private javax.swing.JComboBox<String> JComboBoxRas;
     private java.awt.Label JLAlien;
     private java.awt.Label JLNyAgent;
-    private java.awt.Label JLNyPlatsID;
     private java.awt.Label JLNyRas;
     private java.awt.Label JLNyttAlienID;
     private java.awt.Label JLNyttLosen;
     private java.awt.Label JLNyttTelnr;
+    private javax.swing.JLabel JLPlats;
     private java.awt.Label JLRubrik;
     private javax.swing.JTextField TxtAlienID;
     private javax.swing.JTextField TxtNyttLosen;

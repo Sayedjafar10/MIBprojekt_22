@@ -35,11 +35,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="JLNyttLosen" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="JLNyttTelnr" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="JLNyPlatsID" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="JLPlats" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="39" pref="39" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="JComboBoxPlatsID" pref="107" max="32767" attributes="0"/>
+                          <Component id="JComboBoxPlats" pref="107" max="32767" attributes="0"/>
                           <Component id="TxtNyttLosen" alignment="0" max="32767" attributes="0"/>
                           <Component id="TxtNyttTelnr" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -106,9 +106,9 @@
                   <Component id="TxtNyttTelnr" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="JLNyPlatsID" min="-2" max="-2" attributes="0"/>
-                  <Component id="JComboBoxPlatsID" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="JComboBoxPlats" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JLPlats" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -175,14 +175,6 @@
         <Property name="text" type="java.lang.String" value="Nytt AlienID"/>
       </Properties>
     </Component>
-    <Component class="java.awt.Label" name="JLNyPlatsID">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Ny PlatsID"/>
-      </Properties>
-    </Component>
     <Component class="java.awt.Label" name="JLNyAgent">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -221,7 +213,7 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="JComboBoxPlatsID">
+    <Component class="javax.swing.JComboBox" name="JComboBoxPlats">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="5">
@@ -283,6 +275,14 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAndraActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="JLPlats">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Helvetica Neue" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ny Plats"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
