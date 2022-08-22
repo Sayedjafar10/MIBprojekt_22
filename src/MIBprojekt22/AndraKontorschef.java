@@ -4,12 +4,19 @@
  */
 package MIBprojekt22;
 
+import oru.inf.InfDB;
+import oru.inf.InfException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author piava
  */
 public class AndraKontorschef extends javax.swing.JFrame {
 
+    private InfDB idb;
     /**
      * Creates new form AndraKontorschef
      */
@@ -26,22 +33,99 @@ public class AndraKontorschef extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        JLKontorschef = new javax.swing.JLabel();
+        JComboBoxKontorschef = new javax.swing.JComboBox<>();
+        BtnAndra = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        jLabel1.setText("Ändra Kontorschef Information");
+
+        JLKontorschef.setText("Välj Kontorschef/Agent");
+
+        JComboBoxKontorschef.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1", "2", "3", "4" }));
+
+        BtnAndra.setText("Ändra");
+        BtnAndra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAndraActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BtnAndra))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(JLKontorschef, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(JComboBoxKontorschef, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(17, 17, 17)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JLKontorschef)
+                    .addComponent(JComboBoxKontorschef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 195, Short.MAX_VALUE)
+                .addComponent(BtnAndra)
+                .addGap(31, 31, 31))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BtnAndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAndraActionPerformed
+    
+        String agenten = JComboBoxKontorschef.getSelectedItem().toString();
+    
+    try { 
+        
+        String agent = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Namn = '" + agenten + "'");
+        idb.update("UPDATE Kontorschef SET Agent_ID='" + agent + "'");
+    
+        JOptionPane.showMessageDialog(null, "Kontorschefen har förnyats!");// Denna metoden ger information till användaren
+        
+    } catch (InfException ettUndantag) {// Ifall try inte skulle fungera, stoppar detta systemet från att krascha
+        JOptionPane.showMessageDialog(null, "Kontorschefen gick inte att förnya!");
+        Logger.getLogger(AndraKontorschef.class.getName()).log(Level.SEVERE, null, ettUndantag);
+    }// TODO add your handling code here:
+    }//GEN-LAST:event_BtnAndraActionPerformed
+
+    private void fillComboboxAdminAgent(){
+        JComboBoxKontorschef.removeAllItems(); // Denna metod nollställer alla värden i comboboxen
+    String question = "SELECT Namn FROM Agent"; 
+    
+    ArrayList<String> AdminAgenter = new ArrayList<String>();
+    try {
+    AdminAgenter = idb.fetchColumn(question); // Denna metod hämtar alla namn som finns i agent tabellen
+    
+    for(String agent: AdminAgenter)
+    {
+      JComboBoxKontorschef.addItem(agent); // Denna metod lägger till alla agenter som är admins
+    }
+    }   catch (InfException ettUndantag) { // Finns ifall systemet skulle krasha
+            Logger.getLogger(AndraKontorschef.class.getName()).log(Level.SEVERE, null, ettUndantag);
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -78,5 +162,9 @@ public class AndraKontorschef extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnAndra;
+    private javax.swing.JComboBox<String> JComboBoxKontorschef;
+    private javax.swing.JLabel JLKontorschef;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
