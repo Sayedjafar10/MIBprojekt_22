@@ -20,6 +20,8 @@ public class LoggaIn extends javax.swing.JFrame {
     public LoggaIn(InfDB idb) {
         initComponents();
         this.idb = idb;
+                    setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -181,18 +183,19 @@ public class LoggaIn extends javax.swing.JFrame {
             }
 
             if (losenord.equals(agentLosen)){
-                
-                if (Validering.IsItAdmin(anvandare)){
-                    new Inloggad (anvandare, true);
-                    setVisible(false);
-                    new AdminSida(idb).setVisible(true);
-                }
-                else {
-                    new Inloggad (anvandare, false);
-                    setVisible(false);
-                    new AgentSida(idb).setVisible(true);
-                }
-            }else {
+                new Inloggad(anvandare, false);
+                new AgentSida(idb).setVisible(true);
+                setVisible(false);
+            }
+            else {
+                LBfelaktigt.setText("Du har skrivit in fel användarnamn eller lösenord");
+            }
+            
+            if (Validering.IsItAdmin(anvandare)){
+                        new Inloggad (anvandare, true);
+                        setVisible(false);
+                        new AdminSida(idb).setVisible(true);
+                    }else {
                 LBfelaktigt.setText("Fel lösenord eller ID!");
             }
         }
