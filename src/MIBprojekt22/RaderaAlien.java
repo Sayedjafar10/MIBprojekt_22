@@ -53,8 +53,8 @@ public class RaderaAlien extends javax.swing.JFrame {
 
         JLRubrik = new javax.swing.JLabel();
         JLRaderaAlien = new javax.swing.JLabel();
-        BtnRaderaAlien = new javax.swing.JButton();
         JComboBoxRaderaAlien = new javax.swing.JComboBox<>();
+        BTNradera = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,23 +64,19 @@ public class RaderaAlien extends javax.swing.JFrame {
         JLRaderaAlien.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         JLRaderaAlien.setText("Radera Alien från systemet");
 
-        BtnRaderaAlien.setText("Radera");
-        BtnRaderaAlien.addActionListener(new java.awt.event.ActionListener() {
+        JComboBoxRaderaAlien.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Bobbo", "Braxen" }));
+
+        BTNradera.setText("Radera");
+        BTNradera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnRaderaAlienActionPerformed(evt);
+                BTNraderaActionPerformed(evt);
             }
         });
-
-        JComboBoxRaderaAlien.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Bobbo", "Braxen" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnRaderaAlien)
-                .addGap(20, 20, 20))
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,6 +85,10 @@ public class RaderaAlien extends javax.swing.JFrame {
                         .addComponent(JComboBoxRaderaAlien, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(JLRaderaAlien, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(39, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BTNradera)
+                .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,16 +99,16 @@ public class RaderaAlien extends javax.swing.JFrame {
                 .addComponent(JLRaderaAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(JComboBoxRaderaAlien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 195, Short.MAX_VALUE)
-                .addComponent(BtnRaderaAlien)
-                .addGap(14, 14, 14))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
+                .addComponent(BTNradera)
+                .addGap(17, 17, 17))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnRaderaAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRaderaAlienActionPerformed
-     String alienNamn = String.valueOf(JComboBoxRaderaAlien.getSelectedItem().toString());
+    private void BTNraderaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNraderaActionPerformed
+        String alienNamn = String.valueOf(JComboBoxRaderaAlien.getSelectedItem().toString());
 
             
         try {
@@ -121,8 +121,7 @@ public class RaderaAlien extends javax.swing.JFrame {
         
         } catch (InfException ettUndantag) {
                 Logger.getLogger(RaderaAlien.class.getName()).log(Level.SEVERE, null, ettUndantag);
-        }     // TODO add your handling code here:
-    }//GEN-LAST:event_BtnRaderaAlienActionPerformed
+        }    }//GEN-LAST:event_BTNraderaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,7 +159,7 @@ public class RaderaAlien extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnRaderaAlien;
+    private javax.swing.JButton BTNradera;
     private javax.swing.JComboBox<String> JComboBoxRaderaAlien;
     private javax.swing.JLabel JLRaderaAlien;
     private javax.swing.JLabel JLRubrik;
