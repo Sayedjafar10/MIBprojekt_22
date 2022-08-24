@@ -94,7 +94,7 @@ public class NyregistreraAlien extends javax.swing.JFrame {
             }
         });
 
-        JComboBoxPlatsID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
+        JComboBoxPlatsID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
 
         JComboBoxAgent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Agent P", "Agent A", "Agent N" }));
 
@@ -183,13 +183,13 @@ public class NyregistreraAlien extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BTNregistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNregistreraActionPerformed
-<<<<<<< HEAD
+
      if(Validering.validAlienID(TXTalienID)) 
      if(Validering.validLosen(TXTlosen))
-=======
+
  
      if(Validering.kollaLosen(TXTlosen))
->>>>>>> aa9b27ad9646e9698e55a9d21c62fa3f57d34a22
+
      if(Validering.tomRuta(TXTnamn)) 
       
          try {
