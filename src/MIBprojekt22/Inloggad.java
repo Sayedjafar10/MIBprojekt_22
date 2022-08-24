@@ -11,12 +11,12 @@ package MIBprojekt22;
  */
 public class Inloggad {
     private static String anvandareID;
-    private static boolean IsItAdmin;
+    private static boolean isAdmin;
 
-    public Inloggad (String anvandareID, boolean IsItAdmin) {
+    public Inloggad (String anvandareID, boolean isAdmin) {
         
         this.anvandareID = anvandareID;
-        this.IsItAdmin = IsItAdmin;
+        this.isAdmin = isAdmin;
     }
    
     public static String getInloggadID() {
