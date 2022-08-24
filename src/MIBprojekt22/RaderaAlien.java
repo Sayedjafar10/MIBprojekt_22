@@ -108,8 +108,7 @@ public class RaderaAlien extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnRaderaAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRaderaAlienActionPerformed
-     
-        String alienNamn = String.valueOf(JComboBoxRaderaAlien.getSelectedItem().toString());
+     String alienNamn = String.valueOf(JComboBoxRaderaAlien.getSelectedItem().toString());
 
             
         try {
@@ -155,7 +154,7 @@ public class RaderaAlien extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RaderaAlien().setVisible(true);
+                //new RaderaAlien().setVisible(true);
             }
         });
     }

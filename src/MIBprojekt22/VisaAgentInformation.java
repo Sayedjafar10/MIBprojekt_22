@@ -4,17 +4,19 @@
  */
 package MIBprojekt22;
 
+import oru.inf.InfDB;
+
 /**
  *
  * @author piava
  */
 public class VisaAgentInformation extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VisaAgentInformation
-     */
-    public VisaAgentInformation() {
+    private static InfDB idb;
+    
+    public VisaAgentInformation(InfDB idb) {
         initComponents();
+        this.idb = idb;
     }
 
     /**
@@ -72,7 +74,7 @@ public class VisaAgentInformation extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VisaAgentInformation().setVisible(true);
+                //new VisaAgentInformation().setVisible(true);
             }
         });
     }

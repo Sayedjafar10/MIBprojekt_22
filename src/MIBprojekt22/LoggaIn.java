@@ -169,7 +169,8 @@ public class LoggaIn extends javax.swing.JFrame {
                 new Inloggad (anvandare, false);
                 new AlienSida (idb).setVisible(true);
                 setVisible(false);
-            } else {
+            } 
+            else {
                 LBfelaktigt.setText("Du har skrivit in fel användarnamn eller lösenord");
             }
         } else if (valdAnvandare.equals("Agent")) {

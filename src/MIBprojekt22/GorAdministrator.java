@@ -4,17 +4,19 @@
  */
 package MIBprojekt22;
 
+import oru.inf.InfDB;
+
 /**
  *
  * @author piava
  */
 public class GorAdministrator extends javax.swing.JFrame {
 
-    /**
-     * Creates new form GorAdmin
-     */
-    public GorAdministrator() {
+    private static InfDB idb;
+    
+    public GorAdministrator(InfDB idb) {
         initComponents();
+        this.idb = idb;
     }
 
     /**
@@ -75,7 +77,7 @@ public class GorAdministrator extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GorAdministrator().setVisible(true);
+                //new GorAdministrator().setVisible(true);
             }
         });
     }

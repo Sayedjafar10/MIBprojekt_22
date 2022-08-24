@@ -38,14 +38,14 @@ public class Validering {
     public static boolean IsItAdmin (String id){
         
         boolean admin = false;
-        String IsAdmin = "";
+        String isAdmin = "";
         try {
-            IsAdmin = idb.fetchSingle("SELECT Agent.Administrator FROM Agent WHERE Agent_ID = '" + id + "'");
+            isAdmin = idb.fetchSingle("SELECT Agent.Administrator FROM Agent WHERE Agent_ID = '" + id + "'");
         } catch (InfException ettUndantag) {
             JOptionPane.showMessageDialog (null, "Något har gått fel!");
         }
         
-        if (IsAdmin.equals("N")){
+        if (isAdmin.equals("N")){
             admin = true;
         }
         return admin;
@@ -55,7 +55,7 @@ public class Validering {
         
     boolean resultat = false;
 
-    if(losen.length() > 8 || losen.isEmpty()) {
+    if(losen.length() >= 8 && losen.length() <= 9) {
         JOptionPane.showMessageDialog(null, "Lösenordet får max vara 8 tecken!");
         resultat = true;
     }

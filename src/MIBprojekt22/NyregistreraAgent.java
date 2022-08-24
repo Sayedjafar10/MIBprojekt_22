@@ -185,9 +185,8 @@ public class NyregistreraAgent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnRegistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegistreraActionPerformed
-     
         if(Validering.kollaDatum(TxtDatum)) 
-        if(Validering.kollaLosen(Txtlosen))
+        if(Validering.kollaLosen(Txtlosen.getText()))
         if(Validering.tomRuta(TxtNamn))
         if(Validering.tomRuta(TxtTelnr))
     
