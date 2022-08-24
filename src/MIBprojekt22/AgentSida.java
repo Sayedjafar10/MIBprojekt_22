@@ -17,10 +17,7 @@ public class AgentSida extends javax.swing.JFrame {
     public AgentSida(InfDB idb) {
         initComponents();
         this.idb = idb;
-        
-        if (!Validering.IsItAdmin(Inloggad.getInloggadID())) {
-            BTNadminhant.setVisible(false);
-        }
+      
     }
 
    
