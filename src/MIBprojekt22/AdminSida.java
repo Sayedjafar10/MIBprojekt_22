@@ -30,51 +30,91 @@ public class AdminSida extends javax.swing.JFrame {
     private void initComponents() {
 
         label1 = new java.awt.Label();
-        button1 = new java.awt.Button();
-        button2 = new java.awt.Button();
-        button3 = new java.awt.Button();
-        button4 = new java.awt.Button();
-        button5 = new java.awt.Button();
-        button6 = new java.awt.Button();
-        button7 = new java.awt.Button();
-        button8 = new java.awt.Button();
+        BTNnyregAgent = new java.awt.Button();
+        BTNgeAdminstatus = new java.awt.Button();
+        BTNsökAgentInfo = new java.awt.Button();
+        BTNandraAgentinfo = new java.awt.Button();
+        BTNandraKontorschef = new java.awt.Button();
+        BTNandraOmradeschef = new java.awt.Button();
+        BTNtabortUtrustning = new java.awt.Button();
+        BTNtabortAgent = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         label1.setFont(new java.awt.Font("Cambria", 0, 24)); // NOI18N
         label1.setText("Meny");
 
-        button1.setBackground(new java.awt.Color(255, 255, 255));
-        button1.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        button1.setLabel("Nyregistrera agent");
+        BTNnyregAgent.setBackground(new java.awt.Color(255, 255, 255));
+        BTNnyregAgent.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        BTNnyregAgent.setLabel("Nyregistrera agent");
+        BTNnyregAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNnyregAgentActionPerformed(evt);
+            }
+        });
 
-        button2.setBackground(new java.awt.Color(255, 255, 255));
-        button2.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        button2.setLabel("Ge administratörsstatus");
+        BTNgeAdminstatus.setBackground(new java.awt.Color(255, 255, 255));
+        BTNgeAdminstatus.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        BTNgeAdminstatus.setLabel("Ge administratörsstatus");
+        BTNgeAdminstatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNgeAdminstatusActionPerformed(evt);
+            }
+        });
 
-        button3.setBackground(new java.awt.Color(255, 255, 255));
-        button3.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        button3.setLabel("Sök agentinfo");
+        BTNsökAgentInfo.setBackground(new java.awt.Color(255, 255, 255));
+        BTNsökAgentInfo.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        BTNsökAgentInfo.setLabel("Sök agentinfo");
+        BTNsökAgentInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNsökAgentInfoActionPerformed(evt);
+            }
+        });
 
-        button4.setBackground(new java.awt.Color(255, 255, 255));
-        button4.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        button4.setLabel("Ändra agentinfo");
+        BTNandraAgentinfo.setBackground(new java.awt.Color(255, 255, 255));
+        BTNandraAgentinfo.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        BTNandraAgentinfo.setLabel("Ändra agentinfo");
+        BTNandraAgentinfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNandraAgentinfoActionPerformed(evt);
+            }
+        });
 
-        button5.setBackground(new java.awt.Color(255, 255, 255));
-        button5.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        button5.setLabel("Ändra kontorschef");
+        BTNandraKontorschef.setBackground(new java.awt.Color(255, 255, 255));
+        BTNandraKontorschef.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        BTNandraKontorschef.setLabel("Ändra kontorschef");
+        BTNandraKontorschef.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNandraKontorschefActionPerformed(evt);
+            }
+        });
 
-        button6.setBackground(new java.awt.Color(255, 255, 255));
-        button6.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        button6.setLabel("Ändra omradeschef");
+        BTNandraOmradeschef.setBackground(new java.awt.Color(255, 255, 255));
+        BTNandraOmradeschef.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        BTNandraOmradeschef.setLabel("Ändra omradeschef");
+        BTNandraOmradeschef.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNandraOmradeschefActionPerformed(evt);
+            }
+        });
 
-        button7.setBackground(new java.awt.Color(255, 255, 255));
-        button7.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        button7.setLabel("Ta bort utrustning");
+        BTNtabortUtrustning.setBackground(new java.awt.Color(255, 255, 255));
+        BTNtabortUtrustning.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        BTNtabortUtrustning.setLabel("Ta bort utrustning");
+        BTNtabortUtrustning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNtabortUtrustningActionPerformed(evt);
+            }
+        });
 
-        button8.setBackground(new java.awt.Color(255, 255, 255));
-        button8.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        button8.setLabel("Ta bort agent");
+        BTNtabortAgent.setBackground(new java.awt.Color(255, 255, 255));
+        BTNtabortAgent.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        BTNtabortAgent.setLabel("Ta bort agent");
+        BTNtabortAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNtabortAgentActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,16 +127,16 @@ public class AdminSida extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(button1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(button2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(button3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(button4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(BTNnyregAgent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BTNgeAdminstatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BTNsökAgentInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BTNandraAgentinfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(button5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(button6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(button7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(button8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(BTNandraKontorschef, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BTNandraOmradeschef, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BTNtabortUtrustning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BTNtabortAgent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(55, 55, 55))
         );
         layout.setVerticalGroup(
@@ -106,36 +146,77 @@ public class AdminSida extends javax.swing.JFrame {
                 .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(button5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BTNandraKontorschef, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BTNnyregAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(button6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BTNandraOmradeschef, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BTNgeAdminstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(button7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BTNtabortUtrustning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BTNsökAgentInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(button8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BTNtabortAgent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BTNandraAgentinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BTNnyregAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNnyregAgentActionPerformed
+        // TODO add your handling code here:
+        new NyregistreraAgent(idb).setVisible(true);
+    }//GEN-LAST:event_BTNnyregAgentActionPerformed
+
+    private void BTNandraKontorschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNandraKontorschefActionPerformed
+        // TODO add your handling code here:
+        new AndraKontorschef(idb).setVisible(true);
+    }//GEN-LAST:event_BTNandraKontorschefActionPerformed
+
+    private void BTNgeAdminstatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNgeAdminstatusActionPerformed
+        // TODO add your handling code here:
+        new GorAdministrator(idb).setVisible(true);
+    }//GEN-LAST:event_BTNgeAdminstatusActionPerformed
+
+    private void BTNandraOmradeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNandraOmradeschefActionPerformed
+        // TODO add your handling code here:
+        new AndraOmrodeschef(idb).setVisible(true);
+    }//GEN-LAST:event_BTNandraOmradeschefActionPerformed
+
+    private void BTNsökAgentInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNsökAgentInfoActionPerformed
+        // TODO add your handling code here:
+        new VisaAgentInformation(idb).setVisible(true);
+        
+    }//GEN-LAST:event_BTNsökAgentInfoActionPerformed
+
+    private void BTNtabortUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNtabortUtrustningActionPerformed
+        // TODO add your handling code here:
+        new RaderaUtrustning(idb).setVisible(true);
+    }//GEN-LAST:event_BTNtabortUtrustningActionPerformed
+
+    private void BTNandraAgentinfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNandraAgentinfoActionPerformed
+        // TODO add your handling code here:
+        new AndraAgentInformation(idb).setVisible(true);
+    }//GEN-LAST:event_BTNandraAgentinfoActionPerformed
+
+    private void BTNtabortAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNtabortAgentActionPerformed
+        // TODO add your handling code here:
+        new RaderaAgent(idb).setVisible(true);
+    }//GEN-LAST:event_BTNtabortAgentActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button button1;
-    private java.awt.Button button2;
-    private java.awt.Button button3;
-    private java.awt.Button button4;
-    private java.awt.Button button5;
-    private java.awt.Button button6;
-    private java.awt.Button button7;
-    private java.awt.Button button8;
+    private java.awt.Button BTNandraAgentinfo;
+    private java.awt.Button BTNandraKontorschef;
+    private java.awt.Button BTNandraOmradeschef;
+    private java.awt.Button BTNgeAdminstatus;
+    private java.awt.Button BTNnyregAgent;
+    private java.awt.Button BTNsökAgentInfo;
+    private java.awt.Button BTNtabortAgent;
+    private java.awt.Button BTNtabortUtrustning;
     private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables
 }
