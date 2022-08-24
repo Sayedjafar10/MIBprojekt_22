@@ -29,7 +29,7 @@ public class RaderaAlien extends javax.swing.JFrame {
 
     private void fyllComboboxAliens(){
     JComboBoxRaderaAlien.removeAllItems();
-    String question = "SELECT Namn FROM Alien";
+    String question = "SELECT Namn FROM Alien"; //vi hämtar alla namn från alien tabellen
     
     ArrayList<String> Aliens ;
     try {
@@ -115,7 +115,7 @@ public class RaderaAlien extends javax.swing.JFrame {
         String alien = idb.fetchSingle("SELECT Alien_ID FROM Alien WHERE Namn = '"+alienNamn+"'");
         
         {    
-        idb.delete("DELETE FROM Alien WHERE Namn = '" + alienNamn + "'");
+        idb.delete("DELETE FROM Alien WHERE Namn = '" + alienNamn + "'");//Här raderar vi den utvalda alien
         JOptionPane.showMessageDialog(null, "Alien med Namnet " + alienNamn + " är bortaget!"); 
         }
         
