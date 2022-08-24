@@ -25,6 +25,8 @@ public class AndraOmrodeschef extends javax.swing.JFrame {
         this.idb = idb;
         fyllComboboxAdminAgent();
         fyllComboboxOmråde();
+                setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
     }
 
     private void fyllComboboxAdminAgent() {
@@ -198,7 +200,7 @@ try {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AndraOmrodeschef().setVisible(true);
+                //new AndraOmrodeschef().setVisible(true);
             }
         });
     }
