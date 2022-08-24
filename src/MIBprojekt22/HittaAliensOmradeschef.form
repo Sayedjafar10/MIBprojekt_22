@@ -24,26 +24,36 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-              <Component id="label1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="84" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="LBrubagent" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="LBrubnamn" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="LBrubtelnmr" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="LBrubomrode" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="LBrubomrode" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="TXTomradeID" pref="90" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="LBrubagent" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LBrubnamn" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LBrubtelnmr" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="TXTnamn" max="32767" attributes="0"/>
+                                  <Component id="TXTagentID" max="32767" attributes="0"/>
+                                  <Component id="TXTtelnmr" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      <Component id="label1" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="LBomradeID" min="-2" max="-2" attributes="0"/>
-                  <Component id="LBtelnummer" min="-2" max="-2" attributes="0"/>
-                  <Component id="LBnamn" min="-2" max="-2" attributes="0"/>
-                  <Component id="LBagentID" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -51,37 +61,30 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="label1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="LBagentID" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="29" pref="29" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="LBnamn" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="29" pref="29" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="LBtelnummer" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="LBomradeID" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="label1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Component id="LBrubagent" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="LBrubnamn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="LBrubtelnmr" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                      <Component id="LBrubomrode" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="TXTagentID" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="96" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="LBrubnamn" min="-2" max="-2" attributes="0"/>
+                  <Component id="TXTnamn" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="LBrubtelnmr" min="-2" max="-2" attributes="0"/>
+                  <Component id="TXTtelnmr" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="LBrubomrode" min="-2" max="-2" attributes="0"/>
+                  <Component id="TXTomradeID" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="92" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -127,25 +130,13 @@
         <Property name="text" type="java.lang.String" value="Omr&#xe5;deID:"/>
       </Properties>
     </Component>
-    <Component class="java.awt.Label" name="LBagentID">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="label2"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="TXTagentID">
     </Component>
-    <Component class="java.awt.Label" name="LBnamn">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="label3"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="TXTnamn">
     </Component>
-    <Component class="java.awt.Label" name="LBtelnummer">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="label4"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="TXTtelnmr">
     </Component>
-    <Component class="java.awt.Label" name="LBomradeID">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="label5"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="TXTomradeID">
     </Component>
   </SubComponents>
 </Form>
