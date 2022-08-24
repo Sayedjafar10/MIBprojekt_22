@@ -53,9 +53,9 @@
                       </Group>
                       <EmptySpace min="69" pref="69" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="TxtLosen" pref="153" max="32767" attributes="0"/>
-                          <Component id="JComboBoxOmråde" max="32767" attributes="0"/>
+                          <Component id="JComboBoxOmråde" pref="153" max="32767" attributes="0"/>
                           <Component id="TxtTelnr" max="32767" attributes="0"/>
+                          <Component id="Txtlosen" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -92,7 +92,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="JLLosen" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="TxtLosen" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Txtlosen" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -184,11 +184,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="TxtTelnr">
     </Component>
-    <Component class="javax.swing.JPasswordField" name="TxtLosen">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JComboBox" name="JComboBoxOmr&#xe5;de">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -223,6 +218,8 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="TxtAdmin">
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txtlosen">
     </Component>
   </SubComponents>
 </Form>
