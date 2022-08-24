@@ -23,14 +23,14 @@ public class RaderaAgent extends javax.swing.JFrame {
     public RaderaAgent(InfDB idb) {
         initComponents(); 
         this.idb = idb;
-        fillComboboxAgenter();
+        fyllComboboxAgenter();
     }
 
-    private void fillComboboxAgenter(){
+    private void fyllComboboxAgenter(){
     JComboBoxRaderaAgent.removeAllItems();
     String question = "SELECT Namn FROM Agent";
     
-    ArrayList<String> Agenter = new ArrayList<String>();
+    ArrayList<String> Agenter ;
     try {
     Agenter= idb.fetchColumn(question);
     

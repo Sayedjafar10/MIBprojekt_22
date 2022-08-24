@@ -24,14 +24,14 @@ public class RaderaAlien extends javax.swing.JFrame {
     public RaderaAlien(InfDB idb) {
         initComponents();
         this.idb = idb;
-        fillComboboxAliens();
+        fyllComboboxAliens();
     }
 
-    private void fillComboboxAliens(){
+    private void fyllComboboxAliens(){
     JComboBoxRaderaAlien.removeAllItems();
     String question = "SELECT Namn FROM Alien";
     
-    ArrayList<String> Aliens = new ArrayList<String>();
+    ArrayList<String> Aliens ;
     try {
     Aliens= idb.fetchColumn(question);
     

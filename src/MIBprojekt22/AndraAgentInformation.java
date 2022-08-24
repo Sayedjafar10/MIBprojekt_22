@@ -25,7 +25,7 @@ public class AndraAgentInformation extends javax.swing.JFrame {
     public AndraAgentInformation(InfDB idb) {
         initComponents();
         this.idb = idb;
-        fillComboboxAgent();
+        fyllComboboxAgent();
         JComboBoxOmråde.addItem("");
         JComboBoxOmråde.addItem("Norrland");
         JComboBoxOmråde.addItem("Svealand");
@@ -222,11 +222,11 @@ public class AndraAgentInformation extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnÄndraActionPerformed
 
-    private void fillComboboxAgent(){ //
+    private void fyllComboboxAgent(){ //
     JComboBoxAgentID.removeAllItems();
     String question = "SELECT Namn FROM Agent";
     
-    ArrayList<String> Agenter = new ArrayList<String>();
+    ArrayList<String> Agenter ;
     try {
     Agenter= idb.fetchColumn(question);
     

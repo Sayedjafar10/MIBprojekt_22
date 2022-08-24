@@ -25,9 +25,9 @@ public class NyregistreraAlien extends javax.swing.JFrame {
     public NyregistreraAlien(InfDB idb) {
         initComponents();
         this.idb =  idb;
-        fillComboBoxPlats();
-        fillComboBoxAgent();
-        fillComboBoxRas();
+        fyllComboBoxPlats();
+        fyllComboBoxAgent();
+        fyllComboBoxRas();
         
     
     }
@@ -202,8 +202,8 @@ public class NyregistreraAlien extends javax.swing.JFrame {
             int ansvarigAgent = Integer.parseInt(JComboBoxAgent.getSelectedItem().toString());
             int rasen = Integer.parseInt(JComboBoxRas.getSelectedItem().toString());
             
-            String q= "INSERT INTO Alien VALUES("+AlienID+",'"+losen+"','"+namnet+"','"+telnr+"','"+platsen+"','"+ansvarigAgent+"', '"+rasen+"');";
-            idb.insert(q);
+            String question= "INSERT INTO Alien VALUES("+AlienID+",'"+losen+"','"+namnet+"','"+telnr+"','"+platsen+"','"+ansvarigAgent+"', '"+rasen+"');";
+            idb.insert(question);
             JOptionPane.showMessageDialog(null, "Ny alien har registrerats!");
             
            
@@ -267,11 +267,11 @@ public class NyregistreraAlien extends javax.swing.JFrame {
     private java.awt.Label label8;
     // End of variables declaration//GEN-END:variables
 
-    private void fillComboBoxPlats() {
+    private void fyllComboBoxPlats() {
     
     JComboBoxPlatsID.removeAllItems();
     String question = "SELECT Plats_ID FROM Plats";
-    ArrayList<String> platser = new ArrayList<String>();
+    ArrayList<String> platser ;
     
     try {
     platser = idb.fetchColumn(question);
@@ -285,11 +285,11 @@ public class NyregistreraAlien extends javax.swing.JFrame {
     }
     }
 
-    private void fillComboBoxAgent() {
+    private void fyllComboBoxAgent() {
       
    JComboBoxAgent.removeAllItems();
    String question = "SELECT Agent_ID FROM Agent WHERE Administrator = 'N'";
-   ArrayList<String> ansvarigaAgenter = new ArrayList<String>();
+   ArrayList<String> ansvarigaAgenter ;
    try {
     ansvarigaAgenter = idb.fetchColumn(question);
     for(String agent: ansvarigaAgenter)
@@ -301,10 +301,10 @@ public class NyregistreraAlien extends javax.swing.JFrame {
         }
    }
 
-    private void fillComboBoxRas() {
+    private void fyllComboBoxRas() {
          JComboBoxRas.removeAllItems();
         String question = "SELECT Alien_ID FROM Boglodite, Worm, Squid";
-        ArrayList<String> raser = new ArrayList<String>();
+        ArrayList<String> raser ;
         try {
             raser = idb.fetchColumn(question);
             for(String ras: raser)

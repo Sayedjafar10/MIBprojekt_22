@@ -32,15 +32,16 @@ public class AndraAlienInformation extends javax.swing.JFrame {
         JComboBoxRas.addItem("Worm");
         JComboBoxRas.addItem("Squid");
         JComboBoxRas.addItem("Boglodite");
-        fillComboboxAlien();
-        fillComboboxAnsvarigAgent();
+        fyllComboboxAlien();
+        fyllComboboxAnsvarigAgent();
+        fyllComboboxRas();
     }
 
-   private void fillComboboxAlien(){ 
+   private void fyllComboboxAlien(){ 
     JComboBoxAlien.removeAllItems();
     String question = "SELECT Namn FROM Alien";
     
-    ArrayList<String> Aliens = new ArrayList<String>();
+    ArrayList<String> Aliens ;
     try {
     Aliens = idb.fetchColumn(question);
     
@@ -52,13 +53,13 @@ public class AndraAlienInformation extends javax.swing.JFrame {
             Logger.getLogger(AndraAlienInformation.class.getName()).log(Level.SEVERE, null, ettUndantag);
         }
     } 
-    private void fillComboboxAnvarigAgent(){
+    private void fyllComboboxAnsvarigAgent(){
     JComboBoxAgent.removeAllItems(); 
     JComboBoxAgent.addItem(""); 
     
     
     String question = "SELECT Namn FROM Agent WHERE Administrator='N'";
-    ArrayList<String> agenter = new ArrayList<String>();
+    ArrayList<String> agenter ;
     
     try {
         agenter = idb.fetchColumn(question);
@@ -72,11 +73,11 @@ public class AndraAlienInformation extends javax.swing.JFrame {
         }// Hindrar programmet från att kracha om try inte fungerar
 }
    
-    private void fillComboboxRas(){
+    private void fyllComboboxRas(){
         JComboBoxRas.removeAllItems();
     String question = "SELECT * FROM Ras";
     
-    ArrayList<String> Raser = new ArrayList<String>();
+    ArrayList<String> Raser ;
     try {
     Raser = idb.fetchColumn(question);
     

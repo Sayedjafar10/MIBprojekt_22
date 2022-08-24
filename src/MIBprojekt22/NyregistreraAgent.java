@@ -21,15 +21,15 @@ public class NyregistreraAgent extends javax.swing.JFrame {
       public NyregistreraAgent(InfDB idb) {
         initComponents(); 
         this.idb = idb;
-        fillComboboxOmrade();
+        fyllComboboxOmrade();
         
     }
-    private void fillComboboxOmrade() {
+    private void fyllComboboxOmrade() {
         
         JComboBoxOmråde.removeAllItems();
         String question = "SELECT Omrades_ID FROM Omrade";
         
-        ArrayList<String> omraden = new ArrayList<String>();
+        ArrayList<String> omraden ;
     try {
     omraden = idb.fetchColumn(question);
     

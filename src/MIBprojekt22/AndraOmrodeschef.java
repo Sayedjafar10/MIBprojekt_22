@@ -23,15 +23,15 @@ public class AndraOmrodeschef extends javax.swing.JFrame {
     public AndraOmrodeschef(InfDB idb) {
         initComponents();
         this.idb = idb;
-        fillComboboxAdminAgent();
-        fillComboboxOmråde();
+        fyllComboboxAdminAgent();
+        fyllComboboxOmråde();
     }
 
-    private void fillComboboxAdminAgent() {
+    private void fyllComboboxAdminAgent() {
         JComboBoxOmradeschef.removeAllItems(); // Denna metod nollställer alla värder i comboboxen
     String question = "SELECT Namn FROM Agent"; // Här används en SQL-fråga för att hämta agentnamn
     
-    ArrayList<String> AdminAgenter = new ArrayList<String>();
+    ArrayList<String> AdminAgenter ;
     try {
     AdminAgenter = idb.fetchColumn(question);
     
@@ -45,11 +45,11 @@ public class AndraOmrodeschef extends javax.swing.JFrame {
     }
    
     
-    private void fillComboboxOmråde(){ // Denna metod fyller comboboxen med områden 
+    private void fyllComboboxOmråde(){ // Denna metod fyller comboboxen med områden 
     JComboBoxOmråde.removeAllItems();
     String question = "SELECT Benamning FROM Omrade";
     
-    ArrayList<String> områden = new ArrayList<String>();
+    ArrayList<String> områden ;
     try {
     områden = idb.fetchColumn(question);
     for(String område: områden)

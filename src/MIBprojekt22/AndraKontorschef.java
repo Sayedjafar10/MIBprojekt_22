@@ -23,7 +23,7 @@ public class AndraKontorschef extends javax.swing.JFrame {
     public AndraKontorschef(InfDB idb) {
         initComponents();
         this.idb = idb;
-        fillComboboxAdminAgent();
+        fyllComboboxAdminAgent();
     }
 
     /**
@@ -112,11 +112,11 @@ public class AndraKontorschef extends javax.swing.JFrame {
     }// TODO add your handling code here:
     }//GEN-LAST:event_BtnAndraActionPerformed
 
-    private void fillComboboxAdminAgent(){
+    private void fyllComboboxAdminAgent(){
         JComboBoxKontorschef.removeAllItems(); // Denna metod nollställer alla värden i comboboxen
     String question = "SELECT Namn FROM Agent"; 
     
-    ArrayList<String> AdminAgenter = new ArrayList<String>();
+    ArrayList<String> AdminAgenter ;
     try {
     AdminAgenter = idb.fetchColumn(question); // Denna metod hämtar alla namn som finns i agent tabellen
     

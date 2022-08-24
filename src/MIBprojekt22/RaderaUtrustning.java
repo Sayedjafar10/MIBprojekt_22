@@ -24,14 +24,14 @@ public class RaderaUtrustning extends javax.swing.JFrame {
     public RaderaUtrustning(InfDB idb) {
         initComponents();
         this.idb = idb;
-        fillComboboxUtrustningar();
+        fyllComboboxUtrustningar();
     }
 
-    private void fillComboboxUtrustningar(){
+    private void fyllComboboxUtrustningar(){
     JComboBoxRaderaUtrustning.removeAllItems();
     String question = "SELECT Benamning FROM Utrustning";
     
-    ArrayList<String> Utrustningar = new ArrayList<String>();
+    ArrayList<String> Utrustningar ;
     try {
     Utrustningar= idb.fetchColumn(question);
     
