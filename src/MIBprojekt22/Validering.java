@@ -10,11 +10,15 @@ import oru.inf.InfException;
 
 /**
  *
- * @author piava
+ * @author piava, AmandaDemir
  */
 public class Validering {
     
     private static InfDB idb;
+
+    static boolean kollaLosen(JTextField Txtlosen) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     public Validering (InfDB idb){
         this.idb = idb;
     }

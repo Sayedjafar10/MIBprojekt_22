@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
  *
- * @author piava
+ * @author piava, AmandaDemir
  */
 public class AndraAgentInformation extends javax.swing.JFrame {
 
@@ -181,14 +181,14 @@ public class AndraAgentInformation extends javax.swing.JFrame {
     String telnr = String.valueOf(TxtNyttTelnr.getText());
     String agentensID = ("");
     
-    try {
+    try { 
      agentensID = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Namn ='"+agentensID+"'");
-    if(namn.equals("")){
+    if(namn.equals("")){ //Här använder vi en if else sats i en try catch sats för att ifall try och if else skulle krascha så finns catch där för att fånga oss
       JOptionPane.showMessageDialog(null, "Namn har inte förnyats!");   
       }
       
       else{
-      idb.update("UPDATE Agent SET Namn = '"+namn+"' WHERE Agent_ID = '"+agentensID+"'");
+      idb.update("UPDATE Agent SET Namn = '"+namn+"' WHERE Agent_ID = '"+agentensID+"'");//Om inte if sker så sker else och då updaterar man agent namnet med variabeln man skrev in med agentID som man skrev in
       JOptionPane.showMessageDialog(null, "Namn har förnyats till "+namn+"!"); 
       }
       
@@ -199,7 +199,7 @@ public class AndraAgentInformation extends javax.swing.JFrame {
       
       else {
           
-      idb.update("UPDATE Agent SET Telefon = '"+telnr+"' WHERE Agent_ID = '"+agentensID+"'");
+      idb.update("UPDATE Agent SET Telefon = '"+telnr+"' WHERE Agent_ID = '"+agentensID+"'"); // Vi uppdaterar agentens telnr med agentensID
       JOptionPane.showMessageDialog(null, "Telefonnummer har förnyats till "+telnr+"!"); 
       }
       
@@ -211,20 +211,20 @@ public class AndraAgentInformation extends javax.swing.JFrame {
       else {
       
           String området = idb.fetchSingle("SELECT Omrades_ID FROM Omrade WHERE Benamning='"+område+"'");
-      idb.update("UPDATE Agent SET Omrade = '"+område+"' WHERE Agent_ID = '"+agentensID+"'");
+      idb.update("UPDATE Agent SET Omrade = '"+område+"' WHERE Agent_ID = '"+agentensID+"'");//Vi uppdaterar agentens område med agentID
       JOptionPane.showMessageDialog(null, "Plats har förnyats till "+område+"!");
       }
 
-     } catch (InfException ettUndantag) {
+     } catch (InfException ettUndantag) { //Här räddar vi programmet från att krashca, så vi går tillbaka till try
             Logger.getLogger(AndraAgentInformation.class.getName()).log(Level.SEVERE, null, ettUndantag);
      }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnÄndraActionPerformed
 
-    private void fyllComboboxAgent(){ //
-    JComboBoxAgentID.removeAllItems();
-    String question = "SELECT Namn FROM Agent";
+    private void fyllComboboxAgent(){ //Här fyller vi in comboboxen agent
+    JComboBoxAgentID.removeAllItems(); //Först nollställer vi comboboxens värden, så att vi kan fylla i med värden med removeAllItems
+    String question = "SELECT Namn FROM Agent";//Här tar vi hjälp av en SQL fråga för att hämta namn från agent tabellen
     
     ArrayList<String> Agenter ;
     try {

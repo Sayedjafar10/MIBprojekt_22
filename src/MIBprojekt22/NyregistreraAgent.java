@@ -12,7 +12,7 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 /**
  *
- * @author amandademir
+ * @author amandademir, piava
  */
 public class NyregistreraAgent extends javax.swing.JFrame {
 
@@ -26,8 +26,8 @@ public class NyregistreraAgent extends javax.swing.JFrame {
     }
     private void fyllComboboxOmrade() {
         
-        JComboBoxOmråde.removeAllItems();
-        String question = "SELECT Omrades_ID FROM Omrade";
+        JComboBoxOmråde.removeAllItems(); //Vi rensar comboxen för att sedan fylla i med våra valda värden
+        String question = "SELECT Omrades_ID FROM Omrade";// Vi tar en SQL fråga för att hämta områden från område tabellen
         
         ArrayList<String> omraden ;
     try {
@@ -189,7 +189,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
         if(Validering.kollaDatum(TxtDatum)) 
         if(Validering.kollaLosen(Txtlosen))
         if(Validering.tomRuta(TxtNamn))
-        if (Validering.tomRuta(TxtTelnr))
+        if(Validering.tomRuta(TxtTelnr))
     
 try {
             
@@ -201,14 +201,14 @@ try {
             int omrade = Integer.parseInt(JComboBoxOmråde.getSelectedItem().toString());
             String admin = String.valueOf(TxtAdmin.getText());
             
-            String q= "INSERT INTO Agent VALUES("+AgentID+",'"+namn+"','"+telnr+"','"+anstallningsdatum+"','"+admin+"','"+losen+"',"+omrade+");";
+            String question= "INSERT INTO Agent VALUES("+AgentID+",'"+namn+"','"+telnr+"','"+anstallningsdatum+"','"+admin+"','"+losen+"',"+omrade+");";//Här lägger vi in värden jframen
             
             
-            idb.insert(q);
+            idb.insert(question);
             JOptionPane.showMessageDialog(null, "Ny agent har registrerats!");
             
            
-        } catch (InfException ettUndantag) {   
+        } catch (InfException ettUndantag) { //Hindrar systemet från att krashca, tar oss tillbaka till try  
         Logger.getLogger(NyregistreraAgent.class.getName()).log(Level.SEVERE, null, ettUndantag);
         }   // TODO add your handling code here:
     }//GEN-LAST:event_BtnRegistreraActionPerformed

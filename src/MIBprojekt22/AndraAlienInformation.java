@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
  *
- * @author piava
+ * @author piava, AmandaDemir
  */
 public class AndraAlienInformation extends javax.swing.JFrame {
 
@@ -38,8 +38,8 @@ public class AndraAlienInformation extends javax.swing.JFrame {
     }
 
    private void fyllComboboxAlien(){ 
-    JComboBoxAlien.removeAllItems();
-    String question = "SELECT Namn FROM Alien";
+    JComboBoxAlien.removeAllItems(); // Här tar vi bort värden i comboboxen
+    String question = "SELECT Namn FROM Alien"; //Här hämtar vi namn från alien tabellen genom en SQL fråga
     
     ArrayList<String> Aliens ;
     try {
@@ -47,9 +47,9 @@ public class AndraAlienInformation extends javax.swing.JFrame {
     
     for(String alien: Aliens)
     {
-      JComboBoxAlien.addItem(alien);
+      JComboBoxAlien.addItem(alien); //Här ska vi kunna lägga till en alien i arraylistan
     }
-    }   catch (InfException ettUndantag) {
+    }   catch (InfException ettUndantag) { //Här fångas systemet upp ifall problem skulle ske
             Logger.getLogger(AndraAlienInformation.class.getName()).log(Level.SEVERE, null, ettUndantag);
         }
     } 
@@ -268,7 +268,7 @@ public class AndraAlienInformation extends javax.swing.JFrame {
             
             alienID = idb.fetchSingle("SELECT Alien_ID FROM Alien WHERE Namn ='"+alien+"'");
             
-            if(namn.equals(""))
+            if(namn.equals("")) //Här använder vi en if else sats, om inte if gäller så sker else satsen
             {  
                 System.out.println("Namn har inte förnyats!");
             }
@@ -278,7 +278,7 @@ public class AndraAlienInformation extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Namn har förnyats till "+namn+"!");
             }    
                
-            if(telnr.equals(""))
+            if(telnr.equals("")) //Här använder vi en if else sats
             {  
                 System.out.println("Telefonnumret har ej förnyats");
             }
@@ -289,7 +289,7 @@ public class AndraAlienInformation extends javax.swing.JFrame {
               JOptionPane.showMessageDialog(null, "Telefonnummer har förnyats till "+telnr+"!");
             }
         
-            if(plats.equals("")) 
+            if(plats.equals("")) //Här använder vi en if else sats
             {
                 System.out.println("Plats har inte förnyats!");  
             } 
@@ -300,7 +300,7 @@ public class AndraAlienInformation extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Plats har förnyats till "+plats+"!");
             }
             
-            if(agent.equals("")) 
+            if(agent.equals("")) //Här använder vi en if else sats
             {
                 System.out.println("Agent har inte förnyats!");  
             } 
@@ -311,32 +311,32 @@ public class AndraAlienInformation extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Agent har förnyats till "+agent+"!");
             }
             
-            if(ras.equals("")) 
+            if(ras.equals("")) //Här använder vi en if else sats
             {
                 System.out.println("Ras har inte förnyats!");  
             } 
             
             if(ras.equals("Squid"))
             {
-                idb.insert("INSERT INTO Squid VALUES("+alienID+")");
-                idb.delete("DELETE FROM Boglodite WHERE Alien_ID="+alienID+"");
-                idb.delete("DELETE FROM Worm WHERE Alien_ID="+alienID+"");
-                JOptionPane.showMessageDialog(null, "Ras har förnyats till "+ras+"!");
+                idb.insert("INSERT INTO Squid VALUES("+alienID+")");// Vi lägger in squid som ras med inskrivna alienID
+                idb.delete("DELETE FROM Boglodite WHERE Alien_ID="+alienID+"");//Här tar vi bort kopplingen mellan boglodite och inskriva alienID
+                idb.delete("DELETE FROM Worm WHERE Alien_ID="+alienID+"");//Här tar vi bort kopplingen mellan worm och det inskriva alienID
+                JOptionPane.showMessageDialog(null, "Ras har förnyats till "+ras+"!");//Här är ett meddelande
             }
             
             if(ras.equals("Boglodite"))
             {
-                idb.insert("INSERT INTO Boglodite VALUES("+alienID+")");
-                idb.delete("DELETE FROM Squid WHERE Alien_ID="+alienID+"");
-                idb.delete("DELETE FROM Worm WHERE Alien_ID="+alienID+"");
+                idb.insert("INSERT INTO Boglodite VALUES("+alienID+")");//Här lägger vi in boglodite som ras till alienID 
+                idb.delete("DELETE FROM Squid WHERE Alien_ID="+alienID+"");//Här tar vi bort squid som val som ras till alienID
+                idb.delete("DELETE FROM Worm WHERE Alien_ID="+alienID+"");//Här tar vi bort worm som val som ras till alienID eftersom ras ska equal boglodite
                 JOptionPane.showMessageDialog(null, "Ras har förnyats "+ras+"!");
             }
             
             if(ras.equals("Worm"))
             {
-                idb.insert("INSERT INTO Worm VALUES("+alienID+")");
-                idb.delete("DELETE FROM Boglodite WHERE Alien_ID="+alienID+"");
-                idb.delete("DELETE FROM Squid WHERE Alien_ID="+alienID+"");
+                idb.insert("INSERT INTO Worm VALUES("+alienID+")");//Samma sak här, vi lägger in worm som value till alienID
+                idb.delete("DELETE FROM Boglodite WHERE Alien_ID="+alienID+"");//Här tar vi bort boglodite
+                idb.delete("DELETE FROM Squid WHERE Alien_ID="+alienID+"");//Här tar vi bort squid eftersom ras ska equal worm
                 JOptionPane.showMessageDialog(null, "Ras har förnyats till "+ras+"!");
             }
                    
