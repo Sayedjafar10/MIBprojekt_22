@@ -184,7 +184,7 @@ public class LoggaIn extends javax.swing.JFrame {
                 if (Validering.IsItAdmin(anvandare)){
                     new Inloggad (anvandare, true);
                     setVisible(false);
-                    new AgentSida(idb).setVisible(true);
+                    new AdminSida(idb).setVisible(true);
                 }
                 else {
                     new Inloggad (anvandare, false);
