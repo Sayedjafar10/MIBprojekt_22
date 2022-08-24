@@ -16,13 +16,11 @@ import oru.inf.InfException;
  */
 public class NyregistreraAgent extends javax.swing.JFrame {
 
-    private InfDB idb;
-    /**
-     * Creates new form NyregistreraAgent
-     */
+    private static InfDB idb;
+    
       public NyregistreraAgent(InfDB idb) {
+        initComponents(); 
         this.idb = idb;
-        initComponents();
         fillComboboxOmrade();
         
     }
@@ -62,12 +60,12 @@ public class NyregistreraAgent extends javax.swing.JFrame {
         TxtAgentID = new javax.swing.JTextField();
         TxtNamn = new javax.swing.JTextField();
         TxtTelnr = new javax.swing.JTextField();
-        TxtLosen = new javax.swing.JPasswordField();
         JComboBoxOmråde = new javax.swing.JComboBox<>();
         TxtDatum = new javax.swing.JTextField();
         BtnRegistrera = new javax.swing.JButton();
         JLAdmin = new javax.swing.JLabel();
         TxtAdmin = new javax.swing.JTextField();
+        Txtlosen = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,8 +89,6 @@ public class NyregistreraAgent extends javax.swing.JFrame {
 
         JLDatum.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         JLDatum.setText("Anställningsdatum");
-
-        TxtLosen.setText("jPasswordField1");
 
         JComboBoxOmråde.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
 
@@ -134,9 +130,9 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                             .addComponent(JLLosen))
                         .addGap(69, 69, 69)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TxtLosen, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
-                            .addComponent(JComboBoxOmråde, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(TxtTelnr)))
+                            .addComponent(JComboBoxOmråde, 0, 153, Short.MAX_VALUE)
+                            .addComponent(TxtTelnr)
+                            .addComponent(Txtlosen)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(JLDatum)
@@ -163,7 +159,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLLosen)
-                    .addComponent(TxtLosen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Txtlosen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLTelnr)
@@ -191,7 +187,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
     private void BtnRegistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegistreraActionPerformed
      
         if(Validering.kollaDatum(TxtDatum)) 
-        if(Validering.kollaLosen(TxtLosen))
+        if(Validering.kollaLosen(Txtlosen))
         if(Validering.tomRuta(TxtNamn))
         if (Validering.tomRuta(TxtTelnr))
     
@@ -199,7 +195,7 @@ try {
             
             String AgentID = idb.getAutoIncrement("Agent","Agent_ID");
             String anstallningsdatum = TxtDatum.getText();
-            String losen = String.valueOf(TxtLosen.getText());
+            String losen = String.valueOf(Txtlosen.getText());
             String namn = String.valueOf(TxtNamn.getText());
             String telnr = String.valueOf(TxtTelnr.getText());
             int omrade = Integer.parseInt(JComboBoxOmråde.getSelectedItem().toString());
@@ -217,40 +213,7 @@ try {
         }   // TODO add your handling code here:
     }//GEN-LAST:event_BtnRegistreraActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NyregistreraAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NyregistreraAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NyregistreraAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NyregistreraAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new NyregistreraAgent().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnRegistrera;
@@ -266,8 +229,8 @@ try {
     private javax.swing.JTextField TxtAdmin;
     private javax.swing.JTextField TxtAgentID;
     private javax.swing.JTextField TxtDatum;
-    private javax.swing.JPasswordField TxtLosen;
     private javax.swing.JTextField TxtNamn;
     private javax.swing.JTextField TxtTelnr;
+    private javax.swing.JTextField Txtlosen;
     // End of variables declaration//GEN-END:variables
 }
