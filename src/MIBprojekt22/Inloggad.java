@@ -4,8 +4,6 @@
  */
 package MIBprojekt22;
 
-import oru.inf.InfDB;
-
 
 /**
  *
@@ -15,9 +13,9 @@ public class Inloggad {
     private static String anvandareID;
     private static boolean IsItAdmin;
 
-    public Inloggad (String anvandarID, boolean IsItAdmin) {
+    public Inloggad (String anvandareID, boolean IsItAdmin) {
         
-        this.anvandareID = anvandarID;
+        this.anvandareID = anvandareID;
         this.IsItAdmin = IsItAdmin;
     }
    
