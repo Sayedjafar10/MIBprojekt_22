@@ -45,7 +45,7 @@ public class Validering {
             JOptionPane.showMessageDialog (null, "Något har gått fel!");
         }
         
-        if (isAdmin.equals("N")){
+        if (isAdmin.equals("J")){
             admin = true;
         }
         return admin;
