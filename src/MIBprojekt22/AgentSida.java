@@ -11,7 +11,8 @@ import oru.inf.InfDB;
  * @author piava
  */
 public class AgentSida extends javax.swing.JFrame {
-   private static InfDB idb;
+  
+    private static InfDB idb;
 
     public AgentSida(InfDB idb) {
         initComponents();
