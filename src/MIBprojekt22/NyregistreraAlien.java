@@ -31,8 +31,6 @@ public class NyregistreraAlien extends javax.swing.JFrame {
         
     
     }
-
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -186,10 +184,7 @@ public class NyregistreraAlien extends javax.swing.JFrame {
 
      if(Validering.validAlienID(TXTalienID)) 
      if(Validering.validLosen(TXTlosen))
-
- 
      if(Validering.kollaLosen(TXTlosen))
-
      if(Validering.tomRuta(TXTnamn)) 
       
          try {
@@ -242,7 +237,7 @@ public class NyregistreraAlien extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NyregistreraAlien().setVisible(true);
+                //new NyregistreraAlien().setVisible(true);
             }
         });
     }
