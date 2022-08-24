@@ -23,25 +23,24 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="JLRaderaAgent" max="32767" attributes="0"/>
+                  <Component id="JComboBoxRaderaAgent" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+          </Group>
           <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="BtnRadera" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                          <Component id="JLRubrik" min="-2" pref="247" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="JComboBoxRaderaAgent" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="JLRaderaAgent" max="32767" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="JLRubrik" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="16" max="32767" attributes="0"/>
+              <EmptySpace pref="29" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -49,14 +48,16 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="JLRubrik" min="-2" pref="83" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="JLRubrik" min="-2" pref="37" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="13" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Component id="JLRaderaAgent" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="JComboBoxRaderaAgent" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="165" max="32767" attributes="0"/>
+              <EmptySpace pref="69" max="32767" attributes="0"/>
               <Component id="BtnRadera" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -65,7 +66,7 @@
     <Component class="javax.swing.JLabel" name="JLRubrik">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Helvetica Neue" size="24" style="0"/>
+          <Font name="Cambria" size="24" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Radera Agent"/>
       </Properties>
@@ -73,18 +74,20 @@
     <Component class="javax.swing.JLabel" name="JLRaderaAgent">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Helvetica Neue" size="14" style="1"/>
+          <Font name="Cambria" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Radera en Agent fr&#xe5;n systemet"/>
+        <Property name="text" type="java.lang.String" value="V&#xe4;lj agent att radera"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="JComboBoxRaderaAgent">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
+          <StringArray count="5">
             <StringItem index="0" value=""/>
             <StringItem index="1" value="Agent K"/>
-            <StringItem index="2" value="Agent N"/>
+            <StringItem index="2" value="Agent J"/>
+            <StringItem index="3" value="Agent Z"/>
+            <StringItem index="4" value="Agent O"/>
           </StringArray>
         </Property>
       </Properties>
@@ -99,6 +102,14 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnRaderaActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Cambria" size="10" style="2"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="H&#xe4;r kan du som admin radera en eller flera agenter ur systemet."/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
