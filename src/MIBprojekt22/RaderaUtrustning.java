@@ -25,6 +25,7 @@ public class RaderaUtrustning extends javax.swing.JFrame {
         initComponents();
         this.idb = idb;
         fyllComboboxUtrustningar();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
     private void fyllComboboxUtrustningar(){
@@ -56,14 +57,15 @@ public class RaderaUtrustning extends javax.swing.JFrame {
         JLRaderaUtrustning = new javax.swing.JLabel();
         JComboBoxRaderaUtrustning = new javax.swing.JComboBox<>();
         BtnRaderaUtrustning = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        JLRubrik.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
-        JLRubrik.setText("Radera Utrustning");
+        JLRubrik.setFont(new java.awt.Font("Cambria", 0, 24)); // NOI18N
+        JLRubrik.setText("Radera utrustning");
 
-        JLRaderaUtrustning.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        JLRaderaUtrustning.setText("Radera Utrustning från systemet");
+        JLRaderaUtrustning.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
+        JLRaderaUtrustning.setText("Välj utrustning att radera nedan");
 
         JComboBoxRaderaUtrustning.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Neuralyzer", "Carbonizer" }));
 
@@ -74,32 +76,48 @@ public class RaderaUtrustning extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Cambria", 2, 10)); // NOI18N
+        jLabel1.setText("Här kan du som admin radera utrustning ur systemet");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(JLRubrik))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel1)))
+                .addContainerGap(32, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnRaderaUtrustning)
-                .addGap(15, 15, 15))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JComboBoxRaderaUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JLRaderaUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JLRubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(13, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(JComboBoxRaderaUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(BtnRaderaUtrustning)
+                            .addGap(15, 15, 15))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(JLRaderaUtrustning)
+                            .addGap(43, 43, 43)))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(JLRubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addContainerGap()
+                .addComponent(JLRubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jLabel1)
+                .addGap(26, 26, 26)
                 .addComponent(JLRaderaUtrustning)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JComboBoxRaderaUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addComponent(BtnRaderaUtrustning)
                 .addGap(17, 17, 17))
         );
@@ -151,7 +169,7 @@ public class RaderaUtrustning extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RaderaUtrustning().setVisible(true);
+                //new RaderaUtrustning().setVisible(true);
             }
         });
     }
@@ -161,5 +179,6 @@ public class RaderaUtrustning extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> JComboBoxRaderaUtrustning;
     private javax.swing.JLabel JLRaderaUtrustning;
     private javax.swing.JLabel JLRubrik;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
