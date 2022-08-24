@@ -29,7 +29,7 @@ public class RaderaUtrustning extends javax.swing.JFrame {
 
     private void fyllComboboxUtrustningar(){
     JComboBoxRaderaUtrustning.removeAllItems();
-    String question = "SELECT Benamning FROM Utrustning";
+    String question = "SELECT Benamning FROM Utrustning";// Vi hämtar in utrustnings från tabellen genom en SQL fråga
     
     ArrayList<String> Utrustningar ;
     try {
@@ -37,7 +37,7 @@ public class RaderaUtrustning extends javax.swing.JFrame {
     
     for(String utrustning: Utrustningar)
     {
-      JComboBoxRaderaUtrustning.addItem(utrustning);
+      JComboBoxRaderaUtrustning.addItem(utrustning); //Här lägger vi till utrustning 
     }
     }   catch (InfException ettUndantag) {
             Logger.getLogger(RaderaUtrustning.class.getName()).log(Level.SEVERE, null, ettUndantag);
@@ -108,12 +108,12 @@ public class RaderaUtrustning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnRaderaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRaderaUtrustningActionPerformed
-     String utrustningsNamn = String.valueOf(JComboBoxRaderaUtrustning.getSelectedItem().toString());
+     String utrustningsNamn = String.valueOf(JComboBoxRaderaUtrustning.getSelectedItem().toString());//Detta beskriver den valda utrustningen
             
         try {
         String utrustning = idb.fetchSingle("SELECT Utrustnings_ID FROM Utrustning WHERE Benamning = '"+utrustningsNamn+"'");
         {    
-        idb.delete("DELETE FROM Utrustning WHERE Benamning = '" + utrustningsNamn + "'");
+        idb.delete("DELETE FROM Utrustning WHERE Benamning = '" + utrustningsNamn + "'");//Här raderar vi utrustningen vi valt
         JOptionPane.showMessageDialog(null, "Utrustning med Namnet " + utrustningsNamn + " är bortaget!"); 
         }
         } catch (InfException ettUndantag) {

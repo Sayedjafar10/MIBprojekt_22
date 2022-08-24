@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
  *
- * @author piava
+ * @author piava, AmandaDemir
  */
 public class AndraOmrodeschef extends javax.swing.JFrame {
 
@@ -31,8 +31,8 @@ public class AndraOmrodeschef extends javax.swing.JFrame {
         JComboBoxOmradeschef.removeAllItems(); // Denna metod nollställer alla värder i comboboxen
     String question = "SELECT Namn FROM Agent"; // Här används en SQL-fråga för att hämta agentnamn
     
-    ArrayList<String> AdminAgenter ;
-    try {
+    ArrayList<String> AdminAgenter ; // Här anropar man en arraylist med agenter med admin status för att kunna ändra områdeschef
+    try { // Vi använder try catch för att förhindra crashar från att hända ifall det skulle uppstå problem. 
     AdminAgenter = idb.fetchColumn(question);
     
     for(String agent: AdminAgenter)
@@ -46,11 +46,11 @@ public class AndraOmrodeschef extends javax.swing.JFrame {
    
     
     private void fyllComboboxOmråde(){ // Denna metod fyller comboboxen med områden 
-    JComboBoxOmråde.removeAllItems();
-    String question = "SELECT Benamning FROM Omrade";
+    JComboBoxOmråde.removeAllItems(); // Här nollställs värdena i comboboxen 
+    String question = "SELECT Benamning FROM Omrade"; // Här använder vi en SQL fråga för att få tillgång till områdenas benämningar. 
     
     ArrayList<String> områden ;
-    try {
+    try { // Vi använder try catch för att förhindra crashar från att hända ifall det skulle uppstå problem. 
     områden = idb.fetchColumn(question);
     for(String område: områden)
     {
@@ -143,23 +143,23 @@ public class AndraOmrodeschef extends javax.swing.JFrame {
 
     private void BtnAndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAndraActionPerformed
  
-    String agenten = JComboBoxOmradeschef.getSelectedItem().toString();
+    String agenten = JComboBoxOmradeschef.getSelectedItem().toString(); 
     String området = JComboBoxOmråde.getSelectedItem().toString();
     
 try {
-    // Här hämtas agentID från agent tabellen  
+    // Här hämtarr vi agentID från agent tabellen  
     String agentensID = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Namn = '" + agenten + "'");
-    // Här hämtas områdesID från område tabellen 
+    // Här hämtar vi områdesID från område tabellen 
     String områdetsID = idb.fetchSingle("SELECT Omrades_ID FROM OMRADE WHERE Benamning = '" + området + "'");
     
-    // Här uppdateras områdeschefen 
+    // Här uppdaterar vi områdeschefen 
     idb.update("UPDATE Omradeschef SET Agent_ID = '" + agenten + "' WHERE Omrade = '" + området + "'");
     
     // Denna metod visar information
     JOptionPane.showMessageDialog(null, agenten + " är områdeschef för området! " + området);
          
             
-    } catch (InfException ettUndantag) { // Stoppar krash
+    } catch (InfException ettUndantag) { // Stoppar krash ifall try inte skulle fungera
       Logger.getLogger(AndraOmrodeschef.class.getName()).log(Level.SEVERE, null, ettUndantag);
       
     }

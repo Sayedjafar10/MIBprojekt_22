@@ -95,12 +95,12 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
         String UtrustningsID =  idb.getAutoIncrement("Utrustning","Utrustnings_ID");
         String namn = String.valueOf(TxtUtrustning.getText());
         
-        idb.insert("INSERT INTO Utrustning VALUES("+UtrustningsID+",'"+namn+"')");
+        idb.insert("INSERT INTO Utrustning VALUES("+UtrustningsID+",'"+namn+"')");//Här skriver vi in utrustningsvärden
         JOptionPane.showMessageDialog(null, "Ny utrustning är har registrerats!");
             
     } catch (InfException ettUndantag) {   
         Logger.getLogger(NyregistreraUtrustning.class.getName()).log(Level.SEVERE, null, ettUndantag);
-        }    // TODO add your handling code here:
+        }    
     }//GEN-LAST:event_BtnRegistreraActionPerformed
 
     /**

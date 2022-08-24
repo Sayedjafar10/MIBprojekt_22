@@ -197,7 +197,7 @@ public class NyregistreraAlien extends javax.swing.JFrame {
             int ansvarigAgent = Integer.parseInt(JComboBoxAgent.getSelectedItem().toString());
             int rasen = Integer.parseInt(JComboBoxRas.getSelectedItem().toString());
             
-            String question= "INSERT INTO Alien VALUES("+AlienID+",'"+losen+"','"+namnet+"','"+telnr+"','"+platsen+"','"+ansvarigAgent+"', '"+rasen+"');";
+            String question= "INSERT INTO Alien VALUES("+AlienID+",'"+losen+"','"+namnet+"','"+telnr+"','"+platsen+"','"+ansvarigAgent+"', '"+rasen+"');";//Här fyller vi in all info om alien
             idb.insert(question);
             JOptionPane.showMessageDialog(null, "Ny alien har registrerats!");
             
