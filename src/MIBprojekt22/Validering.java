@@ -3,6 +3,7 @@ package MIBprojekt22;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import javax.swing.*;
+import javax.swing.JTextField;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -14,9 +15,8 @@ import oru.inf.InfException;
 public class Validering {
     
     private static InfDB idb;
-    
     public Validering (InfDB idb){
-        Validering.idb = idb;
+        this.idb = idb;
     }
     
     public static boolean tomRuta (JTextField checkaRuta)
