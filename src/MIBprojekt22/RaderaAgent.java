@@ -24,6 +24,7 @@ public class RaderaAgent extends javax.swing.JFrame {
         initComponents(); 
         this.idb = idb;
         fyllComboboxAgenter();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
     private void fyllComboboxAgenter(){
@@ -55,16 +56,17 @@ public class RaderaAgent extends javax.swing.JFrame {
         JLRaderaAgent = new javax.swing.JLabel();
         JComboBoxRaderaAgent = new javax.swing.JComboBox<>();
         BtnRadera = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        JLRubrik.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        JLRubrik.setFont(new java.awt.Font("Cambria", 0, 24)); // NOI18N
         JLRubrik.setText("Radera Agent");
 
-        JLRaderaAgent.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        JLRaderaAgent.setText("Radera en Agent från systemet");
+        JLRaderaAgent.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
+        JLRaderaAgent.setText("Välj agent att radera");
 
-        JComboBoxRaderaAgent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Agent K", "Agent N" }));
+        JComboBoxRaderaAgent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Agent K", "Agent J", "Agent Z", "Agent O" }));
 
         BtnRadera.setText("Radera");
         BtnRadera.addActionListener(new java.awt.event.ActionListener() {
@@ -73,37 +75,42 @@ public class RaderaAgent extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Cambria", 2, 10)); // NOI18N
+        jLabel1.setText("Här kan du som admin radera en eller flera agenter ur systemet.");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(JLRaderaAgent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JComboBoxRaderaAgent, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(92, 92, 92))
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(BtnRadera)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(14, 14, 14)
-                            .addComponent(JLRubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(JComboBoxRaderaAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(JLRaderaAgent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(16, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(JLRubrik)
+                        .addComponent(jLabel1)))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(JLRubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(JLRubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
                 .addComponent(JLRaderaAgent)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(JComboBoxRaderaAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(BtnRadera)
-                .addGap(17, 17, 17))
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -166,5 +173,6 @@ public class RaderaAgent extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> JComboBoxRaderaAgent;
     private javax.swing.JLabel JLRaderaAgent;
     private javax.swing.JLabel JLRubrik;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
