@@ -37,8 +37,8 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
 
         JLRubrik = new javax.swing.JLabel();
         JLRegUtrustning = new javax.swing.JLabel();
-        TxtRegUtrustning = new javax.swing.JTextField();
         BtnRegistrera = new javax.swing.JButton();
+        TxtUtrustning = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,17 +59,17 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnRegistrera)
+                .addGap(20, 20, 20))
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(JLRubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JLRegUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtRegUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(8, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnRegistrera)
-                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -79,7 +79,7 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
                 .addGap(47, 47, 47)
                 .addComponent(JLRegUtrustning)
                 .addGap(18, 18, 18)
-                .addComponent(TxtRegUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TxtUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
                 .addComponent(BtnRegistrera)
                 .addGap(20, 20, 20))
@@ -89,11 +89,11 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnRegistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegistreraActionPerformed
-    if(Validering.tomRuta(TxtRegUtrustning))
+    if(Validering.tomRuta(TxtUtrustning))
     
     try{
         String UtrustningsID =  idb.getAutoIncrement("Utrustning","Utrustnings_ID");
-        String namn = String.valueOf(TxtRegUtrustning.getText());
+        String namn = String.valueOf(TxtUtrustning.getText());
         
         idb.insert("INSERT INTO Utrustning VALUES("+UtrustningsID+",'"+namn+"')");
         JOptionPane.showMessageDialog(null, "Ny utrustning är har registrerats!");
@@ -142,6 +142,6 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
     private javax.swing.JButton BtnRegistrera;
     private javax.swing.JLabel JLRegUtrustning;
     private javax.swing.JLabel JLRubrik;
-    private javax.swing.JTextField TxtRegUtrustning;
+    private javax.swing.JTextField TxtUtrustning;
     // End of variables declaration//GEN-END:variables
 }
