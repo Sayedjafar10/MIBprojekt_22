@@ -5,7 +5,7 @@
             <url>src/MIBprojekt22/AgentSida.java</url>
             <bookmark id="1">
                 <name/>
-                <line>143</line>
+                <line>140</line>
                 <key/>
             </bookmark>
         </file>
@@ -13,9 +13,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/piava/Documents/NetBeansProjects/Systemprojekt1/src/MIBprojekt22/Validering.java</file>
+            <file>file:/C:/Users/piava/Documents/NetBeansProjects/Systemprojekt1/src/MIBprojekt22/GorAdministrator.java</file>
             <file>file:/C:/Users/piava/Documents/NetBeansProjects/Systemprojekt1/src/MIBprojekt22/LoggaIn.java</file>
-            <file>file:/C:/Users/piava/Documents/NetBeansProjects/Systemprojekt1/src/MIBprojekt22/RedigeraAlien.java</file>
-            <file>file:/C:/Users/piava/Documents/NetBeansProjects/Systemprojekt1/src/MIBprojekt22/AgentSida.java</file>
+            <file>file:/C:/Users/piava/Documents/NetBeansProjects/Systemprojekt1/src/MIBprojekt22/RaderaAgent.java</file>
             <file>file:/C:/Users/piava/Documents/NetBeansProjects/Systemprojekt1/src/MIBprojekt22/Inloggad.java</file>
             <file>file:/C:/Users/piava/Documents/NetBeansProjects/Systemprojekt1/src/MIBprojekt22/AdminSida.java</file>
         </group>
