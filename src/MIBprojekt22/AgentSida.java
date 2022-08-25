@@ -8,7 +8,10 @@ import oru.inf.InfDB;
 
 /**
  *
- * @author piava
+ * @author Pia Vargas, Amanda Demir
+ * 
+ * Klassen innehåller knappar som leder dig till nya fönster med olika funktioner
+ * du har som inloggad agent.
  */
 public class AgentSida extends javax.swing.JFrame {
   
@@ -19,7 +22,6 @@ public class AgentSida extends javax.swing.JFrame {
         this.idb = idb;
       
     }
-
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -122,22 +124,27 @@ public class AgentSida extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BTNandralosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNandralosenordActionPerformed
+        //Denna knapp leder dig till ett nytt fönster där du kan ändra ditt lösenord.
         new AndraLosenAgent (idb).setVisible(true);
     }//GEN-LAST:event_BTNandralosenordActionPerformed
 
     private void BTNregutrustnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNregutrustnActionPerformed
+        //Denna knapp leder dig till ett nytt fönster där du kan nyregistrera utrustning.
         new NyregistreraUtrustning(idb).setVisible(true);
     }//GEN-LAST:event_BTNregutrustnActionPerformed
 
     private void BTNadminhantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNadminhantActionPerformed
+        //Denna knapp leder dig som är admin till ett nytt fönster där du får admin-funktioner.
         new AdminSida(idb).setVisible(true);
     }//GEN-LAST:event_BTNadminhantActionPerformed
 
     private void BTNsokOmrodeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNsokOmrodeschefActionPerformed
+        //Denna knapp leder dig till ett nytt fönster där du kan hitta områdeschefen för ett specifikt område.
         new HittaOmradeschef(idb).setVisible(true);
     }//GEN-LAST:event_BTNsokOmrodeschefActionPerformed
 
     private void BTNredigeraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNredigeraAlienActionPerformed
+       //Denna knapp leder dig till ett nytt fönster där du kan redigera en Alien.
         new RedigeraAlien(idb).setVisible(true);
     }//GEN-LAST:event_BTNredigeraAlienActionPerformed
 
