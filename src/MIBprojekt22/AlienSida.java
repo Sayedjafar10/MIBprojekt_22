@@ -8,7 +8,10 @@ import oru.inf.InfDB;
 
 /**
  *
- * @author piava
+ * @author Pia Vargas, Amanda Demir
+ * 
+ * Klassen innehåller knappar som leder dig till nya fönster med olika funktioner du har 
+ * som en inloggad alien.
  */
 public class AlienSida extends javax.swing.JFrame {
     
@@ -26,7 +29,7 @@ public class AlienSida extends javax.swing.JFrame {
 
         LBrubrik = new java.awt.Label();
         BTNandralosen = new java.awt.Button();
-        button1 = new java.awt.Button();
+        BTNminomradeschef = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,12 +45,12 @@ public class AlienSida extends javax.swing.JFrame {
             }
         });
 
-        button1.setBackground(new java.awt.Color(255, 255, 255));
-        button1.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        button1.setLabel("Min områdeschef");
-        button1.addActionListener(new java.awt.event.ActionListener() {
+        BTNminomradeschef.setBackground(new java.awt.Color(255, 255, 255));
+        BTNminomradeschef.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        BTNminomradeschef.setLabel("Min områdeschef");
+        BTNminomradeschef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button1ActionPerformed(evt);
+                BTNminomradeschefActionPerformed(evt);
             }
         });
 
@@ -62,7 +65,7 @@ public class AlienSida extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BTNminomradeschef, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BTNandralosen, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(66, Short.MAX_VALUE))
         );
@@ -74,7 +77,7 @@ public class AlienSida extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addComponent(BTNandralosen, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BTNminomradeschef, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(78, Short.MAX_VALUE))
         );
 
@@ -82,16 +85,18 @@ public class AlienSida extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BTNandralosenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNandralosenActionPerformed
+        //Denna knapp leder dig till ett nytt fönster där du kan ändra lösenord.
         new AndraLosenAlien(idb).setVisible(true);
     }//GEN-LAST:event_BTNandralosenActionPerformed
 
-    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+    private void BTNminomradeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNminomradeschefActionPerformed
+        //Denna knapp leder dig till ett nytt fönster där du får upp den inloggades Aliens områdeschef.
         new HittaAliensOmradeschef(idb).setVisible(true);
-    }//GEN-LAST:event_button1ActionPerformed
+    }//GEN-LAST:event_BTNminomradeschefActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button BTNandralosen;
+    private java.awt.Button BTNminomradeschef;
     private java.awt.Label LBrubrik;
-    private java.awt.Button button1;
     // End of variables declaration//GEN-END:variables
 }
