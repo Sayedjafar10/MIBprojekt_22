@@ -8,7 +8,11 @@ import oru.inf.InfException;
 
 /**
  *
- * @author piava
+ * @author Pia Vargas, Amanda Demir
+ * 
+ * 
+ * Klassen innehåller knappar som leder dig till nya fönster med olika funktioner
+ * som du har som administratör.
  */
 public class AdminSida extends javax.swing.JFrame {
 
@@ -167,43 +171,42 @@ public class AdminSida extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BTNnyregAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNnyregAgentActionPerformed
-        // TODO add your handling code here:
+        //Denna knapp leder dig till ett nytt fönster där du kan nyregistrera agenter.
         new NyregistreraAgent(idb).setVisible(true);
     }//GEN-LAST:event_BTNnyregAgentActionPerformed
 
     private void BTNandraKontorschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNandraKontorschefActionPerformed
-        // TODO add your handling code here:
+        //Denna knapp leder dig till ett nytt fönster där du kan ändra kontorschef.
         new AndraKontorschef(idb).setVisible(true);
     }//GEN-LAST:event_BTNandraKontorschefActionPerformed
 
     private void BTNgeAdminstatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNgeAdminstatusActionPerformed
-        // TODO add your handling code here:
+        //Denna knapp leder dig till ett nytt fönster där du kan göra en eller flera agenter till administratörer.
         new GorAdministrator(idb).setVisible(true);
     }//GEN-LAST:event_BTNgeAdminstatusActionPerformed
 
     private void BTNandraOmradeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNandraOmradeschefActionPerformed
-        // TODO add your handling code here:
+        //Denna knapp leder dig till ett nytt fönster där du kan uppdatera befintlig områdeschef.
         new AndraOmrodeschef(idb).setVisible(true);
     }//GEN-LAST:event_BTNandraOmradeschefActionPerformed
 
     private void BTNsökAgentInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNsökAgentInfoActionPerformed
-        // TODO add your handling code here:
+        //Denna knapp leder dig till ett nytt fönster där du kan visa information om vald agent.
         new VisaAgentInformation(idb).setVisible(true);
-        
     }//GEN-LAST:event_BTNsökAgentInfoActionPerformed
 
     private void BTNtabortUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNtabortUtrustningActionPerformed
-        // TODO add your handling code here:
+        //Denna knapp leder dig till ett nytt fönster där du kan radera utrustning från systemet.
         new RaderaUtrustning(idb).setVisible(true);
     }//GEN-LAST:event_BTNtabortUtrustningActionPerformed
 
     private void BTNandraAgentinfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNandraAgentinfoActionPerformed
-        // TODO add your handling code here:
+        //Denna knapp leder dig till ett nytt fönster där du kan ändra information på vald agent.
         new AndraAgentInformation(idb).setVisible(true);
     }//GEN-LAST:event_BTNandraAgentinfoActionPerformed
 
     private void BTNtabortAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNtabortAgentActionPerformed
-        // TODO add your handling code here:
+        //Denna knapp leder dig till ett nytt fönster där du kan radera agent/er ur systemet.
         new RaderaAgent(idb).setVisible(true);
     }//GEN-LAST:event_BTNtabortAgentActionPerformed
 
