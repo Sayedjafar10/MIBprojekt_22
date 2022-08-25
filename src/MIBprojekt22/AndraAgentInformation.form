@@ -186,7 +186,12 @@
     <Component class="javax.swing.JComboBox" name="JComboBoxOmr&#xe5;de">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="0"/>
+          <StringArray count="4">
+            <StringItem index="0" value=""/>
+            <StringItem index="1" value="Norrland"/>
+            <StringItem index="2" value="G&#xf6;taland"/>
+            <StringItem index="3" value="Svealand"/>
+          </StringArray>
         </Property>
       </Properties>
       <AuxValues>
