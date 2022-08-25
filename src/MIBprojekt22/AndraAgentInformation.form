@@ -24,37 +24,30 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="JLAgentID" min="-2" pref="85" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="JComboBoxAgentID" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="JLNyttAgentID" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="TxtNyttAgentID" min="-2" pref="118" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="JLNyttOmråde" max="32767" attributes="0"/>
-                          <Component id="JLNyttLosen" min="-2" pref="82" max="-2" attributes="0"/>
-                          <Component id="JLNyttNamn" min="-2" max="-2" attributes="0"/>
+                          <Component id="JLNyttOmråde" min="-2" pref="82" max="-2" attributes="0"/>
                           <Component id="JLNyttTelnr" min="-2" max="-2" attributes="0"/>
+                          <Component id="JLNyttNamn" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="TxtNyttLosen" alignment="0" max="32767" attributes="0"/>
                           <Component id="TxtNyttTelnr" alignment="0" max="32767" attributes="0"/>
                           <Component id="JComboBoxOmråde" alignment="0" max="32767" attributes="0"/>
                           <Component id="TxtNyttNamn" min="-2" pref="118" max="-2" attributes="0"/>
                       </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="JLAgentID" min="-2" pref="85" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="JComboBoxAgentID" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="JLNyttAgentID" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="TxtNyttAgentID" min="-2" pref="118" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -86,20 +79,10 @@
                   <Component id="TxtNyttAgentID" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JLNyttAgentID" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                      <Component id="TxtNyttNamn" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JLNyttNamn" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="TxtNyttLosen" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JLNyttLosen" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="TxtNyttNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JLNyttNamn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -111,7 +94,7 @@
                   <Component id="JComboBoxOmråde" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JLNyttOmråde" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="52" max="32767" attributes="0"/>
+              <EmptySpace pref="28" max="32767" attributes="0"/>
               <Component id="BtnÄndra" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
           </Group>
@@ -132,7 +115,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Cambria" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="AgentID"/>
+        <Property name="text" type="java.lang.String" value="V&#xe4;lj agent:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="JLNyttNamn">
@@ -140,15 +123,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Cambria" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Nytt Namn"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="JLNyttLosen">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Cambria" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Nytt L&#xf6;senord"/>
+        <Property name="text" type="java.lang.String" value="Nytt namn"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="JLNyttTelnr">
@@ -164,7 +139,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Cambria" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Nytt Omr&#xe5;de"/>
+        <Property name="text" type="java.lang.String" value="Nytt omr&#xe5;de"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="JLNyttAgentID">
@@ -178,8 +153,6 @@
     <Component class="javax.swing.JTextField" name="TxtNyttAgentID">
     </Component>
     <Component class="javax.swing.JTextField" name="TxtNyttNamn">
-    </Component>
-    <Component class="javax.swing.JTextField" name="TxtNyttLosen">
     </Component>
     <Component class="javax.swing.JTextField" name="TxtNyttTelnr">
     </Component>
