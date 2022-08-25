@@ -12,16 +12,12 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
  *
- * @author piava, AmandaDemir
+ * @author Pia Vargas, AmandaDemir
  */
 public class AndraAgentInformation extends javax.swing.JFrame {
 
     private InfDB idb;
     
-    
-    /**
-     * Creates new form AndraAgentInformation
-     */
     public AndraAgentInformation(InfDB idb) {
         initComponents();
         this.idb = idb;
@@ -79,6 +75,8 @@ public class AndraAgentInformation extends javax.swing.JFrame {
 
         JLNyttAgentID.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         JLNyttAgentID.setText("Nytt AgentID");
+
+        JComboBoxOmråde.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Norrland", "Götaland", "Svealand" }));
 
         JComboBoxAgentID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1", "2", "3", "4" }));
 
