@@ -31,7 +31,7 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="button1" alignment="1" min="-2" pref="125" max="-2" attributes="0"/>
+                  <Component id="BTNminomradeschef" alignment="1" min="-2" pref="125" max="-2" attributes="0"/>
                   <Component id="BTNandralosen" min="-2" pref="125" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="66" max="32767" attributes="0"/>
@@ -46,7 +46,7 @@
               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               <Component id="BTNandralosen" min="-2" pref="35" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="button1" min="-2" pref="35" max="-2" attributes="0"/>
+              <Component id="BTNminomradeschef" min="-2" pref="35" max="-2" attributes="0"/>
               <EmptySpace pref="78" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -75,7 +75,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTNandralosenActionPerformed"/>
       </Events>
     </Component>
-    <Component class="java.awt.Button" name="button1">
+    <Component class="java.awt.Button" name="BTNminomradeschef">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -86,7 +86,7 @@
         <Property name="label" type="java.lang.String" value="Min omr&#xe5;deschef"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTNminomradeschefActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
