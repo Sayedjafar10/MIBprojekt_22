@@ -22,10 +22,6 @@ public class AndraAgentInformation extends javax.swing.JFrame {
         initComponents();
         this.idb = idb;
         fyllComboboxAgent();
-        JComboBoxOmråde.addItem("");
-        JComboBoxOmråde.addItem("Norrland");
-        JComboBoxOmråde.addItem("Svealand");
-        JComboBoxOmråde.addItem("Götaland");  
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 

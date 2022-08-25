@@ -23,15 +23,6 @@ public class AndraAlienInformation extends javax.swing.JFrame {
     public AndraAlienInformation(InfDB idb) {
         initComponents();
         this.idb = idb;
-        JComboBoxPlats.addItem("");
-        JComboBoxPlats.addItem("Borås");
-        JComboBoxPlats.addItem("Örebro");
-        JComboBoxPlats.addItem("Västerås");
-        JComboBoxPlats.addItem("Vilhemina");
-        JComboBoxRas.addItem("");
-        JComboBoxRas.addItem("Worm");
-        JComboBoxRas.addItem("Squid");
-        JComboBoxRas.addItem("Boglodite");
         fyllComboboxAlien();
         fyllComboboxAnsvarigAgent();
         fyllComboboxRas();
@@ -149,7 +140,7 @@ public class AndraAlienInformation extends javax.swing.JFrame {
 
         JComboBoxAgent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1", "2", "3", "4" }));
 
-        JComboBoxRas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Worm", "Squid", "Bogolite" }));
+        JComboBoxRas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Worm", "Squid", "Boglodite" }));
 
         BtnAndra.setText("Ändra");
         BtnAndra.addActionListener(new java.awt.event.ActionListener() {

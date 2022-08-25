@@ -252,7 +252,7 @@
             <StringItem index="0" value=""/>
             <StringItem index="1" value="Worm"/>
             <StringItem index="2" value="Squid"/>
-            <StringItem index="3" value="Bogolite"/>
+            <StringItem index="3" value="Boglodite"/>
           </StringArray>
         </Property>
       </Properties>
