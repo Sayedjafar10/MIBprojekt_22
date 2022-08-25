@@ -11,6 +11,8 @@ import oru.inf.InfException;
 /**
  *
  * @author piava, AmandaDemir
+ * 
+ *
  */
 public class Validering {
     
