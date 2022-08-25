@@ -129,7 +129,7 @@ public class RaderaUtrustning extends javax.swing.JFrame {
      String utrustningsNamn = String.valueOf(JComboBoxRaderaUtrustning.getSelectedItem().toString());//Detta beskriver den valda utrustningen
             
         try {
-        String utrustning = idb.fetchSingle("SELECT Utrustnings_ID FROM Utrustning WHERE Benamning = '"+utrustningsNamn+"'");
+        String Utrustning = idb.fetchSingle("SELECT Utrustnings_ID FROM Utrustning WHERE Benamning = '"+utrustningsNamn+"'");
         {    
         idb.delete("DELETE FROM Utrustning WHERE Benamning = '" + utrustningsNamn + "'");//Här raderar vi utrustningen vi valt
         JOptionPane.showMessageDialog(null, "Utrustning med Namnet " + utrustningsNamn + " är bortaget!"); 
