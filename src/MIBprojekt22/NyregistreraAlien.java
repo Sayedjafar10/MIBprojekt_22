@@ -28,7 +28,8 @@ public class NyregistreraAlien extends javax.swing.JFrame {
         fyllComboBoxPlats();
         fyllComboBoxAgent();
         fyllComboBoxRas();
-        
+       setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
     
     }
     /**
@@ -241,34 +242,14 @@ public class NyregistreraAlien extends javax.swing.JFrame {
             }
         });
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button BTNregistrera;
-    private javax.swing.JComboBox<String> JComboBoxAgent;
-    private javax.swing.JComboBox<String> JComboBoxPlatsID;
-    private javax.swing.JComboBox<String> JComboBoxRas;
-    private java.awt.Label RBregistreraAlien;
-    private java.awt.TextField TXTalienID;
-    private java.awt.TextField TXTlosen;
-    private java.awt.TextField TXTnamn;
-    private java.awt.TextField TXTtelnmr;
-    private javax.swing.JColorChooser jColorChooser1;
-    private java.awt.Label label2;
-    private java.awt.Label label3;
-    private java.awt.Label label4;
-    private java.awt.Label label5;
-    private java.awt.Label label6;
-    private java.awt.Label label7;
-    private java.awt.Label label8;
-    // End of variables declaration//GEN-END:variables
-
+    
     private void fyllComboBoxPlats() {
     
     JComboBoxPlatsID.removeAllItems();
     String question = "SELECT Plats_ID FROM Plats";
     ArrayList<String> platser ;
     
-    try {
+        try {
     platser = idb.fetchColumn(question);
     for(String plats: platser)
     {
@@ -312,15 +293,23 @@ public class NyregistreraAlien extends javax.swing.JFrame {
         }
        
     }
-    
-    
-    
-        
-    
-
-    
-        
-       
-        
-    
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Button BTNregistrera;
+    private javax.swing.JComboBox<String> JComboBoxAgent;
+    private javax.swing.JComboBox<String> JComboBoxPlatsID;
+    private javax.swing.JComboBox<String> JComboBoxRas;
+    private java.awt.Label RBregistreraAlien;
+    private java.awt.TextField TXTalienID;
+    private java.awt.TextField TXTlosen;
+    private java.awt.TextField TXTnamn;
+    private java.awt.TextField TXTtelnmr;
+    private javax.swing.JColorChooser jColorChooser1;
+    private java.awt.Label label2;
+    private java.awt.Label label3;
+    private java.awt.Label label4;
+    private java.awt.Label label5;
+    private java.awt.Label label6;
+    private java.awt.Label label7;
+    private java.awt.Label label8;
+    // End of variables declaration//GEN-END:variables
 }
