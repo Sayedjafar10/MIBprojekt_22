@@ -26,6 +26,8 @@ public class AndraAlienInformation extends javax.swing.JFrame {
         fyllComboboxAlien();
         fyllComboboxAnsvarigAgent();
         fyllComboboxRas();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
     }
 
    private void fyllComboboxAlien(){ 
