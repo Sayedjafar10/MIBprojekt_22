@@ -24,6 +24,8 @@ public class RaderaAlien extends javax.swing.JFrame {
         initComponents();
         this.idb = idb;
         fyllComboboxAliens();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
     }
     
     private void fyllComboboxAliens(){
@@ -170,7 +172,7 @@ public class RaderaAlien extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RaderaAlien().setVisible(true);
+                //new RaderaAlien().setVisible(true);
             }
         });
     }
