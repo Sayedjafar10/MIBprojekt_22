@@ -37,6 +37,18 @@ public class Validering {
         return resultat;
     }
     
+    public static boolean AgentNamn(JTextField rutaCheck){
+        String ruta = rutaCheck.getText();
+        if (ruta.startsWith("Agent")) {
+            return true;    
+            }
+        else{
+            JOptionPane.showMessageDialog(null, "Ange ett korrekt Agent-namn");
+             
+                return false;
+        }
+    }
+    
     public static boolean IsItAdmin (String id){
         
         boolean admin = false;
