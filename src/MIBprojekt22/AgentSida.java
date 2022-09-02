@@ -5,7 +5,6 @@
 package MIBprojekt22;
 
 import oru.inf.InfDB;
-import MIBprojekt22.LoggaInAgent.Namn;
 
 
 /**
@@ -18,13 +17,10 @@ import MIBprojekt22.LoggaInAgent.Namn;
 public class AgentSida extends javax.swing.JFrame {
   
     private static InfDB idb;
-    public AgentSida(){
-    }
 
     public AgentSida(InfDB idb) {
         initComponents();
         this.idb = idb;
-      
     }
    
     @SuppressWarnings("unchecked")
@@ -36,7 +32,6 @@ public class AgentSida extends javax.swing.JFrame {
         BTNandralosenord = new java.awt.Button();
         BTNsokOmrodeschef = new java.awt.Button();
         BTNregutrustn = new java.awt.Button();
-        BTNadminhant = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,14 +74,6 @@ public class AgentSida extends javax.swing.JFrame {
             }
         });
 
-        BTNadminhant.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        BTNadminhant.setText("Hantering som Admin");
-        BTNadminhant.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTNadminhantActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -100,10 +87,9 @@ public class AgentSida extends javax.swing.JFrame {
                         .addGap(58, 58, 58)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(BTNredigeraAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BTNregutrustn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BTNregutrustn, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
                             .addComponent(BTNandralosenord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BTNsokOmrodeschef, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BTNadminhant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(BTNsokOmrodeschef, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(0, 48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -119,28 +105,11 @@ public class AgentSida extends javax.swing.JFrame {
                 .addComponent(BTNsokOmrodeschef, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BTNredigeraAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BTNadminhant, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void BTNandralosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNandralosenordActionPerformed
-        //Denna knapp leder dig till ett nytt fönster där du kan ändra ditt lösenord.
-        new AndraLosenAgent (idb).setVisible(true);
-    }//GEN-LAST:event_BTNandralosenordActionPerformed
-
-    private void BTNregutrustnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNregutrustnActionPerformed
-        //Denna knapp leder dig till ett nytt fönster där du kan nyregistrera utrustning.
-        new NyregistreraUtrustning(idb).setVisible(true);
-    }//GEN-LAST:event_BTNregutrustnActionPerformed
-
-    private void BTNadminhantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNadminhantActionPerformed
-        //Denna knapp leder dig som är admin till ett nytt fönster där du får admin-funktioner.
-        new AdminSida(idb).setVisible(true);
-    }//GEN-LAST:event_BTNadminhantActionPerformed
 
     private void BTNsokOmrodeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNsokOmrodeschefActionPerformed
         //Denna knapp leder dig till ett nytt fönster där du kan hitta områdeschefen för ett specifikt område.
@@ -152,8 +121,18 @@ public class AgentSida extends javax.swing.JFrame {
         new RedigeraAlien(idb).setVisible(true);
     }//GEN-LAST:event_BTNredigeraAlienActionPerformed
 
+    private void BTNandralosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNandralosenordActionPerformed
+        // TODO add your handling code here:
+        new AndraLosenAgent (idb).setVisible(true);
+    }//GEN-LAST:event_BTNandralosenordActionPerformed
+
+    private void BTNregutrustnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNregutrustnActionPerformed
+        // TODO add your handling code here:
+        new NyregistreraUtrustning(idb).setVisible(true);
+
+    }//GEN-LAST:event_BTNregutrustnActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BTNadminhant;
     private java.awt.Button BTNandralosenord;
     private java.awt.Button BTNredigeraAlien;
     private java.awt.Button BTNregutrustn;
