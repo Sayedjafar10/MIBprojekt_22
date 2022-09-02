@@ -10,17 +10,17 @@ package MIBprojekt22;
  * @author piava
  */
 public class Inloggad {
-    private static String anvandareID;
+    private static String Anvandare;
     private static boolean isAdmin;
 
-    public Inloggad (String anvandareID, boolean isAdmin) {
+    public Inloggad (String Anvandare, boolean isAdmin) {
         
-        this.anvandareID = anvandareID;
+        this.Anvandare = Anvandare;
         this.isAdmin = isAdmin;
     }
    
     public static String getInloggadID() {
-       return anvandareID;
+       return Anvandare;
     }
         
 }
