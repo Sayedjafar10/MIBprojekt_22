@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException; 
 
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -15,7 +16,7 @@ import oru.inf.InfException;
  */
 public class LoggaIn extends javax.swing.JFrame {
 
-    private static InfDB idb;
+    private InfDB idb;
     
     public LoggaIn(InfDB idb) {
         initComponents();
@@ -23,6 +24,21 @@ public class LoggaIn extends javax.swing.JFrame {
                     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
     }
+   
+     public void OppnaAgentSida() {
+        AgentSida sidan = new AgentSida(idb);
+        sidan.setVisible(true);
+    }
+     
+     public void OppnaAdminSida(){
+        AdminSida sidan = new AdminSida(idb);
+        sidan.setVisible(true);
+}
+      public void OppnaAlienSida(){
+        AlienSida sidan = new AlienSida(idb);
+        sidan.setVisible(true);
+}
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,8 +54,9 @@ public class LoggaIn extends javax.swing.JFrame {
         LBpassword = new javax.swing.JLabel();
         LoginUsername = new javax.swing.JTextField();
         LogInpassword = new javax.swing.JPasswordField();
-        BTNlogin = new javax.swing.JButton();
         LoginvaldAnvandare = new javax.swing.JComboBox<>();
+        BTNloggain = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,31 +65,22 @@ public class LoggaIn extends javax.swing.JFrame {
         LBrubrik.setToolTipText("");
 
         LBagentID.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        LBagentID.setText("ID");
+        LBagentID.setText("Namn:");
 
         LBpassword.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        LBpassword.setText("Password:");
-
-        LoginUsername.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginUsernameActionPerformed(evt);
-            }
-        });
-
-        LogInpassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LogInpasswordActionPerformed(evt);
-            }
-        });
-
-        BTNlogin.setText("Log in");
-        BTNlogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTNloginActionPerformed(evt);
-            }
-        });
+        LBpassword.setText("Lösenord:");
 
         LoginvaldAnvandare.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alien", "Agent" }));
+
+        BTNloggain.setText("Logga in");
+        BTNloggain.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNloggainActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel1.setText("Välj inloggningstyp:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,34 +93,40 @@ public class LoggaIn extends javax.swing.JFrame {
                         .addComponent(LBfelaktigt))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(55, 55, 55)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(LBagentID)
-                            .addComponent(LBpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LogInpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LoginUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel1)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(LoginvaldAnvandare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(LBrubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(10, 10, 10)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(LBagentID)
+                                    .addComponent(LBpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(LogInpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(LoginUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(59, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(BTNlogin)
-                        .addGap(25, 25, 25))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(LoginvaldAnvandare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LBrubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(95, 95, 95))))
+                .addComponent(BTNloggain)
+                .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(7, 7, 7)
                 .addComponent(LBrubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LoginvaldAnvandare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(LoginvaldAnvandare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LBagentID)
                     .addComponent(LoginUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -120,74 +134,68 @@ public class LoggaIn extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LBpassword)
                     .addComponent(LogInpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
+                .addGap(35, 35, 35)
                 .addComponent(LBfelaktigt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(BTNlogin)
-                .addGap(22, 22, 22))
+                .addGap(32, 32, 32)
+                .addComponent(BTNloggain)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void LoginUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginUsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LoginUsernameActionPerformed
-
-    private void LogInpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogInpasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LogInpasswordActionPerformed
-
-    private void BTNloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNloginActionPerformed
-        LBfelaktigt.setText("");
+    private void BTNloggainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNloggainActionPerformed
         String valdAnvandare = LoginvaldAnvandare.getSelectedItem().toString();
-        String anvandare = LoginUsername.getText();
-        String losenord = LogInpassword.getText();
-        String alienLosen = "";
-        String agentLosen = "";
+        String inskrivetLosen = LogInpassword.getText();
+        String inskrivetNamn = LoginUsername.getText();
+        
+        
+        if (Validering.tomRuta(LogInpassword) && valdAnvandare.equals("Agent")) {
+            try {
+                String hamtaLosenord = ("SELECT Losenord from AGENT where namn = '" + inskrivetNamn + "'");
+                String losenord = idb.fetchSingle(hamtaLosenord);
 
-        if (valdAnvandare.equals("Alien")) {
-            try {
-                alienLosen = idb.fetchSingle("SELECT Losenord FROM Alien WHERE Alien_ID = '" + anvandare + "'");
-            } catch (InfException ettUndantag){
-                JOptionPane.showMessageDialog(null, "Fel användarnamn eller lösenord, prova igen!");
+                String hamtaAdminstatus = ("Select Administrator from Agent where namn = '" + inskrivetNamn + "'");
+                String status = idb.fetchSingle(hamtaAdminstatus);
+
+                    if (losenord.equals(inskrivetLosen) && status.equals("N")) {
+                    OppnaAgentSida();
+                    this.dispose();
+                }
+                    if (losenord.equals(inskrivetLosen) && status.equals("J")) {
+                    OppnaAdminSida();
+                    this.dispose();
+                }
+                        } catch (InfException ettUndantag) {
+                                JOptionPane.showMessageDialog(null, "Vänligen ange korrekta inloggsuppgifter!.");}
             }
-            if (losenord.equals(alienLosen))
-            {
-                new AlienSida (idb).setVisible(true);
-                setVisible(false);
-            } 
-            else {
-                LBfelaktigt.setText("Du har skrivit in fel användarnamn eller lösenord");
-            }
-        } else if (valdAnvandare.equals("Agent")) {
+        
+        if (valdAnvandare.equals("Alien")){
             try {
-                agentLosen = idb.fetchSingle("SELECT Losenord FROM Agent WHERE Agent_ID = '" + anvandare + "'");
+                String inskrivetAlienLosen = LogInpassword.getText();
+                String inskrivetAlienNamn = LoginUsername.getText();
+
+            String hamtaLosenord = ("SELECT Losenord from ALIEN where namn = '"+ inskrivetAlienNamn +"'");
+            String losenord = idb.fetchSingle(hamtaLosenord);
+
+            if (losenord.equals(inskrivetAlienLosen)) {
+                OppnaAlienSida();
+                this.dispose();
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Inkorrekt lösenord");
+
+            }
             } catch (InfException ettUndantag) {
-                JOptionPane.showMessageDialog(null, "Fel användarnamn eller lösenord, prova igen!");
-            }
-
-            if (losenord.equals(agentLosen)){
-                new AgentSida(idb).setVisible(true);
-                setVisible(false);
-            }
-            else {
-                LBfelaktigt.setText("Du har skrivit in fel användarnamn eller lösenord");
-            }
-            
-            if (Validering.IsItAdmin(anvandare)){
-                        setVisible(false);
-                        new AdminSida(idb).setVisible(true);
-                    }else {
-                LBfelaktigt.setText("Fel lösenord eller ID!");
-            }
+            JOptionPane.showMessageDialog(null, "Något blev fel");
         }
-    }//GEN-LAST:event_BTNloginActionPerformed
-
+        }
+    }//GEN-LAST:event_BTNloggainActionPerformed
+    
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BTNlogin;
+    private javax.swing.JButton BTNloggain;
     private javax.swing.JLabel LBagentID;
     private javax.swing.JLabel LBfelaktigt;
     private javax.swing.JLabel LBpassword;
@@ -195,5 +203,6 @@ public class LoggaIn extends javax.swing.JFrame {
     private javax.swing.JPasswordField LogInpassword;
     private javax.swing.JTextField LoginUsername;
     private javax.swing.JComboBox<String> LoginvaldAnvandare;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
