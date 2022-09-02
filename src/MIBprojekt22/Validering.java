@@ -108,4 +108,16 @@ public class Validering {
         
         return resultat;
 }
+    public boolean kollaNummer(String rutacheck){
+        boolean svar = true;
+        
+        try{
+            Integer.parseInt(rutacheck);
+        } catch(NumberFormatException exception){
+            JOptionPane.showMessageDialog(null, "Ange ett heltal.");
+            svar = false;
+        }
+        
+        return svar;
+    }
 }

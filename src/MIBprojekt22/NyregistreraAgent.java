@@ -10,7 +10,7 @@ import oru.inf.InfException;
 
 /**
  *
- * @author piava
+ * @author piava, AmandaDemir
  */
 public class NyregistreraAgent extends javax.swing.JFrame {
     
