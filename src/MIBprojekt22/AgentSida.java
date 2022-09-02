@@ -5,6 +5,8 @@
 package MIBprojekt22;
 
 import oru.inf.InfDB;
+import MIBprojekt22.LoggaInAgent.Namn;
+
 
 /**
  *
@@ -16,6 +18,8 @@ import oru.inf.InfDB;
 public class AgentSida extends javax.swing.JFrame {
   
     private static InfDB idb;
+    public AgentSida(){
+    }
 
     public AgentSida(InfDB idb) {
         initComponents();
