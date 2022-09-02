@@ -33,10 +33,9 @@
                       <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="BTNredigeraAlien" max="32767" attributes="0"/>
-                          <Component id="BTNregutrustn" alignment="0" max="32767" attributes="0"/>
+                          <Component id="BTNregutrustn" alignment="0" pref="154" max="32767" attributes="0"/>
                           <Component id="BTNandralosenord" max="32767" attributes="0"/>
                           <Component id="BTNsokOmrodeschef" alignment="0" max="32767" attributes="0"/>
-                          <Component id="BTNadminhant" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -57,9 +56,7 @@
               <Component id="BTNsokOmrodeschef" min="-2" pref="37" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="BTNredigeraAlien" min="-2" pref="37" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="BTNadminhant" min="-2" pref="39" max="-2" attributes="0"/>
-              <EmptySpace pref="23" max="32767" attributes="0"/>
+              <EmptySpace pref="72" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -127,17 +124,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTNregutrustnActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="BTNadminhant">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Hantering som Admin"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTNadminhantActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
