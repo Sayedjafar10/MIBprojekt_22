@@ -155,6 +155,7 @@ public class AndraAgentInformation extends javax.swing.JFrame {
     String agentensID = ("");
     
     try { 
+<<<<<<< Updated upstream
         agentensID = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Namn ='"+valdAgent+"'");
         
         if(namn.equals("")){ //Här använder vi en if else sats i en try catch sats för att ifall try och if else skulle krascha så finns catch där för att fånga oss
@@ -164,6 +165,28 @@ public class AndraAgentInformation extends javax.swing.JFrame {
               idb.update("UPDATE Agent SET Namn = '"+namn+"' WHERE Agent_ID = '"+agentensID+"'");//Om inte if sker så sker else och då updaterar man agent namnet med variabeln man skrev in med agentID som man skrev in
               JOptionPane.showMessageDialog(null, "Namn har förnyats till "+namn+"!"); 
         }
+=======
+     agentensID = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Namn ='"+agentID+"'");
+    if(namn.equals("")){ //Här använder vi en if else sats i en try catch sats för att ifall try och if else skulle krascha så finns catch där för att fånga oss
+      JOptionPane.showMessageDialog(null, "Namn har inte förnyats!");   
+      }
+      
+      else{
+      idb.update("UPDATE Agent SET Namn = '"+namn+"' WHERE Agent_ID = '"+agentensID+"'");//Om inte if sker så sker else och då updaterar man agent namnet med variabeln man skrev in med agentID som man skrev in
+      JOptionPane.showMessageDialog(null, "Namn har förnyats till "+namn+"!"); 
+      }
+      
+      if(telnr.equals("")){
+          
+      JOptionPane.showMessageDialog(null, "Telefonnummer har inte förnyats");       
+      }
+      
+      else {
+          
+      idb.update("UPDATE Agent SET Telefon = '"+telnr+"' WHERE Agent_ID = '"+agentensID+"'"); // Vi uppdaterar agentens telnr med agentensID
+      JOptionPane.showMessageDialog(null, "Telefonnummer har förnyats till "+telnr+"!"); 
+      }
+>>>>>>> Stashed changes
       
         if(telnmr.equals("")){
            JOptionPane.showMessageDialog(null, "Telefonnummer har inte förnyats");       
