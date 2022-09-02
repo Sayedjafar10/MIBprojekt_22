@@ -104,16 +104,16 @@ public class AndraLosenAgent extends javax.swing.JFrame {
 
     private void BTNupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNupdateActionPerformed
         LBfelaktig.setText("");
-        String nyttLos = TXTnewpass.getText();
-        String bekLos = TXTconpass.getText();
+        String losenord1 = TXTnewpass.getText();
+        String losenord2 = TXTconpass.getText();
         
-        if (!Validering.kollaLosen(nyttLos)){
-            LBfelaktig.setText("Lösenordet får vara max 8 tecken!");
-        } else if (!nyttLos.equals (bekLos)){
+        if (!Validering.kollaLosen(losenord1)){
+            LBfelaktig.setText("Lösenordet får vara max 6 tecken!");
+        } else if (!losenord1.equals (losenord2)){
             LBfelaktig.setText ("De inskrivna lösenorden stämmer inte överens.");
         } else {
             try {
-                idb.update("UPDATE Agent SET Losenord = '" + nyttLos + "' WHERE Agent_ID = " + Inloggad.getInloggadID());
+                idb.update("UPDATE Agent SET Losenord = '" + losenord1 + "' WHERE Agent_ID = " + Inloggad.getInloggadID());
                 LBfelaktig.setText("Lösenordet har uppdaterats!");
             } catch (InfException ettUndantag) {
                 JOptionPane.showMessageDialog (null, "Något gick fel!");
