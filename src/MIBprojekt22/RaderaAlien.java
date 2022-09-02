@@ -12,28 +12,29 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 /**
  *
- * @author amandademir
+ * @author Pia Vargas, Amanda Demir
  */
 public class RaderaAlien extends javax.swing.JFrame {
 
-    private InfDB idb;
-    
+    private static InfDB idb;
     /**
-     * Creates new form RaderaAlien
+     * Creates new form RaderaAlien2
      */
     public RaderaAlien(InfDB idb) {
         initComponents();
         this.idb = idb;
         fyllComboboxAliens();
-    }
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+    }
+    
     private void fyllComboboxAliens(){
-    JComboBoxRaderaAlien.removeAllItems();
+        JComboBoxRaderaAlien.removeAllItems();
     String question = "SELECT Namn FROM Alien"; //vi hämtar alla namn från alien tabellen
     
-    ArrayList<String> Aliens ;
+    ArrayList<String> Aliens = new ArrayList<String>();
     try {
-    Aliens= idb.fetchColumn(question);
+    Aliens = idb.fetchColumn(question);
     
     for(String alien: Aliens)
     {
@@ -42,6 +43,10 @@ public class RaderaAlien extends javax.swing.JFrame {
     }   catch (InfException ettUndantag) {
             Logger.getLogger(RaderaAlien.class.getName()).log(Level.SEVERE, null, ettUndantag);
         }
+    }
+    
+    
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,8 +59,8 @@ public class RaderaAlien extends javax.swing.JFrame {
         JLRubrik = new javax.swing.JLabel();
         JLRaderaAlien = new javax.swing.JLabel();
         JComboBoxRaderaAlien = new javax.swing.JComboBox<>();
-        BTNradera = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        BTNradera = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,15 +72,15 @@ public class RaderaAlien extends javax.swing.JFrame {
 
         JComboBoxRaderaAlien.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Bobbo", "Braxen" }));
 
+        jLabel1.setFont(new java.awt.Font("Cambria", 2, 10)); // NOI18N
+        jLabel1.setText("Här kan du som agent radera en alien från systemet.");
+
         BTNradera.setText("Radera");
         BTNradera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BTNraderaActionPerformed(evt);
             }
         });
-
-        jLabel1.setFont(new java.awt.Font("Cambria", 2, 10)); // NOI18N
-        jLabel1.setText("Här kan du som agent radera en alien från systemet.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -90,49 +95,51 @@ public class RaderaAlien extends javax.swing.JFrame {
                         .addGap(54, 54, 54)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(JComboBoxRaderaAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JLRaderaAlien))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(JLRaderaAlien)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(42, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BTNradera))
-                .addGap(21, 21, 21))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(BTNradera)
+                .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(JLRubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(50, 50, 50)
                 .addComponent(JLRaderaAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JComboBoxRaderaAlien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addComponent(BTNradera)
-                .addGap(17, 17, 17))
+                .addGap(14, 14, 14))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BTNraderaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNraderaActionPerformed
-        String alienNamn = String.valueOf(JComboBoxRaderaAlien.getSelectedItem().toString());
+        // TODO add your handling code here:
+        String alienNamnet = String.valueOf(JComboBoxRaderaAlien.getSelectedItem().toString());
 
-            
         try {
-        String alien = idb.fetchSingle("SELECT Alien_ID FROM Alien WHERE Namn = '"+alienNamn+"'");
-        
-        {    
-        idb.delete("DELETE FROM Alien WHERE Namn = '" + alienNamn + "'");//Här raderar vi den utvalda alien
-        JOptionPane.showMessageDialog(null, "Alien med Namnet " + alienNamn + " är bortaget!"); 
-        }
-        
+            String alien = idb.fetchSingle("SELECT Alien_ID FROM Alien WHERE Namn = '"+alienNamnet+"'");
+
+            {
+                idb.delete("DELETE FROM Alien WHERE Namn = '" + alien + "'");//Här raderar vi den utvalda alien
+                JOptionPane.showMessageDialog(null, "Alien är nu borttagen!");
+            }
+
         } catch (InfException ettUndantag) {
-                Logger.getLogger(RaderaAlien.class.getName()).log(Level.SEVERE, null, ettUndantag);
-        }    }//GEN-LAST:event_BTNraderaActionPerformed
+            Logger.getLogger(RaderaAlien.class.getName()).log(Level.SEVERE, null, ettUndantag);
+    }                         
+    }//GEN-LAST:event_BTNraderaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,6 +166,7 @@ public class RaderaAlien extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(RaderaAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

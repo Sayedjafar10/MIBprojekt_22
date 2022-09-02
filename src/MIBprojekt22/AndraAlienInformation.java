@@ -26,13 +26,15 @@ public class AndraAlienInformation extends javax.swing.JFrame {
         fyllComboboxAlien();
         fyllComboboxAnsvarigAgent();
         fyllComboboxRas();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
     }
 
    private void fyllComboboxAlien(){ 
     JComboBoxAlien.removeAllItems(); // Här tar vi bort värden i comboboxen
     String question = "SELECT Namn FROM Alien"; //Här hämtar vi namn från alien tabellen genom en SQL fråga
     
-    ArrayList<String> Aliens ;
+    ArrayList<String> Aliens = new ArrayList<String>();
     try {
     Aliens = idb.fetchColumn(question);
     
@@ -44,13 +46,14 @@ public class AndraAlienInformation extends javax.swing.JFrame {
             Logger.getLogger(AndraAlienInformation.class.getName()).log(Level.SEVERE, null, ettUndantag);
         }
     } 
+   
     private void fyllComboboxAnsvarigAgent(){
     JComboBoxAgent.removeAllItems(); 
     JComboBoxAgent.addItem(""); 
     
     
     String question = "SELECT Namn FROM Agent WHERE Administrator='N'";
-    ArrayList<String> agenter ;
+    ArrayList<String> agenter = new ArrayList<String>();
     
     try {
         agenter = idb.fetchColumn(question);
@@ -68,7 +71,7 @@ public class AndraAlienInformation extends javax.swing.JFrame {
         JComboBoxRas.removeAllItems();
     String question = "SELECT * FROM Ras";
     
-    ArrayList<String> Raser ;
+    ArrayList<String> Raser = new ArrayList<String>();
     try {
     Raser = idb.fetchColumn(question);
     
@@ -93,17 +96,13 @@ public class AndraAlienInformation extends javax.swing.JFrame {
         JLAlien = new java.awt.Label();
         jJLNyttNamn = new java.awt.Label();
         JLNyttTelnr = new java.awt.Label();
-        JLNyttAlienID = new java.awt.Label();
         JLNyAgent = new java.awt.Label();
-        JLNyttLosen = new java.awt.Label();
         JLNyRas = new java.awt.Label();
         JComboBoxAlien = new javax.swing.JComboBox<>();
         JComboBoxPlats = new javax.swing.JComboBox<>();
         JComboBoxAgent = new javax.swing.JComboBox<>();
         JComboBoxRas = new javax.swing.JComboBox<>();
-        TxtAlienID = new javax.swing.JTextField();
         TxtNyttNamn = new javax.swing.JTextField();
-        TxtNyttLosen = new javax.swing.JTextField();
         TxtNyttTelnr = new javax.swing.JTextField();
         BtnAndra = new javax.swing.JButton();
         JLPlats = new javax.swing.JLabel();
@@ -122,14 +121,8 @@ public class AndraAlienInformation extends javax.swing.JFrame {
         JLNyttTelnr.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         JLNyttTelnr.setText("Nytt tel.nmr");
 
-        JLNyttAlienID.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        JLNyttAlienID.setText("Nytt AlienID");
-
         JLNyAgent.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         JLNyAgent.setText("Ny ansvarig Agent");
-
-        JLNyttLosen.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        JLNyttLosen.setText("Nytt lösenord");
 
         JLNyRas.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         JLNyRas.setText("Ny ras");
@@ -161,37 +154,34 @@ public class AndraAlienInformation extends javax.swing.JFrame {
                 .addComponent(JLRubrik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(77, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JLNyttLosen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JLNyttTelnr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JLPlats))
-                        .addGap(39, 39, 39)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(JComboBoxPlats, 0, 107, Short.MAX_VALUE)
-                            .addComponent(TxtNyttLosen)
-                            .addComponent(TxtNyttTelnr)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JLNyAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JLNyRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JComboBoxAgent, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(JComboBoxRas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(JLNyttTelnr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(JLPlats))
+                            .addGap(50, 50, 50)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(JComboBoxPlats, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(TxtNyttTelnr, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(JLNyAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(JLNyRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(JComboBoxAgent, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(JComboBoxRas, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(JLAlien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JLNyttAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jJLNyttNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(48, 48, 48)
+                        .addGap(58, 58, 58)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(JComboBoxAlien, 0, 107, Short.MAX_VALUE)
-                            .addComponent(TxtAlienID)
                             .addComponent(TxtNyttNamn))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(BtnAndra)
                 .addGap(19, 19, 19))
         );
@@ -206,16 +196,8 @@ public class AndraAlienInformation extends javax.swing.JFrame {
                     .addComponent(JComboBoxAlien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JLNyttAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jJLNyttNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxtNyttNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JLNyttLosen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtNyttLosen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(JLNyttTelnr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -228,17 +210,13 @@ public class AndraAlienInformation extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(JLNyAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JComboBoxAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JLNyRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JComboBoxRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                        .addComponent(BtnAndra)
-                        .addGap(15, 15, 15))))
+                    .addComponent(JLNyRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JComboBoxRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(BtnAndra)
+                .addGap(15, 15, 15))
         );
 
         pack();
@@ -248,64 +226,52 @@ public class AndraAlienInformation extends javax.swing.JFrame {
         // TODO add your handling code here:
         String alien = JComboBoxAlien.getSelectedItem().toString();
         String namn = String.valueOf(TxtNyttNamn.getText());
-        String telnr = String.valueOf(TxtNyttTelnr.getText());
+        String telnmr = String.valueOf(TxtNyttTelnr.getText());
         String plats = JComboBoxPlats.getSelectedItem().toString();
-        String agent= JComboBoxAgent.getSelectedItem().toString();
-        String ras= JComboBoxRas.getSelectedItem().toString();
+        String agent = JComboBoxAgent.getSelectedItem().toString();
+        String ras = JComboBoxRas.getSelectedItem().toString();
         String alienID = "";
-        String losen = "";
         
         try {
-            
             alienID = idb.fetchSingle("SELECT Alien_ID FROM Alien WHERE Namn ='"+alien+"'");
             
             if(namn.equals("")) //Här använder vi en if else sats, om inte if gäller så sker else satsen
             {  
-                System.out.println("Namn har inte förnyats!");
-            }
-            else 
-            {
+                System.out.println("Namn har inte förnyats!");}
+            else {
                 idb.update("UPDATE Alien SET Namn='"+namn+"' WHERE Alien_ID='"+alienID+"'");
                 JOptionPane.showMessageDialog(null, "Namn har förnyats till "+namn+"!");
             }    
                
-            if(telnr.equals("")) //Här använder vi en if else sats
+            if(telnmr.equals("")) //Här använder vi en if else sats
             {  
-                System.out.println("Telefonnumret har ej förnyats");
-            }
-            
-            else 
-            {
-             idb.update("UPDATE Alien SET Telefon='"+telnr+"' WHERE Alien_ID='"+alienID+"'");
-              JOptionPane.showMessageDialog(null, "Telefonnummer har förnyats till "+telnr+"!");
+                System.out.println("Telefonnumret har ej förnyats");}
+            else {
+             idb.update("UPDATE Alien SET Telefon='"+telnmr+"' WHERE Alien_ID='"+alienID+"'");
+              JOptionPane.showMessageDialog(null, "Telefonnummer har förnyats till "+telnmr+"!");
             }
         
             if(plats.equals("")) //Här använder vi en if else sats
             {
-                System.out.println("Plats har inte förnyats!");  
-            } 
-            else 
-            {
+                System.out.println("Plats har inte förnyats!");} 
+            else {
                 String Plats = idb.fetchSingle("SELECT Plats_ID FROM Plats WHERE Benamning='"+plats+"'");
-                idb.update("UPDATE Alien SET Plats='"+plats+"' WHERE Alien_ID='"+alienID+"'");
+                idb.update("UPDATE Alien SET Plats='"+Plats+"' WHERE Alien_ID='"+alienID+"'");
                 JOptionPane.showMessageDialog(null, "Plats har förnyats till "+plats+"!");
             }
             
             if(agent.equals("")) //Här använder vi en if else sats
             {
-                System.out.println("Agent har inte förnyats!");  
-            } 
-            else 
-            {
+                System.out.println("Agent har inte förnyats!");} 
+            else {
                 String Agent = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Namn='"+agent+"'");
-                idb.update("UPDATE Alien SET Ansvarig_Agent='"+agent+"' WHERE Alien_ID='"+alienID+"'");
+                idb.update("UPDATE Alien SET Ansvarig_Agent='"+Agent+"' WHERE Alien_ID='"+alienID+"'");
                 JOptionPane.showMessageDialog(null, "Agent har förnyats till "+agent+"!");
             }
             
             if(ras.equals("")) //Här använder vi en if else sats
             {
-                System.out.println("Ras har inte förnyats!");  
-            } 
+                System.out.println("Ras har inte förnyats!");} 
             
             if(ras.equals("Squid"))
             {
@@ -382,13 +348,9 @@ public class AndraAlienInformation extends javax.swing.JFrame {
     private java.awt.Label JLAlien;
     private java.awt.Label JLNyAgent;
     private java.awt.Label JLNyRas;
-    private java.awt.Label JLNyttAlienID;
-    private java.awt.Label JLNyttLosen;
     private java.awt.Label JLNyttTelnr;
     private javax.swing.JLabel JLPlats;
     private java.awt.Label JLRubrik;
-    private javax.swing.JTextField TxtAlienID;
-    private javax.swing.JTextField TxtNyttLosen;
     private javax.swing.JTextField TxtNyttNamn;
     private javax.swing.JTextField TxtNyttTelnr;
     private java.awt.Label jJLNyttNamn;

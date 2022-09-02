@@ -47,6 +47,11 @@ public class RedigeraAlien extends javax.swing.JFrame {
         BTNnyRegAlien.setBackground(new java.awt.Color(255, 255, 255));
         BTNnyRegAlien.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         BTNnyRegAlien.setLabel("Nyregistrera alien");
+        BTNnyRegAlien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNnyRegAlienActionPerformed(evt);
+            }
+        });
 
         BTNvisaAlieninfo.setBackground(new java.awt.Color(255, 255, 255));
         BTNvisaAlieninfo.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
@@ -60,6 +65,11 @@ public class RedigeraAlien extends javax.swing.JFrame {
         BTNListaAlienPlats.setBackground(new java.awt.Color(255, 255, 255));
         BTNListaAlienPlats.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         BTNListaAlienPlats.setLabel("Plats");
+        BTNListaAlienPlats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNListaAlienPlatsActionPerformed(evt);
+            }
+        });
 
         label2.setFont(new java.awt.Font("Cambria", 2, 12)); // NOI18N
         label2.setText("Lista Alien utifrån:");
@@ -67,14 +77,29 @@ public class RedigeraAlien extends javax.swing.JFrame {
         BTNListaAlienRas.setBackground(new java.awt.Color(255, 255, 255));
         BTNListaAlienRas.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         BTNListaAlienRas.setLabel("Ras");
+        BTNListaAlienRas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNListaAlienRasActionPerformed(evt);
+            }
+        });
 
         BTNListaAlienDatum.setBackground(new java.awt.Color(255, 255, 255));
         BTNListaAlienDatum.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         BTNListaAlienDatum.setLabel("Datum");
+        BTNListaAlienDatum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNListaAlienDatumActionPerformed(evt);
+            }
+        });
 
         BTNandraAlieninfo.setBackground(new java.awt.Color(255, 255, 255));
         BTNandraAlieninfo.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         BTNandraAlieninfo.setLabel("Ändra alieninformation");
+        BTNandraAlieninfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNandraAlieninfoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -83,44 +108,40 @@ public class RedigeraAlien extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LBrubrik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(BTNListaAlienPlats, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BTNListaAlienDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BTNListaAlienRas, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(67, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BTNnyRegAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BTNandraAlieninfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BTNvisaAlieninfo, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(BTNvisaAlieninfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BTNandraAlieninfo, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+                        .addComponent(BTNnyRegAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(BTNListaAlienPlats, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(BTNListaAlienDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(BTNListaAlienRas, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(LBrubrik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(LBrubrik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addComponent(BTNvisaAlieninfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(BTNvisaAlieninfo, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BTNandraAlieninfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BTNandraAlieninfo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BTNnyRegAlien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
+                .addComponent(BTNnyRegAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BTNListaAlienRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BTNListaAlienDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BTNListaAlienPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BTNListaAlienRas, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(BTNListaAlienPlats, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                        .addComponent(BTNListaAlienDatum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(28, 28, 28))
         );
 
         pack();
@@ -129,6 +150,28 @@ public class RedigeraAlien extends javax.swing.JFrame {
     private void BTNvisaAlieninfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNvisaAlieninfoActionPerformed
         new VisaAlienInformation(idb).setVisible(true);
     }//GEN-LAST:event_BTNvisaAlieninfoActionPerformed
+
+    private void BTNandraAlieninfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNandraAlieninfoActionPerformed
+        // TODO add your handling code here:
+        new AndraAlienInformation(idb).setVisible(true);
+    }//GEN-LAST:event_BTNandraAlieninfoActionPerformed
+
+    private void BTNnyRegAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNnyRegAlienActionPerformed
+        // TODO add your handling code here:
+        new NyregistreraAlien(idb).setVisible(true);
+    }//GEN-LAST:event_BTNnyRegAlienActionPerformed
+
+    private void BTNListaAlienPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNListaAlienPlatsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BTNListaAlienPlatsActionPerformed
+
+    private void BTNListaAlienDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNListaAlienDatumActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BTNListaAlienDatumActionPerformed
+
+    private void BTNListaAlienRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNListaAlienRasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BTNListaAlienRasActionPerformed
 
     /**
      * @param args the command line arguments
