@@ -4,45 +4,27 @@
  */
 package MIBprojekt22;
 
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+
 /**
  *
- * @author amandademir, piava
+ * @author piava
  */
 public class NyregistreraAgent extends javax.swing.JFrame {
-
+    
     private static InfDB idb;
-    
-      public NyregistreraAgent(InfDB idb) {
-        initComponents(); 
-        this.idb = idb;
-        fyllComboboxOmrade();
-         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+    /**
+     * Creates new form NyregistreraAgent1
+     */
+    public NyregistreraAgent(InfDB idb) {
+        initComponents();
+        this.idb = idb;
         
     }
-    private void fyllComboboxOmrade() {
-        
-        JComboBoxOmråde.removeAllItems(); //Vi rensar comboxen för att sedan fylla i med våra valda värden
-        String question = "SELECT Omrades_ID FROM Omrade";// Vi tar en SQL fråga för att hämta områden från område tabellen
-        
-        ArrayList<String> omraden ;
-    try {
-    omraden = idb.fetchColumn(question);
-    
-    for(String omrade: omraden)
-    {
-      JComboBoxOmråde.addItem(omrade);
-    }
-    }catch (InfException ettUndantag) {
-            Logger.getLogger(NyregistreraAgent.class.getName()).log(Level.SEVERE, null, ettUndantag);
-        }
-    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,33 +34,33 @@ public class NyregistreraAgent extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JRubrik = new javax.swing.JLabel();
-        JLAgentID = new javax.swing.JLabel();
-        JLNamn = new javax.swing.JLabel();
-        JLLosen = new javax.swing.JLabel();
-        JLTelnr = new javax.swing.JLabel();
-        JLOmråde = new javax.swing.JLabel();
-        JLDatum = new javax.swing.JLabel();
-        TxtAgentID = new javax.swing.JTextField();
         TxtNamn = new javax.swing.JTextField();
         TxtTelnr = new javax.swing.JTextField();
-        JComboBoxOmråde = new javax.swing.JComboBox<>();
+        CBomrade = new javax.swing.JComboBox<>();
+        JRubrik = new javax.swing.JLabel();
         TxtDatum = new javax.swing.JTextField();
-        BtnRegistrera = new javax.swing.JButton();
+        JLNamn = new javax.swing.JLabel();
         JLAdmin = new javax.swing.JLabel();
-        TxtAdmin = new javax.swing.JTextField();
+        JLLosen = new javax.swing.JLabel();
+        JLTelnr = new javax.swing.JLabel();
         Txtlosen = new javax.swing.JTextField();
+        JLOmråde = new javax.swing.JLabel();
+        JLDatum = new javax.swing.JLabel();
+        CBvaljAdmin = new javax.swing.JComboBox<>();
+        BTNregistrera = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        CBomrade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Norrland", "Götaland", "Svealand" }));
 
         JRubrik.setFont(new java.awt.Font("Cambria", 0, 24)); // NOI18N
         JRubrik.setText("Registrera Agent");
 
-        JLAgentID.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        JLAgentID.setText("AgentID");
-
         JLNamn.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         JLNamn.setText("Namn");
+
+        JLAdmin.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        JLAdmin.setText("Admin");
 
         JLLosen.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         JLLosen.setText("Lösenord");
@@ -92,17 +74,14 @@ public class NyregistreraAgent extends javax.swing.JFrame {
         JLDatum.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         JLDatum.setText("Anställningsdatum");
 
-        JComboBoxOmråde.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
+        CBvaljAdmin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Ja", "Nej" }));
 
-        BtnRegistrera.setText("Registrera");
-        BtnRegistrera.addActionListener(new java.awt.event.ActionListener() {
+        BTNregistrera.setText("Registrera");
+        BTNregistrera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnRegistreraActionPerformed(evt);
+                BTNregistreraActionPerformed(evt);
             }
         });
-
-        JLAdmin.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        JLAdmin.setText("Admin");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -111,61 +90,53 @@ public class NyregistreraAgent extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(15, 15, 15)
                         .addComponent(JRubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
+                        .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(73, 73, 73)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TxtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TxtAgentID, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(TxtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(JLTelnr, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(JLNamn)
-                                        .addComponent(JLLosen)
-                                        .addComponent(JLAgentID))
+                                        .addComponent(JLLosen))
                                     .addComponent(JLOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(TxtTelnr, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JComboBoxOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CBomrade, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Txtlosen, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(JLAdmin)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(TxtAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(JLDatum)
-                                    .addGap(18, 18, 18)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(JLDatum)
+                                        .addGap(18, 18, 18))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(JLAdmin)
+                                        .addGap(86, 86, 86)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CBvaljAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(TxtDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(BtnRegistrera, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BTNregistrera)
                 .addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(JRubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TxtAgentID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JLAgentID)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TxtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(TxtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(JLNamn)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -176,7 +147,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(JLAdmin)
-                            .addComponent(TxtAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(CBvaljAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -188,59 +159,100 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                             .addComponent(JLTelnr))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(JComboBoxOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CBomrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(JLOmråde))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addComponent(BtnRegistrera)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(BTNregistrera)
+                .addGap(15, 15, 15))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnRegistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegistreraActionPerformed
-        if(Validering.kollaDatum(TxtDatum)) 
-        if(Validering.kollaLosen(Txtlosen.getText()))
-        if(Validering.tomRuta(TxtNamn))
-        if(Validering.tomRuta(TxtTelnr))
-    
-try {
-            
-            String AgentID = idb.getAutoIncrement("Agent","Agent_ID");
-            String anstallningsdatum = TxtDatum.getText();
-            String losen = String.valueOf(Txtlosen.getText());
-            String namn = String.valueOf(TxtNamn.getText());
-            String telnr = String.valueOf(TxtTelnr.getText());
-            int omrade = Integer.parseInt(JComboBoxOmråde.getSelectedItem().toString());
-            String admin = String.valueOf(TxtAdmin.getText());
-            
-            String question= "INSERT INTO Agent VALUES("+AgentID+",'"+namn+"','"+telnr+"','"+anstallningsdatum+"','"+admin+"','"+losen+"',"+omrade+");";//Här lägger vi in värden jframen
-            
-            
-            idb.insert(question);
-            JOptionPane.showMessageDialog(null, "Ny agent har registrerats!");
-            
+    private void BTNregistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNregistreraActionPerformed
+        // TODO add your handling code here:
+        if (Validering.AgentNamn(TxtNamn) && (Validering.tomRuta(Txtlosen)) && (Validering.tomRuta(TxtDatum)) && (Validering.tomRuta(TxtTelnr))){
            
-        } catch (InfException ettUndantag) { //Hindrar systemet från att krashca, tar oss tillbaka till try  
-        Logger.getLogger(NyregistreraAgent.class.getName()).log(Level.SEVERE, null, ettUndantag);
-        }   // TODO add your handling code here:
-    }//GEN-LAST:event_BtnRegistreraActionPerformed
+            String namn = TxtNamn.getText();
+            String losen = Txtlosen.getText();
+            String telnmr = TxtTelnr.getText();
+            String admin = CBvaljAdmin.getSelectedItem().toString();
+            String omrade = CBomrade.getSelectedItem().toString();
+            String anstdatum = TxtDatum.getText();
+            
+                try {
+                    String AID = idb.getAutoIncrement("Agent", "Agent_ID");
+                    
+                    int nyaID = Integer.parseInt(AID);
+                    
+                    String nuvarandeAdmin = "J";
+                    String OmradesID = ("SELECT Omrades_ID FROM Omrade WHERE Benamning = '" + omrade + "'");
+                    String hamtaOmradesID = idb.fetchSingle(OmradesID);
+                    if (admin.equals("Ja")){
+                        nuvarandeAdmin = "J";
+                    }
+                    
+                    if (admin.equals("Nej")){
+                        nuvarandeAdmin = "N";
+                    }
+                    
+                    String nyaAgenten = ("INSERT INTO Agent values (" + nyaID + ",'" + namn + "','" + telnmr + "','" + anstdatum + "','" + nuvarandeAdmin + "','" + losen + "'," + hamtaOmradesID + ")");
+                    idb.insert(nyaAgenten);
+                    JOptionPane.showMessageDialog(null, "En ny agent har registrerats!");
+                   
+                } catch (InfException ettUndantag){
+                    JOptionPane.showMessageDialog (null, "Något gick fel!");
+                }
+        }
+    }//GEN-LAST:event_BTNregistreraActionPerformed
 
-    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(NyregistreraAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(NyregistreraAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(NyregistreraAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(NyregistreraAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new NyregistreraAgent().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnRegistrera;
-    private javax.swing.JComboBox<String> JComboBoxOmråde;
+    private javax.swing.JButton BTNregistrera;
+    private javax.swing.JComboBox<String> CBomrade;
+    private javax.swing.JComboBox<String> CBvaljAdmin;
     private javax.swing.JLabel JLAdmin;
-    private javax.swing.JLabel JLAgentID;
     private javax.swing.JLabel JLDatum;
     private javax.swing.JLabel JLLosen;
     private javax.swing.JLabel JLNamn;
     private javax.swing.JLabel JLOmråde;
     private javax.swing.JLabel JLTelnr;
     private javax.swing.JLabel JRubrik;
-    private javax.swing.JTextField TxtAdmin;
-    private javax.swing.JTextField TxtAgentID;
     private javax.swing.JTextField TxtDatum;
     private javax.swing.JTextField TxtNamn;
     private javax.swing.JTextField TxtTelnr;
