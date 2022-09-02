@@ -36,40 +36,12 @@ public class Validering {
         
         return resultat;
     }
-    
-    public static boolean AgentNamn(JTextField rutaCheck){
-        String ruta = rutaCheck.getText();
-        if (ruta.startsWith("Agent")) {
-            return true;    
-            }
-        else{
-            JOptionPane.showMessageDialog(null, "Ange ett korrekt Agent-namn");
-             
-                return false;
-        }
-    }
-    
-    public static boolean IsItAdmin (String id){
-        
-        boolean admin = false;
-        String isAdmin = "";
-        try {
-            isAdmin = idb.fetchSingle("SELECT Agent.Administrator FROM Agent WHERE Agent_ID = '" + id + "'");
-        } catch (InfException ettUndantag) {
-            JOptionPane.showMessageDialog (null, "Något har gått fel!");
-        }
-        
-        if (isAdmin.equals("J")){
-            admin = true;
-        }
-        return admin;
-    }
-
-    public static boolean kollaLosen(String losen){
+     
+   public static boolean kollaLosen(String losen){
         
     boolean resultat = false;
 
-    if(losen.length() >= 8 && losen.length() <= 9) {
+    if(losen.length() >= 4 && losen.length() <= 6) {
         JOptionPane.showMessageDialog(null, "Lösenordet får max vara 8 tecken!");
         resultat = true;
     }
@@ -119,5 +91,17 @@ public class Validering {
         }
         
         return svar;
+    }
+    
+    public static boolean AgentNamn(JTextField rutaCheck){
+        String ruta = rutaCheck.getText();
+        if (ruta.startsWith("Agent")) {
+            return true;    
+            }
+        else{
+            JOptionPane.showMessageDialog(null, "Vänligen ange ett korrekt Agent-namn.");
+             
+                return false;
+        }
     }
 }
