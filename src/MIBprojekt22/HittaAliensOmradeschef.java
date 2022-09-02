@@ -38,10 +38,10 @@ public class HittaAliensOmradeschef extends javax.swing.JFrame {
     }
     
     private static HashMap getDataOmrodeschef(){
-        
+       
         HashMap<String, String> data = new HashMap<>();
         try {
-            data = idb.fetchRow("SELECT Agent.Agent_ID, Agent.Namn, Agent.Telefon, Agent.Omrade FROM Agent JOIN Omradeschef ON Omradeschef.Agent_ID = Agent.Agent_ID JOIN Alien ON Omradeschef.Omrade = Alien.Plats WHERE Alien_ID = '" + Inloggad.getInloggadID()+ "'");
+            data = idb.fetchRow("SELECT Agent.Agent_ID, Agent.Namn, Agent.Telefon, Agent.Omrade FROM Agent JOIN Omradeschef ON Omradeschef.Agent_ID = Agent.Agent_ID JOIN Alien ON Omradeschef.Omrade = Alien.Plats WHERE Alien_ID = '" + Inloggad.getInloggadID() + "'");
         } catch (InfException ettUndantag) {
             JOptionPane.showMessageDialog (null, "Försök igen!");        
         }
