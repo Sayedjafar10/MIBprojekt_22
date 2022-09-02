@@ -27,11 +27,11 @@ public class Validering {
     
     public static boolean tomRuta (JTextField checkaRuta)
     {
-        boolean resultat = false;
+        boolean resultat = true;
         
         if (checkaRuta.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Rutan är tom!");
-            resultat = true;
+            resultat = false;
         }
         
         return resultat;

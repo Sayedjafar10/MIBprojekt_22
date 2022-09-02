@@ -237,7 +237,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NyregistreraAgent().setVisible(true);
+                //new NyregistreraAgent().setVisible(true);
             }
         });
     }
