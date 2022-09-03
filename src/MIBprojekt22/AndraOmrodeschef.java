@@ -7,8 +7,6 @@ package MIBprojekt22;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
  *
@@ -23,44 +21,12 @@ public class AndraOmrodeschef extends javax.swing.JFrame {
     public AndraOmrodeschef(InfDB idb) {
         initComponents();
         this.idb = idb;
-        fyllComboboxAdminAgent();
-        fyllComboboxOmråde();
+        FyllCBOmrade();
+        FyllCBAgent();
                 setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
-    private void fyllComboboxAdminAgent() {
-        JComboBoxOmradeschef.removeAllItems(); // Denna metod nollställer alla värder i comboboxen
-    String question = "SELECT Namn FROM Agent"; // Här används en SQL-fråga för att hämta agentnamn
     
-    ArrayList<String> AdminAgenter ; // Här anropar man en arraylist med agenter med admin status för att kunna ändra områdeschef
-    try { // Vi använder try catch för att förhindra crashar från att hända ifall det skulle uppstå problem. 
-    AdminAgenter = idb.fetchColumn(question);
-    
-    for(String agent: AdminAgenter)
-    {
-      JComboBoxOmradeschef.addItem(agent);
-    }
-    }catch (InfException ettUndantag) { // Stoppar systemet ifrån att krascha
-            Logger.getLogger(AndraKontorschef.class.getName()).log(Level.SEVERE, null, ettUndantag);
-        }
-    }
-   
-    
-    private void fyllComboboxOmråde(){ // Denna metod fyller comboboxen med områden 
-    JComboBoxOmråde.removeAllItems(); // Här nollställs värdena i comboboxen 
-    String question = "SELECT Benamning FROM Omrade"; // Här använder vi en SQL fråga för att få tillgång till områdenas benämningar. 
-    
-    ArrayList<String> områden ;
-    try { // Vi använder try catch för att förhindra crashar från att hända ifall det skulle uppstå problem. 
-    områden = idb.fetchColumn(question);
-    for(String område: områden)
-    {
-      JComboBoxOmråde.addItem(område); // Denna metoden fyller comboboxen med områden
-    }
-    }   catch (InfException ettUndantag) { // Stoppar systemet ifrån att krascha
-            Logger.getLogger(AndraOmrodeschef.class.getName()).log(Level.SEVERE, null, ettUndantag);
-        }
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -74,8 +40,8 @@ public class AndraOmrodeschef extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         JLOmradeschef = new javax.swing.JLabel();
         JLOmråde = new javax.swing.JLabel();
-        JComboBoxOmradeschef = new javax.swing.JComboBox<>();
-        JComboBoxOmråde = new javax.swing.JComboBox<>();
+        CBvaljAgent = new javax.swing.JComboBox<>();
+        CBomrade = new javax.swing.JComboBox<>();
         BtnAndra = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
@@ -91,10 +57,6 @@ public class AndraOmrodeschef extends javax.swing.JFrame {
 
         JLOmråde.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         JLOmråde.setText("Välj område:");
-
-        JComboBoxOmradeschef.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1", "2", "3", "4" }));
-
-        JComboBoxOmråde.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1", "2", "3", "4" }));
 
         BtnAndra.setText("Ändra");
         BtnAndra.addActionListener(new java.awt.event.ActionListener() {
@@ -128,8 +90,8 @@ public class AndraOmrodeschef extends javax.swing.JFrame {
                                     .addComponent(JLOmråde))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(JComboBoxOmradeschef, 0, 112, Short.MAX_VALUE)
-                                    .addComponent(JComboBoxOmråde, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                    .addComponent(CBvaljAgent, 0, 112, Short.MAX_VALUE)
+                                    .addComponent(CBomrade, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -141,11 +103,11 @@ public class AndraOmrodeschef extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JComboBoxOmradeschef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CBvaljAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JLOmradeschef))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JComboBoxOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CBomrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JLOmråde))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(BtnAndra)
@@ -154,29 +116,60 @@ public class AndraOmrodeschef extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    private void FyllCBAgent() {
+        String namnen = "SELECT namn from AGENT";
+        ArrayList<String> agenter;
 
-    private void BtnAndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAndraActionPerformed
- 
-    String agenten = JComboBoxOmradeschef.getSelectedItem().toString(); 
-    String området = JComboBoxOmråde.getSelectedItem().toString();
-    
-try {
-    // Här hämtarr vi agentID från agent tabellen  
-    String agentensID = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Namn = '" + agenten + "'");
-    // Här hämtar vi områdesID från område tabellen 
-    String områdetsID = idb.fetchSingle("SELECT Omrades_ID FROM OMRADE WHERE Benamning = '" + området + "'");
-    
-    // Här uppdaterar vi områdeschefen 
-    idb.update("UPDATE Omradeschef SET Agent_ID = '" + agenten + "' WHERE Omrade = '" + området + "'");
-    
-    // Denna metod visar information
-    JOptionPane.showMessageDialog(null, agenten + " är områdeschef för området! " + området);
-         
-            
-    } catch (InfException ettUndantag) { // Stoppar krash ifall try inte skulle fungera
-      Logger.getLogger(AndraOmrodeschef.class.getName()).log(Level.SEVERE, null, ettUndantag);
-      
+        try {
+            agenter = idb.fetchColumn(namnen);
+            for (String namn : agenter) {
+                CBvaljAgent.addItem(namn);
+            }
+        } catch (InfException ettUndantag) {
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
+        }
     }
+
+    private void FyllCBOmrade() {
+        String namnen = "Select Benamning from Omrade" ;
+        ArrayList <String> Omraden;
+        try {
+             Omraden = idb.fetchColumn(namnen);
+             
+             for (String områden : Omraden) {
+                 CBomrade.addItem(områden);
+            }
+        } catch (InfException ettUndantag) {
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
+        }
+   }
+   
+    private void BtnAndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAndraActionPerformed
+        String omrade = CBomrade.getSelectedItem().toString();
+        String agent = CBvaljAgent.getSelectedItem().toString();
+        String ChefFraga = ("SELECT Namn FROM AGENT JOIN OMRADESCHEF ON AGENT.Agent_ID = OMRADESCHEF.Agent_ID JOIN OMRADE ON OMRADESCHEF.Omrade = OMRADE.Omrades_ID where benamning = '" + omrade + "'");
+        String hamtaAgent = ("Select Agent_ID from agent where namn ='" + agent + "'");
+        String hamtaOmraden = ("Select Omrades_ID from Omrade");
+        String hamtaID = ("Select Omrades_ID from Omrade where Benamning ='" + omrade + "'");
+
+        try {
+            String chefForOmrode = idb.fetchSingle(ChefFraga);
+            String hamtaOmradeID = idb.fetchSingle(hamtaID);
+            String hamtaAgentID = idb.fetchSingle(hamtaAgent);
+            int OmradesID = Integer.parseInt(hamtaOmradeID);
+            int AgentID = Integer.parseInt(hamtaAgentID);
+            String UppdateraChef = ("Update Omradeschef SET Agent_ID = " + AgentID + " where Omrade = " + OmradesID);
+            idb.update(UppdateraChef);
+             JOptionPane.showMessageDialog(null, "Chef uppdaterad");
+
+
+            if (chefForOmrode.equals(agent)) {
+                JOptionPane.showMessageDialog(null, "Agenten är redan chef för det området!");
+            } 
+            
+        } catch (InfException ettUndantag) {
+            JOptionPane.showMessageDialog(null, "Agenten är redan chef för ett annat område.");
+        }
     }//GEN-LAST:event_BtnAndraActionPerformed
 
     /**
@@ -216,8 +209,8 @@ try {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAndra;
-    private javax.swing.JComboBox<String> JComboBoxOmradeschef;
-    private javax.swing.JComboBox<String> JComboBoxOmråde;
+    private javax.swing.JComboBox<String> CBomrade;
+    private javax.swing.JComboBox<String> CBvaljAgent;
     private javax.swing.JLabel JLOmradeschef;
     private javax.swing.JLabel JLOmråde;
     private javax.swing.JLabel jLabel1;

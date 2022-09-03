@@ -113,11 +113,11 @@ public class AndraLosenAlien extends javax.swing.JFrame {
         
         if (!Validering.kollaLosen(nyttLos)){
             LBfelaktig.setText("Lösenordet får vara max 8 tecken!");
-        } else if (!nyttLos.equals (bekLos)){
+        } else if (!nyttLos.equals(bekLos)){
             LBfelaktig.setText ("De inskrivna lösenorden stämmer inte överens.");
         } else {
             try {
-                idb.update("UPDATE Alien SET Losenord = '" + nyttLos + "' WHERE Alien_ID = " + Inloggad.getInloggadID());
+                idb.update("UPDATE Alien SET Losenord = '" + nyttLos + "' WHERE Alien_ID = AlienID");
                 LBfelaktig.setText("Lösenordet har uppdaterats.");
             } catch (InfException ettUndantag) {
                 JOptionPane.showMessageDialog (null, "Något gick fel!");

@@ -51,8 +51,8 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="JComboBoxOmradeschef" pref="112" max="32767" attributes="0"/>
-                                  <Component id="JComboBoxOmråde" max="32767" attributes="0"/>
+                                  <Component id="CBvaljAgent" pref="112" max="32767" attributes="0"/>
+                                  <Component id="CBomrade" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -71,12 +71,12 @@
               <Component id="jLabel2" min="-2" pref="15" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JComboBoxOmradeschef" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="CBvaljAgent" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JLOmradeschef" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JComboBoxOmråde" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="CBomrade" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JLOmråde" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="46" max="32767" attributes="0"/>
@@ -111,32 +111,20 @@
         <Property name="text" type="java.lang.String" value="V&#xe4;lj omr&#xe5;de:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="JComboBoxOmradeschef">
+    <Component class="javax.swing.JComboBox" name="CBvaljAgent">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="5">
-            <StringItem index="0" value=""/>
-            <StringItem index="1" value="1"/>
-            <StringItem index="2" value="2"/>
-            <StringItem index="3" value="3"/>
-            <StringItem index="4" value="4"/>
-          </StringArray>
+          <StringArray count="0"/>
         </Property>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="JComboBoxOmr&#xe5;de">
+    <Component class="javax.swing.JComboBox" name="CBomrade">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="5">
-            <StringItem index="0" value=""/>
-            <StringItem index="1" value="1"/>
-            <StringItem index="2" value="2"/>
-            <StringItem index="3" value="3"/>
-            <StringItem index="4" value="4"/>
-          </StringArray>
+          <StringArray count="0"/>
         </Property>
       </Properties>
       <AuxValues>

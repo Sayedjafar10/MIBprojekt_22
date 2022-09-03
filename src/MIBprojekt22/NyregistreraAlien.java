@@ -23,10 +23,8 @@ public class NyregistreraAlien extends javax.swing.JFrame {
     public NyregistreraAlien(InfDB idb) {
         initComponents();
         this.idb =  idb;
-        
-        
-
-    
+                setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+                
     }
     
    

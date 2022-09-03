@@ -22,7 +22,8 @@ public class NyregistreraAgent extends javax.swing.JFrame {
     public NyregistreraAgent(InfDB idb) {
         initComponents();
         this.idb = idb;
-        
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
     }
 
     /**
