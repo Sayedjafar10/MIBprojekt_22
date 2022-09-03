@@ -224,7 +224,7 @@ public class AdminSida extends javax.swing.JFrame {
     }//GEN-LAST:event_BTNtabortAgentActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        //Denna knapp leder dig till ett nytt fönster där du kommer till agentmenyn.
         new AgentSida(idb).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

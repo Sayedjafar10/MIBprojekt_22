@@ -194,8 +194,7 @@ public class LoggaIn extends javax.swing.JFrame {
         }
         }
     }//GEN-LAST:event_BTNloggainActionPerformed
-  
-
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTNloggain;
     private javax.swing.JLabel LBagentID;

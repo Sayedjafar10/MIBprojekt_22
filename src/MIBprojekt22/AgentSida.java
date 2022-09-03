@@ -125,12 +125,12 @@ public class AgentSida extends javax.swing.JFrame {
     }//GEN-LAST:event_BTNredigeraAlienActionPerformed
 
     private void BTNandralosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNandralosenordActionPerformed
-        // TODO add your handling code here:
+        //Denna knapp leder dig till ett nytt fönster där du kan ändra ditt lösenord.
         new AndraLosenAgent(idb).setVisible(true);
     }//GEN-LAST:event_BTNandralosenordActionPerformed
 
     private void BTNregutrustnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNregutrustnActionPerformed
-        // TODO add your handling code here:
+        //Denna knapp leder dig till ett nytt fönster där du kan registrera ny utrustning.
         new NyregistreraUtrustning(idb).setVisible(true);
     }//GEN-LAST:event_BTNregutrustnActionPerformed
 
