@@ -4,7 +4,10 @@
  */
 package MIBprojekt22;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
+import oru.inf.InfException;
 
 /**
  *
@@ -17,8 +20,11 @@ public class GorAdministrator extends javax.swing.JFrame {
     public GorAdministrator(InfDB idb) {
         initComponents();
         this.idb = idb;
+        addEndastAgenter();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,20 +36,26 @@ public class GorAdministrator extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        CBagenter = new javax.swing.JComboBox<>();
+        BTNandra = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        LBmeddelande = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Cambria", 0, 24)); // NOI18N
         jLabel1.setText("Gör administratör");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Agent O", "Agent J", "Agent K", "Agent Z" }));
+        CBagenter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Agent O", "Agent J", "Agent K", "Agent Z" }));
 
-        jButton1.setText("Ändra");
+        BTNandra.setText("Ändra");
+        BTNandra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNandraActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Cambria", 2, 10)); // NOI18N
         jLabel2.setText("Här kan du som admin göra en eller flera agenter till admin genom att ge ");
@@ -69,12 +81,16 @@ public class GorAdministrator extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel2)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(BTNandra, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(LBmeddelande, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(86, 86, 86)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                                .addComponent(CBagenter, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -86,18 +102,48 @@ public class GorAdministrator extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(93, 93, 93)
-                .addComponent(jButton1)
+                .addComponent(CBagenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(LBmeddelande)
+                .addGap(27, 27, 27)
+                .addComponent(BTNandra)
                 .addGap(33, 33, 33))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BTNandraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNandraActionPerformed
+        // TODO add your handling code here:
+        try {
+            idb.update("UPDATE Agent SET Administrator = 'J' WHERE namn = '" + CBagenter.getSelectedItem().toString() + "';");
+            CBagenter.removeAllItems();
+            addEndastAgenter();
+            LBmeddelande.setText("Vald agent har nu administratörsstatus!");
+        } catch (InfException ettUndantag) {
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
+
+        }
+    }                                        
+
+    //Denna metod hämtar ut alla agenter som inte är admin och gör dem synliga i comboboxen och därav gör det möjligt för dem att adminstatus.
+    private void addEndastAgenter() {
+        try {
+            ArrayList<String> agenter = new ArrayList<>();
+            agenter = idb.fetchColumn("SELECT Namn FROM Agent WHERE Administrator = 'N';");
+            for (String namn : agenter) {
+                CBagenter.addItem(namn);
+            }
+        } catch (InfException ettUndantag) {
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
+        }
+    
+        
+    }//GEN-LAST:event_BTNandraActionPerformed
+        
     /**
      * @param args the command line arguments
      */
@@ -137,8 +183,9 @@ public class GorAdministrator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton BTNandra;
+    private javax.swing.JComboBox<String> CBagenter;
+    private javax.swing.JLabel LBmeddelande;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

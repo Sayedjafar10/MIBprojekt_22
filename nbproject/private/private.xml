@@ -1,30 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-<<<<<<< Updated upstream
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/amandademir/Downloads/GitHub/MIBprojekt_22/src/MIBprojekt22/NyregistreraAlien.java</file>
-=======
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
-        <file>
-            <url>src/MIBprojekt22/AgentSida.java</url>
-            <bookmark id="1">
-                <name/>
-                <line>150</line>
-                <key/>
-            </bookmark>
-        </file>
-    </editor-bookmarks>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/piava/Documents/NetBeansProjects/Systemprojekt1/src/MIBprojekt22/AlienSida.java</file>
+            <file>file:/C:/Users/piava/Documents/NetBeansProjects/Systemprojekt1/src/MIBprojekt22/HittaAliensOmradeschef.java</file>
+            <file>file:/C:/Users/piava/Documents/NetBeansProjects/Systemprojekt1/src/MIBprojekt22/AndraLosenAgent.java</file>
+            <file>file:/C:/Users/piava/Documents/NetBeansProjects/Systemprojekt1/src/MIBprojekt22/GorAdministrator.java</file>
             <file>file:/C:/Users/piava/Documents/NetBeansProjects/Systemprojekt1/src/MIBprojekt22/LoggaIn.java</file>
-            <file>file:/C:/Users/piava/Documents/NetBeansProjects/Systemprojekt1/src/MIBprojekt22/AgentSida.java</file>
-            <file>file:/C:/Users/piava/Documents/NetBeansProjects/Systemprojekt1/src/MIBprojekt22/Start.java</file>
+            <file>file:/C:/Users/piava/Documents/NetBeansProjects/Systemprojekt1/src/MIBprojekt22/HittaOmradeschef.java</file>
+            <file>file:/C:/Users/piava/Documents/NetBeansProjects/Systemprojekt1/src/MIBprojekt22/AndraLosenAlien.java</file>
             <file>file:/C:/Users/piava/Documents/NetBeansProjects/Systemprojekt1/src/MIBprojekt22/Inloggad.java</file>
-            <file>file:/C:/Users/piava/Documents/NetBeansProjects/Systemprojekt1/src/MIBprojekt22/AdminSida.java</file>
->>>>>>> Stashed changes
         </group>
     </open-files>
 </project-private>
