@@ -194,12 +194,7 @@ public class LoggaIn extends javax.swing.JFrame {
         }
         }
     }//GEN-LAST:event_BTNloggainActionPerformed
-   
-    public static String getNamn()
-    {
-     return LoginUsername.getText();
-    }
-   
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTNloggain;
