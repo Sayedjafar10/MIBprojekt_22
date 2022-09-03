@@ -5,15 +5,14 @@
 package MIBprojekt22;
 
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 /**
 /**
  *
- * @author amandademir
+ * @author amandademir, piava
  */
 public class NyregistreraUtrustning extends javax.swing.JFrame {
  
@@ -24,7 +23,7 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
     public NyregistreraUtrustning(InfDB idb) {
         initComponents();
         this.idb = idb;
-                setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+               
 
     }
 
@@ -41,6 +40,10 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
         JLRegUtrustning = new javax.swing.JLabel();
         BtnRegistrera = new javax.swing.JButton();
         TxtUtrustning = new javax.swing.JTextField();
+        JComboBoxUtrustning = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        lbTeknik = new javax.swing.JLabel();
+        txtTeknik = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,10 +60,34 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
             }
         });
 
+        JComboBoxUtrustning.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Vapen", "Kommunikation", "Teknik" }));
+        JComboBoxUtrustning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JComboBoxUtrustningActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Namn på utrustning:");
+
+        lbTeknik.setText("Typ av teknik:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(JComboBoxUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtTeknik, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                            .addComponent(TxtUtrustning))))
+                .addGap(59, 59, 59))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -69,13 +96,14 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
                             .addComponent(JLRubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(36, 36, 36)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(JLRegUtrustning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(TxtUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(JLRegUtrustning))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(103, 103, 103)
-                        .addComponent(BtnRegistrera)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(BtnRegistrera))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lbTeknik)))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,11 +112,19 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
                 .addComponent(JLRubrik)
                 .addGap(31, 31, 31)
                 .addComponent(JLRegUtrustning)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TxtUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JComboBoxUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TxtUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbTeknik)
+                    .addComponent(txtTeknik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
                 .addComponent(BtnRegistrera)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -98,16 +134,55 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
     if(Validering.tomRuta(TxtUtrustning))
     
     try{
-        String UtrustningsID =  idb.getAutoIncrement("Utrustning","Utrustnings_ID");
-        String namn = String.valueOf(TxtUtrustning.getText());
-        
-        idb.insert("INSERT INTO Utrustning VALUES("+UtrustningsID+",'"+namn+"')");//Här skriver vi in utrustningsvärden
-        JOptionPane.showMessageDialog(null, "Ny utrustning är har registrerats!");
+        String namn = TxtUtrustning.getText();
+            String uID = idb.getAutoIncrement("Utrustning", "Utrustnings_ID");
+            int nyaID = Integer.parseInt(uID);
+            String utrustning =  JComboBoxUtrustning.getSelectedItem().toString();
+            String boxUtrustning = (" SELECT BENAMNING FROM UTRUSTNING");
+            String getUtrustning = idb.fetchSingle(boxUtrustning);
+            String nyUtrustning = ("INSERT INTO UTRUSTNING VALUES(" + nyaID + ",'" + namn + "')");
+            System.out.println(nyUtrustning);
+            idb.insert(nyUtrustning);
+            String utrustingFöremål = txtTeknik.getText();
+            
+            if(utrustning.equals("Kommunikation")){
+                idb.insert("INSERT INTO Kommunikation VALUES(" + nyaID + ",'"+ utrustingFöremål +"')");
+                
+            }
+          if(utrustning.equals("Teknik")){
+                idb.insert("INSERT INTO Teknik VALUES(" + nyaID + ", ' " + utrustingFöremål + "')");
+               
+            } 
+
+            if(utrustning.equals("Vapen")){
+                idb.insert("INSERT INTO Vapen VALUES(" + nyaID + ", '" + utrustingFöremål + "')" );
+               
+            } 
+            
+
+        JOptionPane.showMessageDialog(null, "Registreringen klar!");
             
     } catch (InfException ettUndantag) {   
-        Logger.getLogger(NyregistreraUtrustning.class.getName()).log(Level.SEVERE, null, ettUndantag);
-        }    
+        JOptionPane.showMessageDialog(null, " Registrering gick ej!");        }    
     }//GEN-LAST:event_BtnRegistreraActionPerformed
+
+    private void JComboBoxUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JComboBoxUtrustningActionPerformed
+        String utrustning = JComboBoxUtrustning.getSelectedItem().toString(); 
+
+           if(utrustning.equals("Kommunikation")){
+               lbTeknik.setEnabled(true);
+               lbTeknik.setText(" Överforningsteknik:");
+           }
+           if(utrustning.equals("Teknik")){
+              lbTeknik.setEnabled(true);
+               lbTeknik.setText("Kraftkalla:");
+           }
+           if(utrustning.equals("Vapen")){
+               lbTeknik.setEnabled(true);
+               lbTeknik.setText("Kaliber:");
+           }
+
+    }//GEN-LAST:event_JComboBoxUtrustningActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,8 +221,12 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnRegistrera;
+    private javax.swing.JComboBox<String> JComboBoxUtrustning;
     private javax.swing.JLabel JLRegUtrustning;
     private javax.swing.JLabel JLRubrik;
     private javax.swing.JTextField TxtUtrustning;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lbTeknik;
+    private javax.swing.JTextField txtTeknik;
     // End of variables declaration//GEN-END:variables
 }
