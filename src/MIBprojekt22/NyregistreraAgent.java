@@ -196,7 +196,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                         nuvarandeAdmin = "N";
                     }
                     
-                    String nyaAgenten = ("INSERT INTO Agent values (" + nyaID + ",'" + namn + "','" + telnmr + "','" + anstdatum + "','" + nuvarandeAdmin + "','" + losen + "'," + hamtaOmradesID + ")");
+                    String nyaAgenten = ("INSERT INTO Agent VALUES (" + nyaID + ",'" + namn + "','" + telnmr + "','" + anstdatum + "','" + nuvarandeAdmin + "','" + losen + "'," + hamtaOmradesID + ")");
                     idb.insert(nyaAgenten);
                     JOptionPane.showMessageDialog(null, "En ny agent har registrerats!");
                    

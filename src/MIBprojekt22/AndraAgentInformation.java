@@ -91,7 +91,7 @@ public class AndraAgentInformation extends javax.swing.JFrame {
 
         jButton4.setText("Ändra");
 
-        jButton5.setText("jButton5");
+        jButton5.setText("Ändra");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
