@@ -13,7 +13,7 @@ import oru.inf.InfException;
 /**
 /**
  *
- * @author amandademir
+ * @author amandademir, piava
  */
 public class RaderaUtrustning extends javax.swing.JFrame {
  
