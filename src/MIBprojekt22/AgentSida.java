@@ -126,7 +126,7 @@ public class AgentSida extends javax.swing.JFrame {
 
     private void BTNandralosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNandralosenordActionPerformed
         // TODO add your handling code here:
-        new AndraLosenAgent (idb).setVisible(true);
+        new AndraLosenAgent(idb).setVisible(true);
     }//GEN-LAST:event_BTNandralosenordActionPerformed
 
     private void BTNregutrustnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNregutrustnActionPerformed

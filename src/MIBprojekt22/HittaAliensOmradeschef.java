@@ -27,13 +27,14 @@ public class HittaAliensOmradeschef extends javax.swing.JFrame {
         String telnummer = data.get("Telefon");
         String agentID = data.get("Agent_ID");
         String omradeID = data.get("Omrade");
+        String alienID = data.get("Alien_ID");
         
-        LBagentID.setText(agentID);
-        LBnamn.setText(namn);
-        LBtelnmr.setText(telnummer);
-        LBomradeID.setText(omradeID);
+            LBagentID.setText(agentID);
+            LBnamn.setText(namn);
+            LBtelnmr.setText(telnummer);
+            LBomradeID.setText(omradeID);
         
-                setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
  
     }
     
@@ -41,7 +42,7 @@ public class HittaAliensOmradeschef extends javax.swing.JFrame {
        
         HashMap<String, String> data = new HashMap<>();
         try {
-            data = idb.fetchRow("SELECT Agent.Agent_ID, Agent.Namn, Agent.Telefon, Agent.Omrade FROM Agent JOIN Omradeschef ON Omradeschef.Agent_ID = Agent.Agent_ID JOIN Alien ON Omradeschef.Omrade = Alien.Plats WHERE Alien_ID = '" + Inloggad.getInloggadID() + "'");
+            data = idb.fetchRow("SELECT Agent.Agent_ID, Agent.Namn, Agent.Telefon, Agent.Omrade FROM Agent JOIN Omradeschef ON Omradeschef.Agent_ID = Agent.Agent_ID JOIN Alien ON Omradeschef.Omrade = Alien.Plats WHERE Alien_ID = Alien_ID");
         } catch (InfException ettUndantag) {
             JOptionPane.showMessageDialog (null, "Försök igen!");        
         }

@@ -16,7 +16,7 @@ public class AndraLosenAgent extends javax.swing.JFrame {
     
     private static InfDB idb;
     
-    public AndraLosenAgent(InfDB idb, String agentID) {
+    public AndraLosenAgent(InfDB idb) {
         initComponents();
         this.idb = idb;
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
