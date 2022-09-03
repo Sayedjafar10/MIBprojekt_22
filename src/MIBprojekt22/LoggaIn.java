@@ -5,6 +5,7 @@ import oru.inf.InfDB;
 import oru.inf.InfException; 
 
 
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -17,11 +18,12 @@ import oru.inf.InfException;
 public class LoggaIn extends javax.swing.JFrame {
 
     private InfDB idb;
+
     
     public LoggaIn(InfDB idb) {
         initComponents();
         this.idb = idb;
-                    setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+                setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
     }
    
@@ -38,6 +40,7 @@ public class LoggaIn extends javax.swing.JFrame {
         AlienSida sidan = new AlienSida(idb);
         sidan.setVisible(true);
 }
+     
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -150,7 +153,7 @@ public class LoggaIn extends javax.swing.JFrame {
         String inskrivetNamn = LoginUsername.getText();
         
         
-        if (Validering.tomRuta(LogInpassword) && valdAnvandare.equals("Agent")) {
+        if (Validering.tomRuta(LoginUsername) && valdAnvandare.equals("Agent")) {
             try {
                 String hamtaLosenord = ("SELECT Losenord from AGENT where namn = '" + inskrivetNamn + "'");
                 String losenord = idb.fetchSingle(hamtaLosenord);
@@ -191,6 +194,7 @@ public class LoggaIn extends javax.swing.JFrame {
         }
         }
     }//GEN-LAST:event_BTNloggainActionPerformed
+   
     
    
 

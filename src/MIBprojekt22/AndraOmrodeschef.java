@@ -26,7 +26,6 @@ public class AndraOmrodeschef extends javax.swing.JFrame {
         fyllComboboxAdminAgent();
         fyllComboboxOmråde();
                 setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
     }
 
     private void fyllComboboxAdminAgent() {
@@ -61,6 +60,7 @@ public class AndraOmrodeschef extends javax.swing.JFrame {
     }   catch (InfException ettUndantag) { // Stoppar systemet ifrån att krascha
             Logger.getLogger(AndraOmrodeschef.class.getName()).log(Level.SEVERE, null, ettUndantag);
         }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -177,9 +177,6 @@ try {
       Logger.getLogger(AndraOmrodeschef.class.getName()).log(Level.SEVERE, null, ettUndantag);
       
     }
-
-
-     
     }//GEN-LAST:event_BtnAndraActionPerformed
 
     /**

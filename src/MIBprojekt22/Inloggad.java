@@ -13,7 +13,6 @@ public class Inloggad {
     private static String anvandarID;
 
     public Inloggad (String anvandarID) {
-        
         this.anvandarID = anvandarID;
     }
    

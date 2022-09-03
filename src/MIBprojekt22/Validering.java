@@ -42,7 +42,6 @@ public class Validering {
     boolean resultat = false;
 
     if(losen.length() >= 4 && losen.length() <= 6) {
-        JOptionPane.showMessageDialog(null, "Lösenordet får max vara 8 tecken!");
         resultat = true;
     }
     return resultat;

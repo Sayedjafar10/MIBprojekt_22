@@ -64,9 +64,9 @@
                   <Component id="LBconfirmpass" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="TXTconpass" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace pref="32" max="32767" attributes="0"/>
               <Component id="BTNupdate" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="24" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Component id="LBfelaktig" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
           </Group>
@@ -110,9 +110,6 @@
       </Properties>
     </Component>
     <Component class="java.awt.Label" name="LBfelaktig">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="label1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="TXTnewpass">
     </Component>
