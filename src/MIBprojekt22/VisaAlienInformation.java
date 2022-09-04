@@ -48,7 +48,7 @@ public class VisaAlienInformation extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         LBalienID = new javax.swing.JLabel();
         LBtelnmr = new javax.swing.JLabel();
-        LBplatsID = new javax.swing.JLabel();
+        LBomradeID = new javax.swing.JLabel();
         LBansvarigagent = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         LBnamn = new javax.swing.JLabel();
@@ -132,10 +132,9 @@ public class VisaAlienInformation extends javax.swing.JFrame {
                             .addComponent(LBnamn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(LBalienID, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(LBtelnmr, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LBplatsID, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(LBras, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
-                                .addComponent(LBansvarigagent, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(LBomradeID, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LBras, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                            .addComponent(LBansvarigagent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(LBantalnmr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(LBregdatum, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
@@ -169,7 +168,7 @@ public class VisaAlienInformation extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(LBplatsID))
+                    .addComponent(LBomradeID))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -209,22 +208,24 @@ public class VisaAlienInformation extends javax.swing.JFrame {
     public void hamtaAliens(){
         try {
             ArrayList<String> aliens = new ArrayList<>();
-            aliens = idb.fetchColumn("SELECT Alien.Namn FROM Alien");
+            aliens = idb.fetchColumn("SELECT Namn FROM Alien");
             for (String namn : aliens){
                 CBvaljalien.addItem(namn);
             }
         }catch (InfException ettUndantag){
-            JOptionPane.showMessageDialog(null, "Något har gått fel!");
+            JOptionPane.showMessageDialog(null, "Något har gått fel,prova igen!");
         }
     }
+    
+   
     
     public HashMap getInfoAlien(){
         
         HashMap<String, String> info = new HashMap<>();
         try{
-            info= idb.fetchRow("SELECT Alien_ID, Alien.Namn, Telefon, Plats, Ansvaring_Agent, Registreringsdatum, Plats FROM Alien WHERE Alien.Namn = '" + CBvaljalien.getSelectedItem().toString()+ "';" ); 
+            info= idb.fetchRow("SELECT Alien_ID, Alien.Namn, Telefon, Omrade, Ansvaring_Agent, Registreringsdatum FROM Alien WHERE Alien.Namn = '" + CBvaljalien.getSelectedItem().toString()+ "';" ); 
         } catch (InfException ettUndantag){
-            JOptionPane.showMessageDialog(null, "Något har gått fel!");
+            JOptionPane.showMessageDialog(null, "Något har gått fel, prova igen!");
         }
         return info;
     }
@@ -244,7 +245,7 @@ public class VisaAlienInformation extends javax.swing.JFrame {
         LBnamn.setText(namn);
         LBalienID.setText(alienID);
         LBtelnmr.setText(telnmr);
-        LBplatsID.setText(omradeID);
+        LBomradeID.setText(omradeID);
         LBregdatum.setText(registDatum);
         LBansvarigagent.setText(ansvAgent);
         LBras.setText("");
@@ -266,7 +267,7 @@ public class VisaAlienInformation extends javax.swing.JFrame {
             ifSquid = idb.fetchSingle("SELECT EXISTS (SELECT * FROM Squid WHERE Alien_ID = " + alienID + ");");
             ifBoglodite = idb.fetchSingle("SELECT EXISTS (SELECT * FROM Boglodite WHERE Alien_ID = " + alienID + ");");
         } catch (InfException ettUndantag){
-            JOptionPane.showMessageDialog(null, "Något har gått fel!");
+            JOptionPane.showMessageDialog(null, "Något har gått fel, prova igen!");
         }
         
         if (ifWorm.equals("1")){
@@ -281,7 +282,7 @@ public class VisaAlienInformation extends javax.swing.JFrame {
                 LBantalet.setText("Antal armar:");
                 LBantalnmr.setText(antalArmar);
             } catch (InfException ettUndantag){
-                JOptionPane.showMessageDialog(null, "Något gick fel!");
+                JOptionPane.showMessageDialog(null, "Något gick fel, prova igen!");
             }
         } else if (ifBoglodite.equals("1")){
             try {
@@ -290,7 +291,7 @@ public class VisaAlienInformation extends javax.swing.JFrame {
                 LBantalet.setText("Antal boogies:");
                 LBantalnmr.setText(antalBoogies);
             } catch (InfException ettUndantag){
-                JOptionPane.showMessageDialog(null, "Något gick fel!");
+                JOptionPane.showMessageDialog(null, "Något gick fel, prova igen!");
             }
         } else {
             LBras.setText("");
@@ -344,7 +345,7 @@ public class VisaAlienInformation extends javax.swing.JFrame {
     private javax.swing.JLabel LBantalet;
     private javax.swing.JLabel LBantalnmr;
     private javax.swing.JLabel LBnamn;
-    private javax.swing.JLabel LBplatsID;
+    private javax.swing.JLabel LBomradeID;
     private javax.swing.JLabel LBras;
     private javax.swing.JLabel LBregdatum;
     private javax.swing.JLabel LBtelnmr;
