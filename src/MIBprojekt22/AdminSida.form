@@ -40,16 +40,20 @@
                           <Component id="BTNtabortUtrustning" max="32767" attributes="0"/>
                           <Component id="BTNtabortAgent" min="-2" pref="125" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="BTNsok" max="32767" attributes="0"/>
+                          <Component id="BTNregutrust" max="32767" attributes="0"/>
+                          <Component id="BTNlosen" max="32767" attributes="0"/>
+                          <Component id="BTNredALien" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                          <Component id="label1" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="label1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="32" max="32767" attributes="0"/>
+              <EmptySpace pref="33" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -60,27 +64,31 @@
               <Component id="label1" min="-2" pref="34" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="BTNlosen" max="32767" attributes="0"/>
                   <Component id="BTNandraKontorschef" max="32767" attributes="0"/>
-                  <Component id="BTNnyregAgent" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="BTNnyregAgent" pref="35" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="BTNregutrust" max="32767" attributes="0"/>
                   <Component id="BTNandraOmradeschef" max="32767" attributes="0"/>
-                  <Component id="BTNgeAdminstatus" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="BTNgeAdminstatus" pref="35" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="BTNsok" max="32767" attributes="0"/>
                   <Component id="BTNtabortUtrustning" max="32767" attributes="0"/>
-                  <Component id="BTNsökAgentInfo" min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="BTNsökAgentInfo" pref="34" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="BTNtabortAgent" max="32767" attributes="0"/>
-                  <Component id="BTNandraAgentinfo" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="BTNredALien" pref="39" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="BTNtabortAgent" max="32767" attributes="0"/>
+                      <Component id="BTNandraAgentinfo" pref="39" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace pref="46" max="32767" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -206,12 +214,60 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTNtabortAgentActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="java.awt.Button" name="BTNlosen">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Tryck h&#xe4;r f&#xf6;r att komma till agentmenyn."/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Cambria" size="12" style="1"/>
+        </Property>
+        <Property name="label" type="java.lang.String" value="&#xc4;ndra l&#xf6;senord"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTNlosenActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="java.awt.Button" name="BTNregutrust">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Cambria" size="12" style="1"/>
+        </Property>
+        <Property name="label" type="java.lang.String" value="Registrera utrustning"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTNregutrustActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="java.awt.Button" name="BTNsok">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Cambria" size="12" style="1"/>
+        </Property>
+        <Property name="label" type="java.lang.String" value="S&#xf6;k omr&#xe5;deschef"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTNsokActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="java.awt.Button" name="BTNredALien">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Cambria" size="12" style="1"/>
+        </Property>
+        <Property name="label" type="java.lang.String" value="Redigera alien"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTNredALienActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
