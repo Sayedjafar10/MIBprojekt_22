@@ -26,7 +26,6 @@ public class NyregistreraAlienn extends javax.swing.JFrame {
         initComponents();
         this.idb = idb;
         konv = new HjalpAttHamta(idb);
-
     }
 
     private NyregistreraAlienn() {

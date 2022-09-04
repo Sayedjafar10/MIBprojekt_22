@@ -34,4 +34,14 @@ public class HjalpAttHamta {
 
     }
     
+    public String getAlienId(String Namn) {
+        String alienId = "";
+        try {
+            String fraga = "SELECT Alien_ID FROM alien WHERE Namn = '" + Namn + "'";
+            alienId = idb.fetchSingle(fraga);
+        } catch (InfException ex) {
+            JOptionPane.showMessageDialog(null, "Gick inte att hämta alien id");
+        }
+        return alienId;
+    }
 }

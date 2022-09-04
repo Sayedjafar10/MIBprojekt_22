@@ -16,13 +16,27 @@ import oru.inf.InfException;
 public class AndraLosenAlien extends javax.swing.JFrame {
 
     private static InfDB idb;
+    private HjalpAttHamta konv;
+
     
     public AndraLosenAlien(InfDB idb) {
         initComponents();
         this.idb = idb;
+        konv = new HjalpAttHamta(idb);
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
+    private String getAlienId(String Namn) {
+        String alienId = "";
+        try {
+            String fraga = "SELECT Alien_ID FROM alien WHERE Namn = '" + Namn + "'";
+            alienId = idb.fetchSingle(fraga);
+        } catch (InfException ex) {
+            JOptionPane.showMessageDialog(null, "Gick inte att hämta alien id");
+        }
+        return alienId;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -110,6 +124,8 @@ public class AndraLosenAlien extends javax.swing.JFrame {
         LBfelaktig.setText("");
         String nyttLos = TXTnewpass.getText();
         String bekLos = TXTconpass.getText();
+        String alienId = "";
+        getAlienId(alienId);
         
         if (!Validering.kollaLosen(nyttLos)){
             LBfelaktig.setText("Lösenordet får vara max 8 tecken!");
@@ -117,7 +133,7 @@ public class AndraLosenAlien extends javax.swing.JFrame {
             LBfelaktig.setText ("De inskrivna lösenorden stämmer inte överens.");
         } else {
             try {
-                idb.update("UPDATE Alien SET Losenord = '" + nyttLos + "' WHERE Alien_ID = AlienID");
+                idb.update("UPDATE Alien SET Losenord = '" + nyttLos + "' WHERE Alien_ID = '" + alienId + "'");
                 LBfelaktig.setText("Lösenordet har uppdaterats.");
             } catch (InfException ettUndantag) {
                 JOptionPane.showMessageDialog (null, "Något gick fel!");

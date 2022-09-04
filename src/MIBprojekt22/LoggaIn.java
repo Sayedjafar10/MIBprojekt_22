@@ -27,15 +27,18 @@ public class LoggaIn extends javax.swing.JFrame {
 
     }
    
+    //Metod som öppnar Agent menyn när du loggar in som Agent.
      public void OppnaAgentSida() {
         AgentSida sidan = new AgentSida(idb);
         sidan.setVisible(true);
     }
-     
+    
+    //Metod som öppnar Admin menyn när du loggar in som Admin.
      public void OppnaAdminSida(){
         AdminSida sidan = new AdminSida(idb);
         sidan.setVisible(true);
 }
+    //Metod som öppnar Alien menyn när du loggar in som Alien.
       public void OppnaAlienSida(){
         AlienSida sidan = new AlienSida(idb);
         sidan.setVisible(true);
