@@ -37,9 +37,9 @@
                       <Component id="BTNregistrera" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
@@ -49,8 +49,16 @@
                                   <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
+<<<<<<< HEAD
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="CBomrade" alignment="0" max="32767" attributes="0"/>
+=======
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="TxtLosen" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="TxtNamn" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="TxtTelnmr" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="CBomrade" alignment="0" pref="0" max="32767" attributes="0"/>
+>>>>>>> a8ffdde24e8f3c7dd4930b0d9ea4f565fecbb749
                                   <Component id="CBras" max="32767" attributes="0"/>
                                   <Component id="CBansvarigAgent" alignment="0" max="32767" attributes="0"/>
                                   <Component id="TxtNamn" min="-2" pref="99" max="-2" attributes="0"/>
@@ -58,11 +66,10 @@
                                   <Component id="TxtTelnmr" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                              <Component id="LBAnt" min="-2" pref="93" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="TxtAngeAnt" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="LBAnt" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="TxtAngeAnt" min="-2" pref="94" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -171,6 +178,12 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="LBAnt">
+<<<<<<< HEAD
+=======
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Antal armar/boogies:"/>
+      </Properties>
+>>>>>>> a8ffdde24e8f3c7dd4930b0d9ea4f565fecbb749
     </Component>
     <Component class="javax.swing.JTextField" name="TxtNamn">
     </Component>
@@ -184,7 +197,11 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
+<<<<<<< HEAD
             <StringItem index="0" value="V&#xe4;lj"/>
+=======
+            <StringItem index="0" value=""/>
+>>>>>>> a8ffdde24e8f3c7dd4930b0d9ea4f565fecbb749
             <StringItem index="1" value="Squid"/>
             <StringItem index="2" value="Boglodite"/>
             <StringItem index="3" value="Worm"/>
@@ -202,10 +219,17 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
+<<<<<<< HEAD
             <StringItem index="0" value="V&#xe4;lj"/>
             <StringItem index="1" value="Svealand"/>
             <StringItem index="2" value="Norrland"/>
             <StringItem index="3" value="G&#xf6;taland"/>
+=======
+            <StringItem index="0" value=""/>
+            <StringItem index="1" value="Svealand"/>
+            <StringItem index="2" value="G&#xf6;taland"/>
+            <StringItem index="3" value="Norrland"/>
+>>>>>>> a8ffdde24e8f3c7dd4930b0d9ea4f565fecbb749
           </StringArray>
         </Property>
       </Properties>
@@ -241,11 +265,19 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="5">
+<<<<<<< HEAD
             <StringItem index="0" value="V&#xe4;lj"/>
             <StringItem index="1" value="Agent O"/>
             <StringItem index="2" value="Agent K"/>
             <StringItem index="3" value="Agent J"/>
             <StringItem index="4" value="Agent Z"/>
+=======
+            <StringItem index="0" value=""/>
+            <StringItem index="1" value="Agent K"/>
+            <StringItem index="2" value="Agent J"/>
+            <StringItem index="3" value="Agent O"/>
+            <StringItem index="4" value="Agent N"/>
+>>>>>>> a8ffdde24e8f3c7dd4930b0d9ea4f565fecbb749
           </StringArray>
         </Property>
       </Properties>

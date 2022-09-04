@@ -29,6 +29,10 @@ public class NyregistreraAlienn extends javax.swing.JFrame {
 
     }
 
+    private NyregistreraAlienn() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -76,14 +80,24 @@ public class NyregistreraAlienn extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("Ras:");
 
+<<<<<<< HEAD
         CBras.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Välj", "Squid", "Boglodite", "Worm" }));
+=======
+        LBAnt.setText("Antal armar/boogies:");
+
+        CBras.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Squid", "Boglodite", "Worm" }));
+>>>>>>> a8ffdde24e8f3c7dd4930b0d9ea4f565fecbb749
         CBras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CBrasActionPerformed(evt);
             }
         });
 
+<<<<<<< HEAD
         CBomrade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Välj", "Svealand", "Norrland", "Götaland" }));
+=======
+        CBomrade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Svealand", "Götaland", "Norrland" }));
+>>>>>>> a8ffdde24e8f3c7dd4930b0d9ea4f565fecbb749
 
         jLabel8.setFont(new java.awt.Font("Cambria", 2, 10)); // NOI18N
         jLabel8.setText("Här kan du registera en ny alien. Var vänlig och fyll i alla rutor.");
@@ -98,7 +112,11 @@ public class NyregistreraAlienn extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("Ansvarig agent");
 
+<<<<<<< HEAD
         CBansvarigAgent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Välj", "Agent O", "Agent K", "Agent J", "Agent Z" }));
+=======
+        CBansvarigAgent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Agent K", "Agent J", "Agent O", "Agent N" }));
+>>>>>>> a8ffdde24e8f3c7dd4930b0d9ea4f565fecbb749
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,9 +134,9 @@ public class NyregistreraAlienn extends javax.swing.JFrame {
                         .addGap(40, 40, 40)
                         .addComponent(BTNregistrera))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel6)
@@ -127,18 +145,25 @@ public class NyregistreraAlienn extends javax.swing.JFrame {
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel2))
                                 .addGap(18, 18, 18)
+<<<<<<< HEAD
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(CBomrade, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+=======
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(TxtLosen)
+                                    .addComponent(TxtNamn)
+                                    .addComponent(TxtTelnmr)
+                                    .addComponent(CBomrade, 0, 1, Short.MAX_VALUE)
+>>>>>>> a8ffdde24e8f3c7dd4930b0d9ea4f565fecbb749
                                     .addComponent(CBras, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(CBansvarigAgent, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(TxtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(TxtLosen)
                                     .addComponent(TxtTelnmr)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addComponent(LBAnt, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(TxtAngeAnt, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(LBAnt)
+                                .addGap(18, 18, 18)
+                                .addComponent(TxtAngeAnt, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
