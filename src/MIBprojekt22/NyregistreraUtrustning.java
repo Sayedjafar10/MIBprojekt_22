@@ -23,8 +23,7 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
     public NyregistreraUtrustning(InfDB idb) {
         initComponents();
         this.idb = idb;
-               
-
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
     /**
