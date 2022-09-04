@@ -132,8 +132,8 @@ public class RaderaAlien extends javax.swing.JFrame {
             String alien = idb.fetchSingle("SELECT Alien_ID FROM Alien WHERE Namn = '"+alienNamnet+"'");
 
             {
-                idb.delete("DELETE FROM Alien WHERE Namn = '" + alien + "'");//Här raderar vi den utvalda alien
-                JOptionPane.showMessageDialog(null, "Alien är nu borttagen!");
+                idb.delete("DELETE FROM Alien WHERE Namn = '" + alienNamnet + "'");//Här raderar vi den utvalda alien
+                JOptionPane.showMessageDialog(null, "Alien med namnet "+ alienNamnet+" är nu borttagen!");
             }
 
         } catch (InfException ettUndantag) {
