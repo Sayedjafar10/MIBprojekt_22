@@ -27,38 +27,50 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="label7" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="label8" min="-2" max="-2" attributes="0"/>
-                  <Component id="label3" min="-2" max="-2" attributes="0"/>
-                  <Component id="label4" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="label5" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="label2" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="JComboBoxRas" alignment="0" max="32767" attributes="0"/>
-                  <Component id="JComboBoxAgenten" alignment="0" max="32767" attributes="0"/>
-                  <Component id="JComboBoxOmrade" alignment="0" max="32767" attributes="0"/>
-                  <Component id="txtAlienID" alignment="0" max="32767" attributes="0"/>
-                  <Component id="txtNamn" alignment="0" max="32767" attributes="0"/>
-                  <Component id="txtLosen" max="32767" attributes="0"/>
-                  <Component id="txtTelnr" alignment="0" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Component id="RBregistreraAlien" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="144" max="32767" attributes="0"/>
           </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="BTNregistrera" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="lbEgenskap" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="BTNregistrera" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                              <Component id="txtEgenskap" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="label7" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="label8" min="-2" max="-2" attributes="0"/>
+                          <Component id="label3" min="-2" max="-2" attributes="0"/>
+                          <Component id="label4" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="label5" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="label2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="JComboBoxRas" alignment="0" max="32767" attributes="0"/>
+                          <Component id="JComboBoxAgenten" alignment="0" max="32767" attributes="0"/>
+                          <Component id="JComboBoxOmrade" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtAlienID" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtNamn" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtLosen" max="32767" attributes="0"/>
+                          <Component id="txtTelnr" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -109,7 +121,12 @@
                   <Component id="label8" min="-2" max="-2" attributes="0"/>
                   <Component id="JComboBoxRas" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtEgenskap" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbEgenskap" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="16" max="32767" attributes="0"/>
               <Component id="BTNregistrera" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -225,6 +242,9 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JComboBoxRasActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -244,6 +264,13 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Omr&#xe5;de"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbEgenskap">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Antal boogies/armar:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtEgenskap">
     </Component>
   </SubComponents>
 </Form>

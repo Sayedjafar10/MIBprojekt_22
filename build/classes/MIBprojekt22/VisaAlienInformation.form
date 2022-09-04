@@ -51,11 +51,9 @@
                           <Component id="LBnamn" min="-2" pref="85" max="-2" attributes="0"/>
                           <Component id="LBalienID" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
                           <Component id="LBtelnmr" min="-2" pref="85" max="-2" attributes="0"/>
-                          <Component id="LBplatsID" min="-2" pref="85" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="LBras" alignment="0" pref="85" max="32767" attributes="0"/>
-                              <Component id="LBansvarigagent" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="LBomradeID" min="-2" pref="85" max="-2" attributes="0"/>
+                          <Component id="LBras" alignment="0" pref="85" max="32767" attributes="0"/>
+                          <Component id="LBansvarigagent" alignment="0" max="32767" attributes="0"/>
                           <Component id="LBantalnmr" alignment="0" max="32767" attributes="0"/>
                           <Component id="LBregdatum" min="-2" pref="85" max="-2" attributes="0"/>
                       </Group>
@@ -99,7 +97,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="LBplatsID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="LBomradeID" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -218,7 +216,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="LBtelnmr">
     </Component>
-    <Component class="javax.swing.JLabel" name="LBplatsID">
+    <Component class="javax.swing.JLabel" name="LBomradeID">
     </Component>
     <Component class="javax.swing.JLabel" name="LBansvarigagent">
     </Component>
