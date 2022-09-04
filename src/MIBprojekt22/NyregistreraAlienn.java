@@ -13,7 +13,7 @@ import oru.inf.InfException;
 
 /**
  *
- * @author piava
+ * @author piava, amandademir
  */
 public class NyregistreraAlienn extends javax.swing.JFrame {
 
@@ -191,7 +191,7 @@ public class NyregistreraAlienn extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BTNregistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNregistreraActionPerformed
-        // TODO add your handling code here:
+        // Här gör vi en validering för dem tomma rutorna, namn, lösenord och telefonnr.
         if (Validering.tomRuta(TxtNamn) && Validering.tomRuta(TxtLosen) && Validering.tomRuta(TxtTelnmr)) {
 
         try {
@@ -202,34 +202,34 @@ public class NyregistreraAlienn extends javax.swing.JFrame {
             String alienLösenord = TxtLosen.getText();
             String område = CBomrade.getSelectedItem().toString();
             String alienTelefon = TxtTelnmr.getText();
-            String rasVal = CBras.getSelectedItem().toString();
-            String Rasobjekt = TxtAngeAnt.getText();
+            String ras = CBras.getSelectedItem().toString();
+            String RasEgenskap = TxtAngeAnt.getText();
             String hämtaID = idb.getAutoIncrement("Alien", "Alien_ID");
-            int nyttID = Integer.parseInt(hämtaID);
+            int nyaID = Integer.parseInt(hämtaID);
 
-            // Konvertering till INT 
-            int rasobjektINT = Integer.parseInt(Rasobjekt);
+            // Här gör vi rasobjektet till en INT
+            int rasEgenskapINT = Integer.parseInt(RasEgenskap);
 //Här adderas alien till database
             String AnsvarigAgentID = konv.getAgentId(ansvarigAgent);
             String OmrådesID = ("Select Omrades_ID from omrade where benamning = '" + område + "'");
             String hämtatAgent_ID = idb.fetchSingle(AnsvarigAgentID);
             String hämtatOmrådes_ID = idb.fetchSingle(OmrådesID);
-            String nyAlien = ("insert into Alien values (" + nyttID + ",'" + dagensDatum + "','" + alienLösenord + "','" + alienNamn + "','" + alienTelefon + "'," + hämtatOmrådes_ID + "," + hämtatAgent_ID + ")");
+            String nyAlien = ("insert into Alien values (" + nyaID + ",'" + dagensDatum + "','" + alienLösenord + "','" + alienNamn + "','" + alienTelefon + "'," + hämtatOmrådes_ID + "," + hämtatAgent_ID + ")");
             idb.insert(nyAlien);
             // Beroende på vilken ras som är satt i comboBoxen, så kommer alien kopplas till en ras-tabell!
-            if (rasVal.equals("Worm")) {
-                idb.insert("INSERT INTO Worm values (" + nyttID + ")");
+            if (ras.equals("Worm")) {
+                idb.insert("INSERT INTO Worm values (" + nyaID + ")");
                 JOptionPane.showMessageDialog(null, "Registrering lyckades!");
 
             }
 
-            if (rasVal.equals("Squid")) {
-                idb.insert("INSERT INTO SQUID values (" + nyttID + "," + rasobjektINT + ")");
+            if (ras.equals("Squid")) {
+                idb.insert("INSERT INTO SQUID values (" + nyaID + "," + rasEgenskapINT + ")");
                 JOptionPane.showMessageDialog(null, "Registrering lyckades!");
 
             }
-            if (rasVal.equals("Boglodite")) {
-                idb.insert("INSERT INTO BOGLODITE values (" + nyttID + "," + rasobjektINT + ")");
+            if (ras.equals("Boglodite")) {
+                idb.insert("INSERT INTO BOGLODITE values (" + nyaID + "," + rasEgenskapINT + ")");
 
             }
             JOptionPane.showMessageDialog(null, "Registrering lyckades!");
@@ -242,20 +242,20 @@ public class NyregistreraAlienn extends javax.swing.JFrame {
     }//GEN-LAST:event_BTNregistreraActionPerformed
 
     private void CBrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBrasActionPerformed
-        // TODO add your handling code here:
-        String rasVal = CBras.getSelectedItem().toString();
-        if (rasVal.equals("Squid")) {
+        // I denna kod kommer sidan visa vilken ras egenskap som ska skrivas in beroende på vilken ras man har tryckt på i comboboxen.
+        String ras = CBras.getSelectedItem().toString();
+        if (ras.equals("Squid")) {
             TxtAngeAnt.setEnabled(true);
 
             LBAnt.setText("Antal armar:");
         }
 
-        if (rasVal.equals("Worm")) {
+        if (ras.equals("Worm")) {
             LBAnt.setText(" ");
             TxtAngeAnt.setEnabled(false);
         }
 
-        if (rasVal.equals("Boglodite")) {
+        if (ras.equals("Boglodite")) {
             LBAnt.setText("Antal boogies:");
             TxtAngeAnt.setEnabled(true);
 
