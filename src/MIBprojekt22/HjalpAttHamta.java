@@ -12,10 +12,10 @@ import oru.inf.InfException;
  *
  * @author piava
  */
-public class HjälpAttHämta {
+public class HjalpAttHamta {
     private InfDB idb;
     
-    public HjälpAttHämta (InfDB idb){
+    public HjalpAttHamta (InfDB idb){
         this.idb = idb;
     }
     
