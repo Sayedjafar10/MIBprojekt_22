@@ -23,7 +23,6 @@ public class Start {
                JOptionPane.showMessageDialog(null, "Något har gått fel!");
             System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
         }       
-            
             new LoggaIn(idb).setVisible(true);
             }
         }

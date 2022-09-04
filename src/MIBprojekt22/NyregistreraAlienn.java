@@ -76,16 +76,14 @@ public class NyregistreraAlienn extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("Ras:");
 
-        LBAnt.setText("\"\"");
-
-        CBras.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CBras.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Välj", "Squid", "Boglodite", "Worm" }));
         CBras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CBrasActionPerformed(evt);
             }
         });
 
-        CBomrade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CBomrade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Välj", "Svealand", "Norrland", "Götaland" }));
 
         jLabel8.setFont(new java.awt.Font("Cambria", 2, 10)); // NOI18N
         jLabel8.setText("Här kan du registera en ny alien. Var vänlig och fyll i alla rutor.");
@@ -100,7 +98,7 @@ public class NyregistreraAlienn extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("Ansvarig agent");
 
-        CBansvarigAgent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CBansvarigAgent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Välj", "Agent O", "Agent K", "Agent J", "Agent Z" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -129,13 +127,13 @@ public class NyregistreraAlienn extends javax.swing.JFrame {
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel2))
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(TxtLosen)
-                                    .addComponent(TxtNamn)
-                                    .addComponent(TxtTelnmr)
-                                    .addComponent(CBomrade, 0, 80, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CBomrade, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(CBras, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(CBansvarigAgent, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(CBansvarigAgent, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(TxtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TxtLosen)
+                                    .addComponent(TxtTelnmr)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(36, 36, 36)
                                 .addComponent(LBAnt, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -194,7 +192,6 @@ public class NyregistreraAlienn extends javax.swing.JFrame {
         try {
             String ansvarigAgent = CBansvarigAgent.getSelectedItem().toString();
             String dagensDatum = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-
             String alienNamn = TxtNamn.getText();
             String alienLösenord = TxtLosen.getText();
             String område = CBomrade.getSelectedItem().toString();

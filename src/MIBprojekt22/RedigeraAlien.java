@@ -158,7 +158,7 @@ public class RedigeraAlien extends javax.swing.JFrame {
 
     private void BTNnyRegAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNnyRegAlienActionPerformed
         // TODO add your handling code here:
-        new NyregistreraAlien(idb).setVisible(true);
+        new NyregistreraAlienn(idb).setVisible(true);
     }//GEN-LAST:event_BTNnyRegAlienActionPerformed
 
     private void BTNListaAlienPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNListaAlienPlatsActionPerformed
