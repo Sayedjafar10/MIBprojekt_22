@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
  *
- * @author piava
+ * @author Pia Vargas, Amanda Demir
  */
 public class AndraKontorschef extends javax.swing.JFrame {
 
