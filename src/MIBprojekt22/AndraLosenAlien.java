@@ -27,16 +27,6 @@ public class AndraLosenAlien extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
-    private String getAlienId(String Namn) {
-        String alienId = "";
-        try {
-            String fraga = "SELECT Alien_ID FROM alien WHERE Namn = '" + Namn + "'";
-            alienId = idb.fetchSingle(fraga);
-        } catch (InfException ex) {
-            JOptionPane.showMessageDialog(null, "Gick inte att hämta alien id");
-        }
-        return alienId;
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -120,15 +110,28 @@ public class AndraLosenAlien extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private String getAlienId(String Namn) {
+        String alienId = "";
+        try {
+            String fraga = "SELECT Alien_ID FROM alien WHERE Namn = '" + Namn + "'";
+            alienId = idb.fetchSingle(fraga);
+        } catch (InfException ex) {
+            JOptionPane.showMessageDialog(null, "Gick inte att hämta alien id");
+        }
+        return alienId;
+    }
+    
+    //Metoden tar in värden från de två textfälten och kontrollerar att de nya lösenorden stämmer överens.
+    //I If-satsen kontrolleras lösenorden med en validering som kollar att det nya lösenordet är inom ett visst antal tecken.
     private void BTNupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNupdateActionPerformed
         LBfelaktig.setText("");
         String nyttLos = TXTnewpass.getText();
         String bekLos = TXTconpass.getText();
         String alienId = "";
-        getAlienId(alienId);
+        getAlienId(alienId); //Metod som ska hämta AlienID med hjälp av klassen "HjalpAttHamta".
         
         if (!Validering.kollaLosen(nyttLos)){
-            LBfelaktig.setText("Lösenordet får vara max 8 tecken!");
+            LBfelaktig.setText("Lösenordet får vara max 6. Ange ett lösenord mellan 4-6 tecken!");
         } else if (!nyttLos.equals(bekLos)){
             LBfelaktig.setText ("De inskrivna lösenorden stämmer inte överens.");
         } else {

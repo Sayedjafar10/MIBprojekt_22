@@ -30,23 +30,21 @@ public class RaderaAlien extends javax.swing.JFrame {
     
     private void fyllComboboxAliens(){
         JComboBoxRaderaAlien.removeAllItems();
-    String question = "SELECT Namn FROM Alien"; //vi hämtar alla namn från alien tabellen
+        String question = "SELECT Namn FROM Alien"; //vi hämtar alla namn från alien tabellen
     
-    ArrayList<String> Aliens = new ArrayList<String>();
-    try {
-    Aliens = idb.fetchColumn(question);
-    
-    for(String alien: Aliens)
-    {
-      JComboBoxRaderaAlien.addItem(alien);
-    }
-    }   catch (InfException ettUndantag) {
-            Logger.getLogger(RaderaAlien.class.getName()).log(Level.SEVERE, null, ettUndantag);
+        ArrayList<String> Aliens = new ArrayList<String>();
+        try {
+            Aliens = idb.fetchColumn(question);
+            
+            for(String alien: Aliens)
+            {
+                JComboBoxRaderaAlien.addItem(alien);
+            }
+        }   catch (InfException ettUndantag) {
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
         }
     }
     
-    
-   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -125,19 +123,17 @@ public class RaderaAlien extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BTNraderaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNraderaActionPerformed
-        // TODO add your handling code here:
+        //Radera alien ur systemet genom att en alien välj i comboboxen och sedan kompletteras med en try-catch sats.
         String alienNamnet = String.valueOf(JComboBoxRaderaAlien.getSelectedItem().toString());
-
+        
         try {
-            String alien = idb.fetchSingle("SELECT Alien_ID FROM Alien WHERE Namn = '"+alienNamnet+"'");
-
+            String alien = idb.fetchSingle("SELECT Alien_ID FROM Alien WHERE Namn = '"+ alienNamnet +"'");
             {
                 idb.delete("DELETE FROM Alien WHERE Namn = '" + alienNamnet + "'");//Här raderar vi den utvalda alien
-                JOptionPane.showMessageDialog(null, "Alien med namnet "+ alienNamnet+" är nu borttagen!");
+                JOptionPane.showMessageDialog(null, "Alien med namnet "+ alienNamnet +" är nu borttagen!");
             }
-
         } catch (InfException ettUndantag) {
-            Logger.getLogger(RaderaAlien.class.getName()).log(Level.SEVERE, null, ettUndantag);
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
     }                         
     }//GEN-LAST:event_BTNraderaActionPerformed
 

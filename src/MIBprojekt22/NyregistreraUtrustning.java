@@ -4,15 +4,13 @@
  */
 package MIBprojekt22;
 
-
-
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 /**
 /**
  *
- * @author amandademir, piava
+ * @author Amanda Demir, Pia Vargas
  */
 public class NyregistreraUtrustning extends javax.swing.JFrame {
  
@@ -130,57 +128,55 @@ public class NyregistreraUtrustning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnRegistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegistreraActionPerformed
-    if(Validering.tomRuta(TxtUtrustning))
+        if(Validering.tomRuta(TxtUtrustning)) // Validering som ser till att varje ruta ifylld, i detta fall att rutan där namn på utrustning är ifylld.
     
-    try{
-        String namn = TxtUtrustning.getText();
+        try {
+            String namn = TxtUtrustning.getText();
             String uID = idb.getAutoIncrement("Utrustning", "Utrustnings_ID");
             int nyaID = Integer.parseInt(uID);
             String utrustning =  JComboBoxUtrustning.getSelectedItem().toString();
-            String boxUtrustning = (" SELECT BENAMNING FROM UTRUSTNING");
-            String getUtrustning = idb.fetchSingle(boxUtrustning);
-            String nyUtrustning = ("INSERT INTO UTRUSTNING VALUES(" + nyaID + ",'" + namn + "')");
-            System.out.println(nyUtrustning);
-            idb.insert(nyUtrustning);
-            String utrustingFöremål = txtTeknik.getText();
+            String boxUtrust = (" SELECT BENAMNING FROM UTRUSTNING");
+            String getUtrust = idb.fetchSingle(boxUtrust);
+            String nyUtrust = ("INSERT INTO UTRUSTNING VALUES(" + nyaID + ",'" + namn + "')");
+            System.out.println(nyUtrust);
+            idb.insert(nyUtrust);
+            String utrustingForemal = txtTeknik.getText();
             
             if(utrustning.equals("Kommunikation")){
-                idb.insert("INSERT INTO Kommunikation VALUES(" + nyaID + ",'"+ utrustingFöremål +"')");
-                
+                idb.insert("INSERT INTO Kommunikation VALUES(" + nyaID + ",'"+ utrustingForemal +"')"); 
             }
-          if(utrustning.equals("Teknik")){
-                idb.insert("INSERT INTO Teknik VALUES(" + nyaID + ", ' " + utrustingFöremål + "')");
-               
+            
+            if(utrustning.equals("Teknik")){
+                idb.insert("INSERT INTO Teknik VALUES(" + nyaID + ", ' " + utrustingForemal + "')");
             } 
 
             if(utrustning.equals("Vapen")){
-                idb.insert("INSERT INTO Vapen VALUES(" + nyaID + ", '" + utrustingFöremål + "')" );
-               
+                idb.insert("INSERT INTO Vapen VALUES(" + nyaID + ", '" + utrustingForemal + "')" );
             } 
-            
-
-        JOptionPane.showMessageDialog(null, "Registreringen klar!");
+                JOptionPane.showMessageDialog(null, "Registrering lyckad!");
             
     } catch (InfException ettUndantag) {   
-        JOptionPane.showMessageDialog(null, " Registrering gick ej!");        }    
+        JOptionPane.showMessageDialog(null, "Registreringen gick inte igenom, pröva igen!");        }    
     }//GEN-LAST:event_BtnRegistreraActionPerformed
 
     private void JComboBoxUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JComboBoxUtrustningActionPerformed
+        //Varje utrustning har sina egenskaper och beroende på vilken typ av utrustning man vill registrera
+        //ändras labeln till den valda utrustnings egenskap. 
         String utrustning = JComboBoxUtrustning.getSelectedItem().toString(); 
 
-           if(utrustning.equals("Kommunikation")){
+            if(utrustning.equals("Kommunikation")){
                lbTeknik.setEnabled(true);
                lbTeknik.setText(" Överforningsteknik:");
            }
-           if(utrustning.equals("Teknik")){
-              lbTeknik.setEnabled(true);
-               lbTeknik.setText("Kraftkalla:");
+                
+                if(utrustning.equals("Teknik")){
+                lbTeknik.setEnabled(true);
+                lbTeknik.setText("Kraftkalla:");
            }
-           if(utrustning.equals("Vapen")){
-               lbTeknik.setEnabled(true);
-               lbTeknik.setText("Kaliber:");
+                    if(utrustning.equals("Vapen")){
+                    lbTeknik.setEnabled(true);
+                    lbTeknik.setText("Kaliber:");
            }
-
     }//GEN-LAST:event_JComboBoxUtrustningActionPerformed
 
     /**

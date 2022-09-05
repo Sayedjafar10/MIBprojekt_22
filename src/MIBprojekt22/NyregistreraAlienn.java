@@ -13,7 +13,7 @@ import oru.inf.InfException;
 
 /**
  *
- * @author piava, amandademir
+ * @author Pia Vargas, Amanda Demir
  */
 public class NyregistreraAlienn extends javax.swing.JFrame {
 
@@ -224,17 +224,15 @@ public class NyregistreraAlienn extends javax.swing.JFrame {
             String RasEgenskap = TxtAngeAnt.getText();
             String hämtaID = idb.getAutoIncrement("Alien", "Alien_ID");
             int nyaID = Integer.parseInt(hämtaID);
-
-            // Här gör vi rasobjektet till en INT
             int rasEgenskapINT = Integer.parseInt(RasEgenskap);
-//Här adderas alien till database
+            
             String AnsvarigAgentID = konv.getAgentId(ansvarigAgent);
             String OmrådesID = ("Select Omrades_ID from omrade where benamning = '" + område + "'");
             String hämtatAgent_ID = idb.fetchSingle(AnsvarigAgentID);
             String hämtatOmrådes_ID = idb.fetchSingle(OmrådesID);
             String nyAlien = ("insert into Alien values (" + nyaID + ",'" + dagensDatum + "','" + alienLösenord + "','" + alienNamn + "','" + alienTelefon + "'," + hämtatOmrådes_ID + "," + hämtatAgent_ID + ")");
             idb.insert(nyAlien);
-            // Beroende på vilken ras som är satt i comboBoxen, så kommer alien kopplas till en ras-tabell!
+            
             if (ras.equals("Worm")) {
                 idb.insert("INSERT INTO Worm values (" + nyaID + ")");
                 JOptionPane.showMessageDialog(null, "Registrering lyckades!");
@@ -260,7 +258,7 @@ public class NyregistreraAlienn extends javax.swing.JFrame {
     }//GEN-LAST:event_BTNregistreraActionPerformed
 
     private void CBrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBrasActionPerformed
-        // I denna kod kommer sidan visa vilken ras egenskap som ska skrivas in beroende på vilken ras man har tryckt på i comboboxen.
+        //Metod som visar rasens attribut när man anger en specifik ras. Har rasen inga attribut visas inget extra textfält. 
         String ras = CBras.getSelectedItem().toString();
         if (ras.equals("Squid")) {
             TxtAngeAnt.setEnabled(true);
@@ -276,7 +274,6 @@ public class NyregistreraAlienn extends javax.swing.JFrame {
         if (ras.equals("Boglodite")) {
             LBAnt.setText("Antal boogies:");
             TxtAngeAnt.setEnabled(true);
-
         }
     }//GEN-LAST:event_CBrasActionPerformed
 

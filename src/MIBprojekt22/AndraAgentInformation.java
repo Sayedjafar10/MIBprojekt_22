@@ -7,12 +7,11 @@ package MIBprojekt22;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
  *
  * @author Pia Vargas, AmandaDemir
+ * 
  */
 public class AndraAgentInformation extends javax.swing.JFrame {
 
@@ -24,7 +23,6 @@ public class AndraAgentInformation extends javax.swing.JFrame {
         fyllCBAgent();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -133,49 +131,9 @@ public class AndraAgentInformation extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnÄndraActionPerformed
-        String valdAgent = JComboBoxAgentID.getSelectedItem().toString();
-        String omrade = JComboBoxOmråde.getSelectedItem().toString();
-        String namn = String.valueOf(TxtNyttNamn.getText());
-        String telnmr = String.valueOf(TxtNyttTelnr.getText());
-        String agentensID = ("");
-    
-            try { 
-                agentensID = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Namn ='"+ valdAgent +"'");
-                
-                if (namn.equals("")){ //Här använder vi en if else sats i en try catch sats för att ifall try och if else skulle krascha så finns catch där för att fånga oss
-                    JOptionPane.showMessageDialog(null, "Namn har inte förnyats!");   
-                }
-                    else { 
-                        idb.update("UPDATE Agent SET Namn = '"+namn+"' WHERE Agent_ID = '"+ agentensID +"'");//Om inte if sker så sker else och då updaterar man agent namnet med variabeln man skrev in med agentID som man skrev in
-                        JOptionPane.showMessageDialog(null, "Namn har förnyats till "+ namn +"!"); 
-                }
-
-                if(telnmr.equals("")){
-                    JOptionPane.showMessageDialog(null, "Telefonnummer har inte förnyats");       
-                } 
-                    else {
-                        idb.update("UPDATE Agent SET Telefon = '"+telnmr+"' WHERE Agent_ID = '"+agentensID+"'"); // Vi uppdaterar agentens telnr med agentensID
-                        JOptionPane.showMessageDialog(null, "Telefonnummer har förnyats till "+ telnmr +"!"); 
-                }
-      
-                if (omrade.equals("")){
-                    JOptionPane.showMessageDialog(null, "Området har inte förnyats!");
-                } 
-                    else {
-                        String omradet = idb.fetchSingle("SELECT Omrades_ID FROM Omrade WHERE Benamning='"+omrade+"'");
-                        idb.update("UPDATE Agent SET Omrade = '"+omradet+"' WHERE Agent_ID = '"+agentensID+"'");//Vi uppdaterar agentens område med agentID
-                        JOptionPane.showMessageDialog(null, "Plats har förnyats till "+omrade+"!");
-                }
-            } catch (InfException ettUndantag) { //Här räddar vi programmet från att krashca, så vi går tillbaka till try
-            Logger.getLogger(AndraAgentInformation.class.getName()).log(Level.SEVERE, null, ettUndantag);
-                    }
-
-    }//GEN-LAST:event_BtnÄndraActionPerformed
-
     private void fyllCBAgent() { //En metod som fyller comboboxen med agenter.
-        JComboBoxAgentID.removeAllItems(); //Först nollställer vi comboboxens värden, så att vi kan fylla i med värden med removeAllItems
-        String question = "SELECT Namn FROM Agent";//Här tar vi hjälp av en SQL fråga för att hämta namn från agent tabellen
+        JComboBoxAgentID.removeAllItems(); //Här nollställs comboboxens värden, och fylls med värden med removeAllItems
+        String question = "SELECT Namn FROM Agent";//SQL fråga används för att hämta namn från tabellen "Agent".
     
             ArrayList<String> Agenter = new ArrayList<String>();
             try {
@@ -187,6 +145,47 @@ public class AndraAgentInformation extends javax.swing.JFrame {
             JOptionPane.showMessageDialog (null, "Något gick fel!");
         }
     } 
+    
+    private void BtnÄndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnÄndraActionPerformed
+        String valdAgent = JComboBoxAgentID.getSelectedItem().toString();
+        String omrade = JComboBoxOmråde.getSelectedItem().toString();
+        String namn = String.valueOf(TxtNyttNamn.getText());
+        String telnmr = String.valueOf(TxtNyttTelnr.getText());
+        String agentensID = ("");
+    
+            try { 
+                agentensID = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Namn ='"+ valdAgent +"'");
+                
+                if (namn.equals("")){ //Här använder vi en if else sats i en try catch sats för att ifall try och if else skulle krascha så finns catch där för att fånga oss.
+                    JOptionPane.showMessageDialog(null, "Namn har inte förnyats!");   
+                }
+                    else { 
+                        idb.update("UPDATE Agent SET Namn = '"+ namn +"' WHERE Agent_ID = '"+ agentensID +"'");//Om inte if sker så sker else och då updaterar man agent namnet med variabeln man skrev in med agentID som man skrev in
+                        JOptionPane.showMessageDialog(null, "Namn har förnyats till "+ namn +"!"); 
+                }
+
+                if(telnmr.equals("")){
+                    JOptionPane.showMessageDialog(null, "Telefonnummer har inte förnyats");       
+                } 
+                    else {
+                        idb.update("UPDATE Agent SET Telefon = '"+ telnmr +"' WHERE Agent_ID = '"+agentensID+"'"); // Vi uppdaterar agentens telnr med agentensID
+                        JOptionPane.showMessageDialog(null, "Telefonnummer har förnyats till "+ telnmr +"!"); 
+                }
+      
+                if (omrade.equals("")){
+                    JOptionPane.showMessageDialog(null, "Området har inte förnyats!");
+                } 
+                    else {
+                        String omradet = idb.fetchSingle("SELECT Omrades_ID FROM Omrade WHERE Benamning='"+ omrade +"'");
+                        idb.update("UPDATE Agent SET Omrade = '"+ omradet +"' WHERE Agent_ID = '"+ agentensID +"'");//Vi uppdaterar agentens område med agentID
+                        JOptionPane.showMessageDialog(null, "Plats har förnyats till "+ omrade +"!");
+                }
+            } catch (InfException ettUndantag) { //Här räddar vi programmet från att krashca, så vi går tillbaka till try
+               JOptionPane.showMessageDialog(null, "Något har gått fel!");
+                    }
+
+    }//GEN-LAST:event_BtnÄndraActionPerformed
+
     
     /**
      * @param args the command line arguments

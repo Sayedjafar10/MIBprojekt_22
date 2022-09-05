@@ -5,6 +5,7 @@
 package MIBprojekt22;
 
 /**
+ * SAKNAR KOD!!
  *
  * @author piava
  */

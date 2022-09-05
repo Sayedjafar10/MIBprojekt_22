@@ -10,15 +10,18 @@ import oru.inf.InfException;
 
 /**
  *
- * @author piava
+ * @author Pia Vargas, Amanda Demir
  */
+
 public class AndraLosenAgent extends javax.swing.JFrame {
     
     private static InfDB idb;
+    private HjalpAttHamta konv;
     
     public AndraLosenAgent(InfDB idb) {
         initComponents();
         this.idb = idb;
+        this.konv = new HjalpAttHamta(idb);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
@@ -99,10 +102,29 @@ public class AndraLosenAgent extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Metod från klassen "HjalpAttHamta" som ska returna AgentID.
+    private String getAgentId(String agentNamn) {
+        String idAgent = "";
+        try {
+            String fraga = "SELECT Agent_ID FROM Agent WHERE Namn = '" + agentNamn + "'";
+            idAgent = idb.fetchSingle(fraga);
+
+        } catch (InfException e) {
+            JOptionPane.showMessageDialog(null, "Något gick fel med uppkopplingen till databasen");
+            System.out.println(e.getMessage());
+        }
+        return idAgent;
+
+    }
+    
+     //Metoden tar in värden från de två textfälten och kontrollerar att de nya lösenorden stämmer överens.
+    //I If-satsen kontrolleras lösenorden med en validering som kollar att det nya lösenordet är inom ett visst antal tecken.
     private void BTNupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNupdateActionPerformed
         LBfelaktig.setText("");
         String losenord1 = TXTnewpass.getText();
         String losenord2 = TXTconpass.getText();
+        String idAgent = "";
+        getAgentId(idAgent);
         
         if (!Validering.kollaLosen(losenord1)){
             LBfelaktig.setText("Lösenordet får vara max 6 tecken!");
@@ -110,13 +132,12 @@ public class AndraLosenAgent extends javax.swing.JFrame {
             LBfelaktig.setText ("De inskrivna lösenorden stämmer inte överens.");
         } else {
             try {
-                idb.update("UPDATE Agent SET Losenord = '" + losenord1 + "' WHERE Agent_ID = " + Inloggad.getInloggadID());
+                idb.update("UPDATE Agent SET Losenord = '" + losenord1 + "' WHERE Agent_ID = " + idAgent + "'");
                 LBfelaktig.setText("Lösenordet har uppdaterats!");
             } catch (InfException ettUndantag) {
                 JOptionPane.showMessageDialog (null, "Något gick fel!");
             }
-        }
-        
+        }  
     }//GEN-LAST:event_BTNupdateActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

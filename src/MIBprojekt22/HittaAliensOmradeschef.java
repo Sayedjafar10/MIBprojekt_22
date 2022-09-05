@@ -35,11 +35,11 @@ public class HittaAliensOmradeschef extends javax.swing.JFrame {
             LBomradeID.setText(omradeID);
         
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
- 
     }
     
+
     private static HashMap getDataOmrodeschef(){
-       
+        
         HashMap<String, String> data = new HashMap<>();
         try {
             data = idb.fetchRow("SELECT Agent.Agent_ID, Agent.Namn, Agent.Telefon, Agent.Omrade FROM Agent JOIN Omradeschef ON Omradeschef.Agent_ID = Agent.Agent_ID JOIN Alien ON Omradeschef.Omrade = Alien.Plats WHERE Alien_ID = Alien_ID");

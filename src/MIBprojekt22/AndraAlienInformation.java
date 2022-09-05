@@ -7,8 +7,6 @@ package MIBprojekt22;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
  *
@@ -23,38 +21,37 @@ public class AndraAlienInformation extends javax.swing.JFrame {
     public AndraAlienInformation(InfDB idb) {
         initComponents();
         this.idb = idb;
-        fyllComboboxAlien();
-        fyllComboboxAnsvarigAgent();
-        fyllComboboxRas();
+        fyllCBAlien();
+        fyllCBAnsvarigAgent();
+        fyllCBRas();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
     }
 
-   private void fyllComboboxAlien(){ 
-    JComboBoxAlien.removeAllItems(); // Här tar vi bort värden i comboboxen
-    String question = "SELECT Namn FROM Alien"; //Här hämtar vi namn från alien tabellen genom en SQL fråga
+   private void fyllCBAlien(){ 
+        JComboBoxAlien.removeAllItems(); //Här nollställs comoboxens värde.
+        String question = "SELECT Namn FROM Alien"; //SQL fråga används för att hämta namn från tabellen "Alien". 
     
     ArrayList<String> Aliens = new ArrayList<String>();
     try {
-    Aliens = idb.fetchColumn(question);
-    
-    for(String alien: Aliens)
-    {
-      JComboBoxAlien.addItem(alien); //Här ska vi kunna lägga till en alien i arraylistan
-    }
-    }   catch (InfException ettUndantag) { //Här fångas systemet upp ifall problem skulle ske
-            Logger.getLogger(AndraAlienInformation.class.getName()).log(Level.SEVERE, null, ettUndantag);
+        Aliens = idb.fetchColumn(question);
+        
+        for(String alien: Aliens)
+        {
+            JComboBoxAlien.addItem(alien); //Här ska vi kunna lägga till en alien i ArrayList Aliens. 
         }
+    
+    } catch (InfException ettUndantag) { //Här fångas systemet upp ifall problem skulle ske
+               JOptionPane.showMessageDialog(null, "Något har gått fel!");
+            }
+    
     } 
    
-    private void fyllComboboxAnsvarigAgent(){
-    JComboBoxAgent.removeAllItems(); 
-    JComboBoxAgent.addItem(""); 
+    private void fyllCBAnsvarigAgent(){
+        JComboBoxAgent.removeAllItems(); //Här nollställs comoboxens värde.
+        JComboBoxAgent.addItem(""); 
+        String question = "SELECT Namn FROM Agent WHERE Administrator='N'"; //SQL fråga används för att hämta namn på Administratör från tabellen "Agent" . 
     
-    
-    String question = "SELECT Namn FROM Agent WHERE Administrator='N'";
     ArrayList<String> agenter = new ArrayList<String>();
-    
     try {
         agenter = idb.fetchColumn(question);
         
@@ -63,13 +60,13 @@ public class AndraAlienInformation extends javax.swing.JFrame {
             JComboBoxAgent.addItem(agent);
         }
     } catch (InfException ettUndantag) {
-            Logger.getLogger(AndraAlienInformation.class.getName()).log(Level.SEVERE, null, ettUndantag);
-        }// Hindrar programmet från att kracha om try inte fungerar
+               JOptionPane.showMessageDialog(null, "Något har gått fel!");
+    }
 }
    
-    private void fyllComboboxRas(){
-        JComboBoxRas.removeAllItems();
-    String question = "SELECT * FROM Ras";
+    private void fyllCBRas(){
+        JComboBoxRas.removeAllItems(); //Här nollställs comoboxens värde.
+        String question = "SELECT * FROM Ras";
     
     ArrayList<String> Raser = new ArrayList<String>();
     try {
@@ -80,7 +77,7 @@ public class AndraAlienInformation extends javax.swing.JFrame {
       JComboBoxRas.addItem(Ras);
     }
     }   catch (InfException ettUndantag) {
-            Logger.getLogger(AndraAlienInformation.class.getName()).log(Level.SEVERE, null, ettUndantag);
+               JOptionPane.showMessageDialog(null, "Något har gått fel!");
         }
     }
     /**
@@ -127,13 +124,13 @@ public class AndraAlienInformation extends javax.swing.JFrame {
         JLNyRas.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         JLNyRas.setText("Ny ras");
 
-        JComboBoxAlien.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Bobbo", "Braxen" }));
+        JComboBoxAlien.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Välj", "Bobbo", "Braxen" }));
 
-        JComboBoxPlats.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Borås", "Västerås", "Örebro", "Vilhelmina" }));
+        JComboBoxPlats.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Välj", "Borås", "Västerås", "Örebro", "Vilhelmina" }));
 
-        JComboBoxAgent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1", "2", "3", "4" }));
+        JComboBoxAgent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Välj", "1", "2", "3", "4" }));
 
-        JComboBoxRas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Worm", "Squid", "Boglodite" }));
+        JComboBoxRas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Välj", "Worm", "Squid", "Boglodite" }));
 
         BtnAndra.setText("Ändra");
         BtnAndra.addActionListener(new java.awt.event.ActionListener() {
@@ -250,16 +247,7 @@ public class AndraAlienInformation extends javax.swing.JFrame {
              idb.update("UPDATE Alien SET Telefon='"+telnmr+"' WHERE Alien_ID='"+alienID+"'");
               JOptionPane.showMessageDialog(null, "Telefonnummer har förnyats till "+telnmr+"!");
             }
-        
-            if(plats.equals("")) //Här använder vi en if else sats
-            {
-                System.out.println("Plats har inte förnyats!");} 
-            else {
-                String Plats = idb.fetchSingle("SELECT Plats_ID FROM Plats WHERE Benamning='"+plats+"'");
-                idb.update("UPDATE Alien SET Plats='"+Plats+"' WHERE Alien_ID='"+alienID+"'");
-                JOptionPane.showMessageDialog(null, "Plats har förnyats till "+plats+"!");
-            }
-            
+                    
             if(agent.equals("")) //Här använder vi en if else sats
             {
                 System.out.println("Agent har inte förnyats!");} 
@@ -269,6 +257,15 @@ public class AndraAlienInformation extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Agent har förnyats till "+agent+"!");
             }
             
+            if(plats.equals("")) //Här använder vi en if else sats
+            {
+                System.out.println("Plats har inte förnyats!");} 
+            else {
+                String Plats = idb.fetchSingle("SELECT Plats_ID FROM Plats WHERE Benamning='"+plats+"'");
+                idb.update("UPDATE Alien SET Plats='"+Plats+"' WHERE Alien_ID='"+alienID+"'");
+                JOptionPane.showMessageDialog(null, "Plats har förnyats till "+plats+"!");
+            }
+       
             if(ras.equals("")) //Här använder vi en if else sats
             {
                 System.out.println("Ras har inte förnyats!");} 
@@ -298,7 +295,7 @@ public class AndraAlienInformation extends javax.swing.JFrame {
             }
                    
         } catch (InfException ettUndantag) { //
-            Logger.getLogger(AndraAlienInformation.class.getName()).log(Level.SEVERE, null, ettUndantag);
+               JOptionPane.showMessageDialog(null, "Något har gått fel!");
         } 
             
 

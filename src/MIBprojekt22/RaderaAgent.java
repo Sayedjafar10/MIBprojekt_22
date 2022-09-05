@@ -5,8 +5,6 @@
 package MIBprojekt22;
 
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -27,12 +25,13 @@ public class RaderaAgent extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
+    //Fyller comboboxen med agenter för att användas i en annan metod.
     private void fyllComboboxAgenter(){
-    JComboBoxRaderaAgent.removeAllItems();
-    String question = "SELECT Namn FROM Agent";
+        JComboBoxRaderaAgent.removeAllItems();
+        String question = "SELECT Namn FROM Agent";
     
-    ArrayList<String> Agenter ;
-    try {
+        ArrayList<String> Agenter = new ArrayList<String>();
+        try {
     Agenter= idb.fetchColumn(question);
     
     for(String agent: Agenter)
@@ -40,7 +39,7 @@ public class RaderaAgent extends javax.swing.JFrame {
       JComboBoxRaderaAgent.addItem(agent);
     }
     }   catch (InfException ettUndantag) {
-            Logger.getLogger(RaderaAgent.class.getName()).log(Level.SEVERE, null, ettUndantag);
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
         }
     }
     /**
@@ -117,20 +116,19 @@ public class RaderaAgent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnRaderaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRaderaActionPerformed
-    String agentNamn = String.valueOf(JComboBoxRaderaAgent.getSelectedItem().toString());
- 
-            
-    try {
-        String agent = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Namn = '"+agentNamn+"'");
+    //Hämtar agenter och raderar vald agent den från systemet. 
+        String agentNamn = String.valueOf(JComboBoxRaderaAgent.getSelectedItem().toString());
         
-        {    
-        idb.delete("DELETE FROM Agent WHERE Namn = '" + agentNamn + "'");
-        JOptionPane.showMessageDialog(null, "Agent med Namnet " + agentNamn + " är bortaget!"); 
+        try {
+            String agent = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Namn = '"+agentNamn+"'");
+        {
+            idb.delete("DELETE FROM Agent WHERE Namn = '" + agentNamn + "'");
+            JOptionPane.showMessageDialog(null, "Agent med Namnet " + agentNamn + " är bortaget!"); 
         }
- 
+        
         } catch (InfException ettUndantag) {
-                Logger.getLogger(RaderaAgent.class.getName()).log(Level.SEVERE, null, ettUndantag);
-        }    // TODO add your handling code here:
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
+        } 
     }//GEN-LAST:event_BtnRaderaActionPerformed
 
     /**

@@ -83,10 +83,8 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="BTNredALien" pref="39" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="BTNtabortAgent" max="32767" attributes="0"/>
-                      <Component id="BTNandraAgentinfo" pref="39" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="BTNtabortAgent" max="32767" attributes="0"/>
+                  <Component id="BTNandraAgentinfo" pref="39" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="46" max="32767" attributes="0"/>
           </Group>

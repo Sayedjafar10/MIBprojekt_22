@@ -4,7 +4,6 @@
  */
 package MIBprojekt22;
 import oru.inf.InfDB;
-import oru.inf.InfException;
 
 /**
  *

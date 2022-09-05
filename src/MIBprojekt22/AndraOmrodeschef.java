@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
  *
- * @author piava, AmandaDemir
+ * @author Pia Vargas, Amanda Demir
  */
 public class AndraOmrodeschef extends javax.swing.JFrame {
 
@@ -23,10 +23,9 @@ public class AndraOmrodeschef extends javax.swing.JFrame {
         this.idb = idb;
         FyllCBOmrade();
         FyllCBAgent();
-                setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -116,9 +115,11 @@ public class AndraOmrodeschef extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    //Metod som fyller comboboxen "Välj Agent".
     private void FyllCBAgent() {
-        String namnen = "SELECT namn from AGENT";
-        ArrayList<String> agenter;
+        String namnen = "SELECT namn FROM AGENT WHERE Agent_ID NOT IN(SELECT Agent_id FROM Omradeschef)"; //Hämta agentnamn som inte redan är områdeschef.
+        
+        ArrayList<String> agenter = new ArrayList<String>();
 
         try {
             agenter = idb.fetchColumn(namnen);
@@ -130,9 +131,10 @@ public class AndraOmrodeschef extends javax.swing.JFrame {
         }
     }
 
+    //Metod som fyller comboboxen "Välj område".
     private void FyllCBOmrade() {
-        String namnen = "Select Benamning from Omrade" ;
-        ArrayList <String> Omraden;
+        String namnen = "SELECT Benamning FROM Omrade" ;
+        ArrayList <String> Omraden = new ArrayList<String>();
         try {
              Omraden = idb.fetchColumn(namnen);
              
@@ -145,30 +147,16 @@ public class AndraOmrodeschef extends javax.swing.JFrame {
    }
    
     private void BtnAndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAndraActionPerformed
-        String omrade = CBomrade.getSelectedItem().toString();
-        String agent = CBvaljAgent.getSelectedItem().toString();
-        String ChefFraga = ("SELECT Namn FROM AGENT JOIN OMRADESCHEF ON AGENT.Agent_ID = OMRADESCHEF.Agent_ID JOIN OMRADE ON OMRADESCHEF.Omrade = OMRADE.Omrades_ID where benamning = '" + omrade + "'");
-        String hamtaAgent = ("Select Agent_ID from agent where namn ='" + agent + "'");
-        String hamtaOmraden = ("Select Omrades_ID from Omrade");
-        String hamtaID = ("Select Omrades_ID from Omrade where Benamning ='" + omrade + "'");
-
+        String agentNamn = CBvaljAgent.getSelectedItem().toString();
+        String omradeNamn = CBomrade.getSelectedItem().toString();
+    
         try {
-            String chefForOmrode = idb.fetchSingle(ChefFraga);
-            String hamtaOmradeID = idb.fetchSingle(hamtaID);
-            String hamtaAgentID = idb.fetchSingle(hamtaAgent);
-            int OmradesID = Integer.parseInt(hamtaOmradeID);
-            int AgentID = Integer.parseInt(hamtaAgentID);
-            String UppdateraChef = ("Update Omradeschef SET Agent_ID = " + AgentID + " where Omrade = " + OmradesID);
-            idb.update(UppdateraChef);
-             JOptionPane.showMessageDialog(null, "Chef uppdaterad");
-
-
-            if (chefForOmrode.equals(agent)) {
-                JOptionPane.showMessageDialog(null, "Agenten är redan chef för det området!");
-            } 
-            
-        } catch (InfException ettUndantag) {
-            JOptionPane.showMessageDialog(null, "Agenten är redan chef för ett annat område.");
+            String agentID = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Namn = '" + agentNamn + "'"); //Hämtar AgentID från tabellen "Agent" för den valda agenten i comboboxen.  
+            String omradeID = idb.fetchSingle("SELECT Omrades_ID FROM OMRADE WHERE Benamning = '" + omradeNamn + "'"); //Hämtar OmradesID från tabellen "Område" för det valda området i comboboxen.
+            idb.update("UPDATE Omradeschef SET Agent_ID = '" + agentID + "' WHERE Omrade = '" + omradeID + "'"); //Uppdaterar områdeschefen för valt område.
+                JOptionPane.showMessageDialog(null, agentNamn + " är nu områdeschef för område " + omradeNamn);
+    }   catch (InfException ettUndantag) {
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
         }
     }//GEN-LAST:event_BtnAndraActionPerformed
 

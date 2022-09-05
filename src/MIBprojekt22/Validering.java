@@ -10,9 +10,10 @@ import oru.inf.InfException;
 
 /**
  *
- * @author piava, AmandaDemir
+ * @author Pia Vargas, Amanda Demir
  * 
- *
+ * Valideringsklass
+ * 
  */
 public class Validering {
     
@@ -25,6 +26,8 @@ public class Validering {
         this.idb = idb;
     }
     
+    
+    //Validering som kontrollerar att varje ruta är ifylld. Ingen tom rutan accepteras.
     public static boolean tomRuta (JTextField checkaRuta)
     {
         boolean resultat = true;
@@ -37,48 +40,36 @@ public class Validering {
         return resultat;
     }
      
-   public static boolean kollaLosen(String losen){
-        
-    boolean resultat = false;
-
-    if(losen.length() >= 4 && losen.length() <= 6) {
-        resultat = true;
-    }
-    return resultat;
-    }
-    
-    public static boolean kollaDatum(JTextField checkaDatum) {
-        
-        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DD");
-         boolean resultat = false;
-         String date = checkaDatum.getText();
-        try {
-           
-           dateFormat.parse(date);
+    //Validering som kontrollerar att lösenordet är inom en viss gräns.
+    public static boolean kollaLosen(String losen){
+       boolean resultat = false;
+       
+       if(losen.length() >= 4 && losen.length() <= 6) {
            resultat = true;
-           
-           
+       }
+       return resultat;
+   }
+    
+    //Validering som kontrollerar att ett rätt datumformat används.
+    public static boolean kollaDatum(JTextField checkaDatum) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DD");
+        
+        boolean resultat = false;
+        
+        String date = checkaDatum.getText();
+        try {
+            dateFormat.parse(date);
+            resultat = true;
         } catch (ParseException e) {
             JOptionPane.showMessageDialog(null, "Rätt datumformat krävs YYYY-MM-DD");
             checkaDatum.requestFocus();
             return false;
-             
         }
-        
+   
         return resultat;
 }
-    public static boolean tomText(JTextField checkaRutan){
-        boolean resultat = false;
-        
-        String ruta = checkaRutan.getText();
-        if(ruta.trim().equals("")){
-            JOptionPane.showMessageDialog(null, "Fyll i rutan.");
-            resultat = true;
-            checkaRutan.requestFocus(); 
-        }
-        
-        return resultat;
-}
+    
+    //Validering som kontrollerar att rutan innehåller ett heltal.
     public boolean kollaNummer(String rutacheck){
         boolean svar = true;
         
@@ -92,6 +83,7 @@ public class Validering {
         return svar;
     }
     
+    //Validering som kontrollerar att ett korrekt Agent-namn anges där Agent är aktuellt. 
     public static boolean AgentNamn(JTextField rutaCheck){
         String ruta = rutaCheck.getText();
         if (ruta.startsWith("Agent")) {

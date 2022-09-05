@@ -5,8 +5,7 @@
 package MIBprojekt22;
 
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -29,19 +28,19 @@ public class RaderaUtrustning extends javax.swing.JFrame {
     }
 
     private void fyllComboboxUtrustningar(){
-    JComboBoxRaderaUtrustning.removeAllItems();
-    String question = "SELECT Benamning FROM Utrustning";// Vi hämtar in utrustnings från tabellen genom en SQL fråga
+        JComboBoxRaderaUtrustning.removeAllItems();
+        String question = "SELECT Benamning FROM Utrustning";// Vi hämtar in utrustnings från tabellen genom en SQL fråga
     
-    ArrayList<String> Utrustningar ;
-    try {
-    Utrustningar= idb.fetchColumn(question);
-    
-    for(String utrustning: Utrustningar)
-    {
-      JComboBoxRaderaUtrustning.addItem(utrustning); //Här lägger vi till utrustning 
-    }
-    }   catch (InfException ettUndantag) {
-            Logger.getLogger(RaderaUtrustning.class.getName()).log(Level.SEVERE, null, ettUndantag);
+        ArrayList<String> Utrustningar = new ArrayList<>(); 
+        try {
+            Utrustningar= idb.fetchColumn(question);
+            
+            for(String utrustning: Utrustningar)
+            {
+                JComboBoxRaderaUtrustning.addItem(utrustning); //Här lägger vi till utrustning 
+            }
+        } catch (InfException ettUndantag) {
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
         }
     } 
     /**
@@ -126,17 +125,17 @@ public class RaderaUtrustning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnRaderaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRaderaUtrustningActionPerformed
-     String utrustningsNamn = String.valueOf(JComboBoxRaderaUtrustning.getSelectedItem().toString());//Detta beskriver den valda utrustningen
-            
+        String utrustningsNamn = String.valueOf(JComboBoxRaderaUtrustning.getSelectedItem().toString());//Detta beskriver den valda utrustningen
+        
         try {
-        String Utrustning = idb.fetchSingle("SELECT Utrustnings_ID FROM Utrustning WHERE Benamning = '"+utrustningsNamn+"'");
-        {    
-        idb.delete("DELETE FROM Utrustning WHERE Benamning = '" + utrustningsNamn + "'");//Här raderar vi utrustningen vi valt
-        JOptionPane.showMessageDialog(null, "Utrustning med Namnet " + utrustningsNamn + " är bortaget!"); 
+            String Utrustning = idb.fetchSingle("SELECT Utrustnings_ID FROM Utrustning WHERE Benamning = '"+ utrustningsNamn +"'");
+        {
+            idb.delete("DELETE FROM Utrustning WHERE Benamning = '" + utrustningsNamn + "'");//Här raderar vi utrustningen vi valt
+            JOptionPane.showMessageDialog(null, "Utrustning med Namnet " + utrustningsNamn + " är bortaget!"); 
         }
-        } catch (InfException ettUndantag) {
-                Logger.getLogger(RaderaUtrustning.class.getName()).log(Level.SEVERE, null, ettUndantag);
-        }   // TODO add your handling code here:
+    } catch (InfException ettUndantag) {
+                JOptionPane.showMessageDialog(null, "Något gick fel!");
+        }
     }//GEN-LAST:event_BtnRaderaUtrustningActionPerformed
 
     /**

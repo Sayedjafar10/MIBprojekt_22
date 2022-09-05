@@ -168,7 +168,7 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
-            <StringItem index="0" value=""/>
+            <StringItem index="0" value="V&#xe4;lj"/>
             <StringItem index="1" value="Bobbo"/>
             <StringItem index="2" value="Braxen"/>
           </StringArray>
@@ -182,7 +182,7 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="5">
-            <StringItem index="0" value=""/>
+            <StringItem index="0" value="V&#xe4;lj"/>
             <StringItem index="1" value="Bor&#xe5;s"/>
             <StringItem index="2" value="V&#xe4;ster&#xe5;s"/>
             <StringItem index="3" value="&#xd6;rebro"/>
@@ -198,7 +198,7 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="5">
-            <StringItem index="0" value=""/>
+            <StringItem index="0" value="V&#xe4;lj"/>
             <StringItem index="1" value="1"/>
             <StringItem index="2" value="2"/>
             <StringItem index="3" value="3"/>
@@ -214,7 +214,7 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
-            <StringItem index="0" value=""/>
+            <StringItem index="0" value="V&#xe4;lj"/>
             <StringItem index="1" value="Worm"/>
             <StringItem index="2" value="Squid"/>
             <StringItem index="3" value="Boglodite"/>

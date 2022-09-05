@@ -165,7 +165,7 @@ public class VisaAgentInformation extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BTNvisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNvisaActionPerformed
-        // TODO add your handling code here:
+        //Metod som hämtar all info. Rad 185.
         setInfo();
     }//GEN-LAST:event_BTNvisaActionPerformed
 
@@ -175,7 +175,6 @@ public class VisaAgentInformation extends javax.swing.JFrame {
             agenter = idb.fetchColumn("SELECT Namn FROM Agent");
             for (String namn : agenter){
                 CBvaljagent.addItem(namn);
-               
             }
         } catch (InfException ettUndantag){
             JOptionPane.showMessageDialog(null, "Något har gått fel!");

@@ -7,8 +7,6 @@ package MIBprojekt22;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
  *
@@ -17,13 +15,15 @@ import javax.swing.JOptionPane;
 public class AndraKontorschef extends javax.swing.JFrame {
 
     private InfDB idb;
+    
     /**
      * Creates new form AndraKontorschef
      */
     public AndraKontorschef(InfDB idb) {
         initComponents();
         this.idb = idb;
-        fyllComboboxAdminAgent();
+        fyllCBAdminAgent();
+        FyllCBkontorschef();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
@@ -38,9 +38,11 @@ public class AndraKontorschef extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         JLKontorschef = new javax.swing.JLabel();
-        JComboBoxKontorschef = new javax.swing.JComboBox<>();
+        CBvaljAgent = new javax.swing.JComboBox<>();
         BtnAndra = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        CBkontor = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,7 +52,7 @@ public class AndraKontorschef extends javax.swing.JFrame {
         JLKontorschef.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         JLKontorschef.setText("Välj kontorschef/agent att ändra:");
 
-        JComboBoxKontorschef.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1", "2", "3", "4" }));
+        CBvaljAgent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1", "2", "3", "4" }));
 
         BtnAndra.setText("Ändra");
         BtnAndra.addActionListener(new java.awt.event.ActionListener() {
@@ -61,6 +63,9 @@ public class AndraKontorschef extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Cambria", 2, 12)); // NOI18N
         jLabel2.setText("Här kan du ändra kontorschef");
+
+        jLabel3.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        jLabel3.setText("Välj kontor:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -73,9 +78,17 @@ public class AndraKontorschef extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(BtnAndra)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(JLKontorschef, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JComboBoxKontorschef, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(JLKontorschef, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(105, 105, 105)
+                                        .addComponent(jLabel3)
+                                        .addGap(34, 34, 34)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(CBvaljAgent, 0, 125, Short.MAX_VALUE)
+                                    .addComponent(CBkontor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,51 +103,70 @@ public class AndraKontorschef extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(59, 59, 59)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLKontorschef)
-                    .addComponent(JComboBoxKontorschef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                    .addComponent(CBvaljAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(CBkontor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(BtnAndra)
                 .addGap(27, 27, 27))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    private void fyllCBAdminAgent(){
+        CBvaljAgent.removeAllItems(); //Nollställer alla värden i comboboxen
+        String namnen = "SELECT Namn FROM Agent"; 
+    
+        ArrayList<String> AdminAgenter ;
+        try {
+            AdminAgenter = idb.fetchColumn(namnen); //Hämtar alla namn från tabellen "Agent".
+        
+            for(String agent: AdminAgenter)
+            {   
+                CBvaljAgent.addItem(agent); //Lägger till alla agenter som har administratörsstatus
+            }
+        } catch (InfException ettUndantag) { // Finns ifall systemet skulle krasha
+               JOptionPane.showMessageDialog(null, "Något har gått fel!");
+        }
+}
+    
+    private void FyllCBkontorschef() {
+        CBkontor.removeAllItems();
+        String namnen = "Select Kontorsbeteckning from Kontorschef";
+    
+        ArrayList <String> Omraden;
+        try {
+            Omraden = idb.fetchColumn(namnen);
 
+            for (String Kontorsbeteckning : Omraden) 
+            {
+                CBkontor.addItem(Kontorsbeteckning);
+            }
+        } catch (InfException ettUndantag) {
+                JOptionPane.showMessageDialog(null, "Något har gått fel!");
+        }
+   }
+    
     private void BtnAndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAndraActionPerformed
-    
-        String agenten = JComboBoxKontorschef.getSelectedItem().toString();
-    
+        String agenten = CBvaljAgent.getSelectedItem().toString();
+        String kontor = CBkontor.getSelectedItem().toString();
+
     try { 
-        
         String agent = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Namn = '" + agenten + "'");
-        idb.update("UPDATE Kontorschef SET Agent_ID='" + agent + "'");
-    
-        JOptionPane.showMessageDialog(null, "Kontorschefen har förnyats!");// Denna metoden ger information till användaren
+        idb.update("UPDATE Kontorschef SET Agent_ID='" + agent + "WHERE Kontorsbeteckning = '" + kontor + "'"); //Uppdaterar områdeschefen.
         
-    } catch (InfException ettUndantag) {// Ifall try inte skulle fungera, stoppar detta systemet från att krascha
-        JOptionPane.showMessageDialog(null, "Kontorschefen gick inte att förnya!");
-        Logger.getLogger(AndraKontorschef.class.getName()).log(Level.SEVERE, null, ettUndantag);
-    }// TODO add your handling code here:
+    } catch (InfException ettUndantag) {
+            JOptionPane.showMessageDialog(null, "Kontorschefen gick inte att förnya!");
+    }
+    
     }//GEN-LAST:event_BtnAndraActionPerformed
 
-    private void fyllComboboxAdminAgent(){
-        JComboBoxKontorschef.removeAllItems(); // Denna metod nollställer alla värden i comboboxen
-    String question = "SELECT Namn FROM Agent"; 
-    
-    ArrayList<String> AdminAgenter ;
-    try {
-    AdminAgenter = idb.fetchColumn(question); // Denna metod hämtar alla namn som finns i agent tabellen
-    
-    for(String agent: AdminAgenter)
-    {
-      JComboBoxKontorschef.addItem(agent); // Denna metod lägger till alla agenter som är admins
-    }
-    }   catch (InfException ettUndantag) { // Finns ifall systemet skulle krasha
-            Logger.getLogger(AndraKontorschef.class.getName()).log(Level.SEVERE, null, ettUndantag);
-        }
-    }
     /**
      * @param args the command line arguments
      */
@@ -172,9 +204,11 @@ public class AndraKontorschef extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAndra;
-    private javax.swing.JComboBox<String> JComboBoxKontorschef;
+    private javax.swing.JComboBox<String> CBkontor;
+    private javax.swing.JComboBox<String> CBvaljAgent;
     private javax.swing.JLabel JLKontorschef;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

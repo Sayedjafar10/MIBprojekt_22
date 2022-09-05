@@ -23,8 +23,6 @@ public class GorAdministrator extends javax.swing.JFrame {
         addEndastAgenter();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -117,7 +115,7 @@ public class GorAdministrator extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BTNandraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNandraActionPerformed
-        // TODO add your handling code here:
+        //Uppdaterar till administratörstatus för den valda agenten. 
         try {
             idb.update("UPDATE Agent SET Administrator = 'J' WHERE namn = '" + CBagenter.getSelectedItem().toString() + "';");
             CBagenter.removeAllItems();
@@ -125,11 +123,9 @@ public class GorAdministrator extends javax.swing.JFrame {
             LBmeddelande.setText("Vald agent har nu administratörsstatus!");
         } catch (InfException ettUndantag) {
             JOptionPane.showMessageDialog(null, "Något gick fel!");
-
         }
     }                                        
 
-    //Denna metod hämtar ut alla agenter som inte är admin och gör dem synliga i comboboxen och därav gör det möjligt för dem att adminstatus.
     private void addEndastAgenter() {
         try {
             ArrayList<String> agenter = new ArrayList<>();

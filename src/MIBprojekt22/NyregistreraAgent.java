@@ -171,7 +171,8 @@ public class NyregistreraAgent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BTNregistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNregistreraActionPerformed
-        // TODO add your handling code here:
+        //Knappen registrerar en Agent om valideringen kontrolleras. 
+        
         if (Validering.AgentNamn(TxtNamn) && (Validering.tomRuta(Txtlosen)) && (Validering.tomRuta(TxtDatum)) && (Validering.tomRuta(TxtTelnr))){
            
             String namn = TxtNamn.getText();
